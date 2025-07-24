@@ -4,7 +4,9 @@
 
 This project analyzes NFL play-by-play data from 2019-2023 to move beyond traditional metrics and build a multi-faceted definition of "elite" quarterback performance. The analysis integrates three distinct methodologies: situational performance (1st vs. 3rd Down), longitudinal trend analysis, and unsupervised machine learning. The capstone of the project is the deployment of a KMeans clustering model, which successfully segments players into three distinct archetypes and reveals that "elite" status is defined by a rare combination of both high accuracy and high downfield aggressiveness.
 
-**Check out the full analysis in the [Jupyter Notebook](./NFL%20QB%20Analysis%20Final.ipynb) or view the [HTML Export](./NFL%20QB%20Analysis%20Final%20(10).html).**
+## 📊 View Interactive Analysis
+
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/bruddaondabeat/NFL_QB_ANALYSIS/blob/main/nfl-qb-analysis.ipynb)
 
 ## Key Features
 * **Deep Situational Analysis:** Goes beyond the box score to analyze performance on crucial downs.
