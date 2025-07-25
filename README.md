@@ -6,7 +6,11 @@ This project analyzes NFL play-by-play data from 2019-2023 to move beyond tradit
 
 ## 📊 View Interactive Analysis
 
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/bruddaondabeat/NFL_QB_ANALYSIS/blob/main/nfl-qb-analysis.ipynb)
+### [**➡️ View Interactive Dashboard**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/)
+### [**📊 View Analysis on nbviewer**](https://nbviewer.org/github/bruddaondabeat/NFL_QB_ANALYSIS/blob/main/nfl-qb-analysis.ipynb)
+### [**📱 View HTML Version**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/nfl-qb-analysis.html)
+
+---
 
 ## Key Features
 * **Deep Situational Analysis:** Goes beyond the box score to analyze performance on crucial downs.
