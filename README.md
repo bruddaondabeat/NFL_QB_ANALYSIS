@@ -4,6 +4,8 @@
 
 This project analyzes NFL play-by-play data from 2019-2023 to move beyond traditional metrics and build a multi-faceted definition of "elite" quarterback performance. The analysis integrates three distinct methodologies: situational performance (1st vs. 3rd Down), longitudinal trend analysis, and unsupervised machine learning. The capstone of the project is the deployment of a KMeans clustering model, which successfully segments players into three distinct archetypes and reveals that "elite" status is defined by a rare combination of both high accuracy and high downfield aggressiveness.
 
+This performance analysis is then fused with salary data to create an "Archetype-Adjusted Contract Efficiency" score. This final step quantifies QB value relative to the $1.2 billion invested in the position, identifying the market's most undervalued players and riskiest contracts.
+
 ## 📊 View Interactive Analysis
 
 ### [**📈 View the Executive Dashboard on Tableau**](https://public.tableau.com/app/profile/tyler.mclaurin/viz/QBSalaryAnalyticsW/ExecutiveSummary)
