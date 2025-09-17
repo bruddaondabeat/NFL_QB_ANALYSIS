@@ -1,0 +1,374 @@
+Player	Team	Age	Total
+Value	Avg./Year	Total
+Guaranteed	Fully
+Guaranteed	Free
+Agency
+Dak Prescott	
+Cowboys
+32	$240,000,000	$60,000,000	$231,000,000	$129,000,000	2029 Void
+Joe Burrow	
+Bengals
+29	$275,000,000	$55,000,000	$219,010,000	$146,510,000	2030 Void
+Josh Allen	
+Bills
+29	$330,000,000	$55,000,000	$250,000,000	$147,000,000	2031 Void
+Jordan Love	
+Packers
+27	$220,000,000	$55,000,000	$160,300,000	$100,800,000	2029 Void
+Trevor Lawrence	
+Jaguars
+26	$275,000,000	$55,000,000	$200,000,000	$142,000,000	2031 Void
+Tua Tagovailoa	
+Dolphins
+27	$212,400,000	$53,100,000	$167,171,000	$93,171,000	2029 Void
+Jared Goff	
+Lions
+31	$212,000,000	$53,000,000	$170,611,832	$113,611,832	2029 Void
+Brock Purdy	
+49ers
+26	$265,000,000	$53,000,000	$182,550,000	$100,000,000	2031 Void
+Justin Herbert	
+Chargers
+27	$262,500,000	$52,500,000	$193,738,375	$133,738,375	2030 UFA
+Lamar Jackson	
+Ravens
+28	$260,000,000	$52,000,000	$185,000,000	$135,000,000	2028 Void
+Jalen Hurts	
+Eagles
+27	$255,000,000	$51,000,000	$179,304,000	$110,000,000	2029 Void
+Kyler Murray	
+Cardinals
+28	$230,500,000	$46,100,000	$160,000,000	$103,300,000	2029 UFA
+Deshaun Watson	
+Browns
+30	$230,000,000	$46,000,000	$230,000,000	$230,000,000	2027 Void
+Kirk Cousins	
+Falcons
+37	$180,000,000	$45,000,000	$100,000,000	$90,000,000	2028 UFA
+Patrick Mahomes	
+Chiefs
+30	$450,000,000	$45,000,000	$141,000,000	$63,081,905	2032 Void
+Matt Stafford	
+Rams
+37	$80,000,000	$40,000,000	$40,000,000	$40,000,000	2027 Void
+Geno Smith	
+Raiders
+35	$75,000,000	$37,500,000	$66,500,000	$58,500,000	2028 UFA
+Sam Darnold	
+Seahawks
+28	$100,500,000	$33,500,000	$55,000,000	$37,500,000	2028 Void
+Baker Mayfield	
+Buccaneers
+30	$100,000,000	$33,333,333	$50,000,000	$40,000,000	2027 Void
+Justin Fields	
+Jets
+26	$40,000,000	$20,000,000	$30,000,000	$30,000,000	2027 Void
+Aaron Rodgers	
+Steelers
+42	$14,150,000	$14,150,000	$10,000,000	$10,000,000	2026 UFA
+Daniel Jones	
+Colts
+28	$14,000,000	$14,000,000	$13,150,000	$13,150,000	2026 UFA
+Cam Ward	
+Titans
+23	$48,839,604	$12,209,901	$48,839,604	$48,839,604	2029 UFA
+Russell Wilson	
+Giants
+37	$10,500,000	$10,500,000	$10,000,000	$10,000,000	2026 UFA
+Caleb Williams	
+Bears
+24	$39,486,058	$9,871,515	$39,486,058	$39,486,058	2028 UFA
+Bryce Young	
+Panthers
+24	$37,955,074	$9,488,769	$37,955,074	$37,955,074	2027 UFA
+Jayden Daniels	
+Commanders
+25	$37,746,650	$9,436,663	$37,746,650	$37,746,650	2028 UFA
+Drake Maye	
+Patriots
+23	$36,639,764	$9,159,941	$36,639,764	$36,639,764	2028 UFA
+C.J. Stroud	
+Texans
+24	$36,279,244	$9,069,811	$36,279,244	$36,279,244	2027 UFA
+Anthony Richardson	
+Colts
+23	$33,994,030	$8,498,508	$33,994,030	$33,994,030	2027 UFA
+Marcus Mariota	
+Commanders
+32	$8,000,000	$8,000,000	$7,390,000	$7,390,000	2026 UFA
+Jacoby Brissett	
+Cardinals
+33	$12,500,000	$6,250,000	$8,000,000	$6,500,000	2027 UFA
+Tyrod Taylor	
+Jets
+36	$12,000,000	$6,000,000	$8,500,000	$8,500,000	2026 Void
+Jarrett Stidham	
+Broncos
+29	$12,000,000	$6,000,000	$6,990,000	$6,990,000	2027 UFA
+Zach Wilson	
+Dolphins
+26	$6,000,000	$6,000,000	$6,000,000	$6,000,000	2026 Void
+Michael Penix Jr.	
+Falcons
+25	$22,882,636	$5,720,659	$22,882,636	$22,882,636	2028 UFA
+J.J. McCarthy	
+Vikings
+22	$21,854,796	$5,463,699	$21,854,796	$21,854,796	2028 UFA
+Bo Nix	
+Broncos
+25	$18,613,166	$4,653,292	$18,613,166	$18,613,166	2028 UFA
+Joe Flacco	
+Browns
+40	$4,250,000	$4,250,000	$3,000,000	$3,000,000	2026 Void
+Jaxson Dart	
+Giants
+22	$16,977,942	$4,244,486	$16,977,942	$16,977,942	2029 UFA
+Davis Mills	
+Texans
+27	$8,116,000	$4,058,000	$6,316,000	$6,316,000	2026 UFA
+Andy Dalton	
+Panthers
+38	$8,000,000	$4,000,000	$6,000,000	$6,000,000	2027 Void
+Jameis Winston	
+Giants
+31	$8,000,000	$4,000,000	$5,250,000	$5,250,000	2027 UFA
+Joshua Dobbs	
+Patriots
+30	$8,000,000	$4,000,000	$3,800,000	$3,800,000	2027 UFA
+Mason Rudolph	
+Steelers
+30	$7,500,000	$3,750,000	$3,000,000	$3,000,000	2027 UFA
+Kenny Pickett	
+Browns
+27	$14,067,904	$3,516,976	$14,067,904	$14,067,904	2026 UFA
+Mac Jones	
+49ers
+27	$7,000,000	$3,500,000	$4,750,000	$4,750,000	2027 Void
+Cooper Rush	
+Ravens
+32	$6,200,000	$3,100,000	$4,000,000	$4,000,000	2027 Void
+Jimmy Garoppolo	
+Rams
+34	$3,005,000	$3,005,000	$3,005,000	$3,005,000	2026 UFA
+Kyle Trask	
+Buccaneers
+27	$2,787,500	$2,787,500	$1,337,500	$1,337,500	2026 UFA
+Tyler Shough	
+Saints
+26	$10,804,728	$2,701,182	$10,804,728	$10,804,728	2029 UFA
+Mitchell Trubisky	
+Bills
+31	$5,250,000	$2,625,000	$3,710,000	$2,710,000	2026 UFA
+Taylor Heinicke	
+Chargers
+32	$2,500,000	$2,500,000	$2,000,000	$2,000,000	2026 UFA
+Drew Lock	
+Seahawks
+29	$5,000,000	$2,500,000	$2,250,000	$2,250,000	2027 UFA
+Will Levis	
+Titans
+26	$9,542,162	$2,385,541	$8,730,957	$8,730,957	2027 UFA
+Nick Mullens	
+Jaguars
+30	$4,500,000	$2,250,000	$3,000,000	$3,000,000	2027 UFA
+Case Keenum	
+Bears
+37	$2,250,000	$2,250,000	$2,155,000	$2,155,000	2026 UFA
+Trey Lance	
+Chargers
+25	$2,000,000	$2,000,000	$1,500,000	$1,500,000	2026 UFA
+Jalen Milroe	
+Seahawks
+23	$6,264,086	$1,566,022	$1,195,700	$1,195,700	2029 UFA
+Dillon Gabriel	
+Browns
+25	$6,226,322	$1,556,581	$1,168,232	$1,168,232	2029 UFA
+Hendon Hooker	
+Lions
+27	$5,719,028	$1,429,757	$1,159,292	$1,159,292	2027 UFA
+Brandon Allen	
+Titans
+33	$1,422,500	$1,422,500	$1,000,000	$1,000,000	2026 UFA
+Josh Johnson	
+Commanders
+39	$1,422,500	$1,422,500	$40,000	$40,000	2026 UFA
+Easton Stick	
+Falcons
+30	$1,337,500	$1,337,500	$567,500	$567,500	2026 UFA
+Sam Ehlinger	
+Broncos
+27	$1,337,500	$1,337,500	$467,500	$467,500	2026 UFA
+Malik Willis	
+Packers
+26	$5,160,100	$1,290,025	$932,800	$932,800	2026 UFA
+Kyle Allen	
+Lions
+29	$1,270,000	$1,270,000	$100,000	$100,000	2026 UFA
+Tim Boyle	
+Titans
+31	$1,255,000	$1,255,000	$0	$0	2026 UFA
+Brett Rypien	
+Vikings
+29	$1,195,000	$1,195,000	$0	$0	2026 UFA
+Will Grier	
+Cowboys
+30	$1,170,000	$1,170,000	$0	$0	2026 UFA
+Gardner Minshew	
+Chiefs
+29	$1,170,000	$1,170,000	$0	$0	2026 UFA
+John Wolford	
+Jaguars
+30	$1,170,000	$1,170,000	$0	$0	2026 UFA
+Shedeur Sanders	
+Browns
+23	$4,647,380	$1,161,845	$447,380	$447,380	2029 UFA
+Mike White	
+Bills
+30	$2,320,000	$1,160,000	$0	$0	2026 UFA
+Michael Pratt	
+Buccaneers
+24	$2,285,000	$1,142,500	$250,000	$25,000	2027 ERFA
+Jake Haener	
+Saints
+26	$4,544,812	$1,136,203	$704,812	$704,812	2027 UFA
+Stetson Bennett	
+Rams
+28	$4,539,132	$1,134,783	$699,132	$699,132	2027 RFA
+Kyle McCord	
+Eagles
+23	$4,461,232	$1,115,308	$261,232	$261,232	2029 UFA
+Will Howard	
+Steelers
+24	$4,448,100	$1,112,025	$248,100	$248,100	2029 UFA
+Riley Leonard	
+Colts
+23	$4,435,244	$1,108,811	$235,244	$235,244	2029 UFA
+Graham Mertz	
+Texans
+25	$4,428,484	$1,107,121	$228,484	$228,484	2029 UFA
+Desmond Ridder	
+Bengals
+26	$1,100,000	$1,100,000	$0	$0	2026 UFA
+Skylar Thompson	
+Steelers
+28	$1,100,000	$1,100,000	$0	$0	2026 UFA
+Bailey Zappe	
+Chiefs
+26	$1,100,000	$1,100,000	$396,000	$396,000	2026 UFA
+Tommy Mellott	
+Raiders
+24	$4,374,280	$1,093,570	$174,280	$174,280	2029 UFA
+Cam Miller	
+Raiders
+24	$4,374,280	$1,093,570	$174,280	$174,280	2029 UFA
+Spencer Rattler	
+Saints
+25	$4,356,480	$1,089,120	$336,480	$336,480	2028 UFA
+Aidan O'Connell	
+Raiders
+27	$4,349,380	$1,087,345	$509,380	$509,380	2027 UFA
+Kurtis Rourke	
+49ers
+25	$4,334,236	$1,083,559	$134,236	$134,236	2029 UFA
+Quinn Ewers	
+Dolphins
+22	$4,331,576	$1,082,894	$131,576	$131,576	2029 UFA
+Joe Milton III	
+Cowboys
+25	$4,203,316	$1,050,829	$183,316	$183,316	2028 UFA
+Clayton Tune	
+Cardinals
+26	$4,190,624	$1,047,656	$350,624	$350,624	2027 UFA
+Dorian Thompson-Robinson	
+Eagles
+26	$4,182,268	$1,045,567	$342,268	$342,268	2027 UFA
+Tommy DeVito	
+Giants
+27	$1,030,000	$1,030,000	$0	$0	2026 RFA
+Shane Buechele	
+Bills
+27	$1,030,000	$1,030,000	$0	$0	2026 UFA
+Tanner McKee	
+Eagles
+25	$4,026,520	$1,006,630	$186,520	$186,520	2027 UFA
+Sam Howell	
+Vikings
+25	$4,021,600	$1,005,400	$361,600	$361,600	2026 UFA
+Seth Henigan	
+Jaguars
+22	$2,985,000	$995,000	$254,000	$254,000	2028 RFA
+Max Brosmer	
+Vikings
+24	$2,975,000	$991,667	$244,000	$244,000	2028 RFA
+Payton Thorne	
+Bengals
+24	$2,975,000	$991,667	$10,000	$10,000	2028 RFA
+Connor Bazelak	
+Buccaneers
+25	$2,975,000	$991,667	$10,000	$10,000	2028 RFA
+Garrett Greene	
+Buccaneers
+24	$2,972,500	$990,833	$7,500	$7,500	2028 RFA
+Ben Wooldridge	
+Patriots
+26	$2,971,000	$990,333	$15,000	$15,000	2028 RFA
+Brady Cook	
+Jets
+24	$2,970,000	$990,000	$30,000	$30,000	2028 RFA
+Taylor Elgersma	
+Packers
+23	$2,968,000	$989,333	$3,000	$3,000	2028 RFA
+DJ Uiagalelei	
+Chargers
+24	$2,968,000	$989,333	$3,000	$3,000	2028 RFA
+Hunter Dekkers	
+Saints
+24	$2,965,000	$988,333	$0	$0	2028 RFA
+Jake Browning	
+Bengals
+29	$1,945,000	$972,500	$0	$0	2026 RFA
+Malik Cunningham	
+Ravens
+27	$960,000	$960,000	$0	$0	2026 ERFA
+Sam Hartman	
+Commanders
+26	$960,000	$960,000	$0	$0	2026 ERFA
+Sean Clifford	
+Packers
+27	$1,875,000	$937,500	$0	$0	2026 RFA
+Adrian Martinez	
+Jets
+25	$1,845,000	$922,500	$0	$0	2027 ERFA
+Tyson Bagent	
+Bears
+25	$2,720,000	$906,667	$25,000	$25,000	2026 RFA
+Jack Plummer	
+Panthers
+26	$1,755,000	$877,500	$0	$0	2026 ERFA
+Jason Bean	
+Colts
+26	$840,000	$840,000	$0	$0	2026 ERFA
+Emory Jones	
+Falcons
+25	$840,000	$840,000	$0	$0	2026 ERFA
+Dresser Winn	
+Rams
+27	$840,000	$840,000	$0	$0	2026 ERFA
+Austin Reed	
+Bears
+25	$840,000	$840,000	$0	$0	2026 ERFA
+Kedon Slovis	
+Texans
+24	$840,000	$840,000	$0	$0	2026 ERFA
+Tanner Mordecai	
+49ers
+26	$840,000	$840,000	$0	$0	2026 ERFA
+Devin Leary	
+Ravens
+26	$840,000	$840,000	$0	$0	2026 ERFA
+Chris Oladokun	
+Chiefs
+28	$840,000	$840,000	$0	$0	2026 ERFA
+John Rhys Plumlee	
+Seahawks
+24	$1,635,000	$817,500	$0	$0	2026 ERFA
