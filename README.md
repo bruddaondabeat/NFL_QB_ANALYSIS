@@ -6,6 +6,7 @@ This project analyzes NFL play-by-play data from 2019-2023 to move beyond tradit
 
 ## 📊 View Interactive Analysis
 
+### [**📈 View the Executive Dashboard on Tableau**](https://public.tableau.com/app/profile/tyler.mclaurin/viz/QBSalaryAnalyticsW/ExecutiveSummary)
 ### [**➡️ View Interactive Dashboard**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/)
 ### [**📊 View Analysis on nbviewer**](https://nbviewer.org/github/bruddaondabeat/NFL_QB_ANALYSIS/blob/main/nfl-qb-analysis.ipynb)
 ### [**📱 View HTML Version**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/nfl-qb-analysis.html)
