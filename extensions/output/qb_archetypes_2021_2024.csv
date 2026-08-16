@@ -1,0 +1,163 @@
+player,player_id,team,season,age,attempts,completion_pct,yards_per_attempt,td_rate,int_rate,passer_rating,any_a,archetype,cluster
+Aaron Rodgers,RodgAa00,GNB,2021,38.0,531.0,68.9,7.7,7.0,0.8,111.9,8.0,Elite Quarterbacks,2
+Dak Prescott,PresDa01,DAL,2021,28.0,596.0,68.8,7.5,6.2,1.7,104.2,7.34,Elite Quarterbacks,2
+Jameis Winston,WinsJa00,NOR,2021,27.0,161.0,59.0,7.3,8.7,1.9,102.8,7.24,Elite Quarterbacks,2
+Jimmy Garoppolo,GaroJi00,SFO,2021,30.0,441.0,68.3,8.6,4.5,2.7,98.7,7.38,Elite Quarterbacks,2
+Joe Burrow,BurrJo01,CIN,2021,25.0,520.0,70.4,8.9,6.5,2.7,108.3,7.51,Elite Quarterbacks,2
+Justin Herbert,HerbJu00,LAC,2021,23.0,672.0,65.9,7.5,5.7,2.2,97.7,6.95,Elite Quarterbacks,2
+Kirk Cousins,CousKi00,MIN,2021,33.0,561.0,66.3,7.5,5.9,1.2,103.1,7.42,Elite Quarterbacks,2
+Kyler Murray,MurrKy00,ARI,2021,24.0,481.0,69.2,7.9,5.0,2.1,100.6,6.9,Elite Quarterbacks,2
+Matthew Stafford,StafMa00,LAR,2021,33.0,601.0,67.2,8.1,6.8,2.8,102.9,7.45,Elite Quarterbacks,2
+Patrick Mahomes,MahoPa00,KAN,2021,26.0,658.0,66.3,7.4,5.6,2.0,98.5,7.07,Elite Quarterbacks,2
+Russell Wilson,WilsRu00,SEA,2021,33.0,400.0,64.8,7.8,6.3,1.5,103.1,7.11,Elite Quarterbacks,2
+Tom Brady,BradTo00,TAM,2021,44.0,719.0,67.5,7.4,6.0,1.7,102.1,7.41,Elite Quarterbacks,2
+Andy Dalton,DaltAn00,CHI,2021,34.0,236.0,63.1,6.4,3.4,3.8,76.9,4.44,Struggling & Backups,1
+Baker Mayfield,MayfBa00,CLE,2021,26.0,418.0,60.5,7.2,4.1,3.1,83.1,5.41,Struggling & Backups,1
+Jacoby Brissett,BrisJa00,MIA,2021,29.0,225.0,62.7,5.7,2.2,1.8,78.1,4.39,Struggling & Backups,1
+Justin Fields,FielJu00,CHI,2021,22.0,270.0,58.9,6.9,2.6,3.7,73.2,4.24,Struggling & Backups,1
+Mike Glennon,GlenMi00,NYG,2021,32.0,167.0,53.9,4.7,2.4,6.0,49.7,2.0,Struggling & Backups,1
+Sam Darnold,DarnSa00,CAR,2021,24.0,406.0,59.9,6.2,2.2,3.2,71.9,4.35,Struggling & Backups,1
+Trevor Lawrence,LawrTr00,JAX,2021,22.0,602.0,59.6,6.0,2.0,2.8,71.9,4.54,Struggling & Backups,1
+Tyler Huntley,HuntTy01,BAL,2021,23.0,188.0,64.9,5.8,1.6,2.1,76.6,4.15,Struggling & Backups,1
+Tyrod Taylor,TaylTy00,HOU,2021,32.0,150.0,60.7,6.4,3.3,3.3,76.7,4.43,Struggling & Backups,1
+Zach Wilson,WilsZa00,NYJ,2021,22.0,383.0,55.6,6.1,2.3,2.9,69.7,3.86,Struggling & Backups,1
+Ben Roethlisberger,RoetBe00,PIT,2021,39.0,605.0,64.5,6.2,3.6,1.7,86.8,5.43,The League Core,0
+Carson Wentz,WentCa00,IND,2021,29.0,516.0,62.4,6.9,5.2,1.4,94.6,6.5,The League Core,0
+Daniel Jones,JoneDa05,NYG,2021,24.0,361.0,64.3,6.7,2.8,1.9,84.8,5.62,The League Core,0
+Davis Mills,MillDa02,HOU,2021,23.0,394.0,66.8,6.8,4.1,2.5,88.8,5.48,The League Core,0
+Derek Carr,CarrDe02,LVR,2021,30.0,626.0,68.4,7.7,3.7,2.2,94.0,6.6,The League Core,0
+Jalen Hurts,HurtJa00,PHI,2021,23.0,432.0,61.3,7.3,3.7,2.1,87.2,6.35,The League Core,0
+Jared Goff,GoffJa00,DET,2021,27.0,494.0,67.2,6.6,3.8,1.6,91.5,5.64,The League Core,0
+Josh Allen,AlleJo02,BUF,2021,25.0,646.0,63.3,6.8,5.6,2.3,92.2,6.38,The League Core,0
+Lamar Jackson,JackLa00,BAL,2021,24.0,382.0,64.4,7.5,4.2,3.4,87.0,5.78,The League Core,0
+Mac Jones,JoneMa05,NWE,2021,23.0,521.0,67.6,7.3,4.2,2.5,92.5,6.22,The League Core,0
+Matt Ryan,RyanMa00,ATL,2021,36.0,560.0,67.0,7.1,3.6,2.1,90.4,5.92,The League Core,0
+Ryan Tannehill,TannRy00,TEN,2021,33.0,531.0,67.2,7.0,4.0,2.6,89.6,5.53,The League Core,0
+Taylor Heinicke,HeinTa00,WAS,2021,28.0,494.0,65.0,6.9,4.0,3.0,85.9,5.39,The League Core,0
+Teddy Bridgewater,BridTe00,DEN,2021,29.0,426.0,66.9,7.2,4.2,1.6,94.9,6.32,The League Core,0
+Trevor Siemian,SiemTr00,NOR,2021,30.0,188.0,57.4,6.1,5.9,1.6,88.4,5.96,The League Core,0
+Tua Tagovailoa,TagoTu00,MIA,2021,23.0,388.0,67.8,6.8,4.1,2.6,90.1,5.81,The League Core,0
+Andy Dalton,DaltAn00,NOR,2022,35.0,378.0,66.7,7.6,4.8,2.4,95.2,6.54,Elite Quarterbacks,2
+Brock Purdy,PurdBr00,SFO,2022,23.0,170.0,67.1,8.1,7.6,2.4,107.3,7.57,Elite Quarterbacks,2
+Dak Prescott,PresDa01,DAL,2022,29.0,394.0,66.2,7.3,5.8,3.8,91.1,6.08,Elite Quarterbacks,2
+Geno Smith,SmitGe00,SEA,2022,32.0,572.0,69.8,7.5,5.2,1.9,100.9,6.54,Elite Quarterbacks,2
+Jalen Hurts,HurtJa00,PHI,2022,24.0,460.0,66.5,8.0,4.8,1.3,101.5,7.31,Elite Quarterbacks,2
+Jared Goff,GoffJa00,DET,2022,28.0,587.0,65.1,7.6,4.9,1.2,99.3,7.45,Elite Quarterbacks,2
+Jimmy Garoppolo,GaroJi00,SFO,2022,31.0,308.0,67.2,7.9,5.2,1.3,103.0,7.6,Elite Quarterbacks,2
+Joe Burrow,BurrJo01,CIN,2022,26.0,606.0,68.3,7.4,5.8,2.0,100.8,6.76,Elite Quarterbacks,2
+Josh Allen,AlleJo02,BUF,2022,26.0,567.0,63.3,7.6,6.2,2.5,96.6,6.99,Elite Quarterbacks,2
+Patrick Mahomes,MahoPa00,KAN,2022,27.0,648.0,67.1,8.1,6.3,1.9,105.2,7.93,Elite Quarterbacks,2
+Tua Tagovailoa,TagoTu00,MIA,2022,24.0,400.0,64.8,8.9,6.3,2.0,105.5,8.37,Elite Quarterbacks,2
+Baker Mayfield,MayfBa00,2TM,2022,27.0,335.0,60.0,6.5,3.0,2.4,79.0,4.81,Struggling & Backups,1
+Carson Wentz,WentCa00,WAS,2022,30.0,276.0,62.3,6.4,4.0,3.3,80.2,4.67,Struggling & Backups,1
+Cooper Rush,RushCo00,DAL,2022,29.0,162.0,58.0,6.5,3.1,1.9,80.0,5.72,Struggling & Backups,1
+Davis Mills,MillDa02,HOU,2022,24.0,479.0,61.0,6.5,3.5,3.1,78.8,4.98,Struggling & Backups,1
+Deshaun Watson,WatsDe00,CLE,2022,27.0,170.0,58.2,6.5,4.1,2.9,79.1,4.79,Struggling & Backups,1
+Joe Flacco,FlacJo00,NYJ,2022,37.0,191.0,57.6,5.5,2.6,1.6,75.2,4.73,Struggling & Backups,1
+Justin Fields,FielJu00,CHI,2022,23.0,318.0,60.4,7.1,5.3,3.5,85.2,4.63,Struggling & Backups,1
+Kenny Pickett,PickKe00,PIT,2022,24.0,389.0,63.0,6.2,1.8,2.3,76.7,4.7,Struggling & Backups,1
+Mike White,WhitMi01,NYJ,2022,27.0,175.0,58.9,6.8,1.7,2.3,75.7,5.41,Struggling & Backups,1
+Zach Wilson,WilsZa00,NYJ,2022,23.0,242.0,54.5,7.0,2.5,2.9,72.8,4.97,Struggling & Backups,1
+Aaron Rodgers,RodgAa00,GNB,2022,39.0,542.0,64.6,6.8,4.8,2.2,91.1,5.95,The League Core,0
+Daniel Jones,JoneDa05,NYG,2022,25.0,472.0,67.2,6.8,3.2,1.1,92.5,5.89,The League Core,0
+Derek Carr,CarrDe02,LVR,2022,31.0,502.0,60.8,7.0,4.8,2.8,86.3,6.01,The League Core,0
+Jacoby Brissett,BrisJa00,CLE,2022,30.0,369.0,64.0,7.1,3.3,1.6,88.9,6.15,The League Core,0
+Justin Herbert,HerbJu00,LAC,2022,24.0,699.0,68.2,6.8,3.6,1.4,93.2,6.22,The League Core,0
+Kirk Cousins,CousKi00,MIN,2022,34.0,643.0,65.9,7.1,4.5,2.2,92.5,6.05,The League Core,0
+Kyler Murray,MurrKy00,ARI,2022,25.0,390.0,66.4,6.1,3.6,1.8,87.2,5.16,The League Core,0
+Lamar Jackson,JackLa00,BAL,2022,25.0,326.0,62.3,6.9,5.2,2.1,91.1,6.12,The League Core,0
+Mac Jones,JoneMa05,NWE,2022,24.0,442.0,65.2,6.8,3.2,2.5,84.8,5.36,The League Core,0
+Marcus Mariota,MariMa01,ATL,2022,29.0,300.0,61.3,7.4,5.0,3.0,88.2,5.85,The League Core,0
+Matt Ryan,RyanMa00,IND,2022,37.0,461.0,67.0,6.6,3.0,2.8,83.9,4.94,The League Core,0
+Matthew Stafford,StafMa00,LAR,2022,34.0,303.0,68.0,6.9,3.3,2.6,87.4,5.18,The League Core,0
+Mitchell Trubisky,TrubMi00,PIT,2022,28.0,180.0,65.0,7.0,2.2,2.8,81.1,5.44,The League Core,0
+Russell Wilson,WilsRu00,DEN,2022,34.0,483.0,60.5,7.3,3.3,2.3,84.4,5.54,The League Core,0
+Ryan Tannehill,TannRy00,TEN,2022,34.0,325.0,65.2,7.8,4.0,1.8,94.6,6.39,The League Core,0
+Taylor Heinicke,HeinTa00,WAS,2022,29.0,259.0,62.2,7.2,4.6,2.3,89.6,6.07,The League Core,0
+Tom Brady,BradTo00,TAM,2022,45.0,733.0,66.8,6.4,3.4,1.2,90.7,6.13,The League Core,0
+Trevor Lawrence,LawrTr00,JAX,2022,23.0,584.0,66.3,7.0,4.3,1.4,95.2,6.66,The League Core,0
+BrockPurdy,PurdBr00,SFO,2023,24.0,444.0,69.4,9.6,7.0,2.5,113.0,9.01,Elite Quarterbacks,2
+C.J. Stroud,StroCJ00,HOU,2023,22.0,499.0,63.9,8.2,4.6,1.0,100.8,7.47,Elite Quarterbacks,2
+Dak Prescott,PresDa01,DAL,2023,30.0,590.0,69.5,7.7,6.1,1.5,105.9,7.28,Elite Quarterbacks,2
+Jake Browning,BrowJa08,CIN,2023,27.0,243.0,70.4,8.0,4.9,2.9,98.4,6.34,Elite Quarterbacks,2
+Jared Goff,GoffJa00,DET,2023,29.0,605.0,67.3,7.6,5.0,2.0,97.9,6.99,Elite Quarterbacks,2
+Joe Flacco,FlacJo00,CLE,2023,38.0,204.0,60.3,7.9,6.4,3.9,90.2,6.88,Elite Quarterbacks,2
+Josh Allen,AlleJo02,BUF,2023,27.0,579.0,66.5,7.4,5.0,3.1,92.2,6.51,Elite Quarterbacks,2
+Kirk Cousins,CousKi00,MIN,2023,35.0,311.0,69.5,7.5,5.8,1.6,103.8,7.18,Elite Quarterbacks,2
+Lamar Jackson,JackLa00,BAL,2023,26.0,457.0,67.2,8.0,5.3,1.5,102.7,7.34,Elite Quarterbacks,2
+Russell Wilson,WilsRu00,DEN,2023,35.0,447.0,66.4,6.9,5.8,1.8,98.0,6.04,Elite Quarterbacks,2
+Tua Tagovailoa,TagoTu00,MIA,2023,25.0,560.0,69.3,8.3,5.2,2.5,101.1,7.48,Elite Quarterbacks,2
+Bailey Zappe,ZappBa00,NWE,2023,24.0,212.0,59.9,6.0,2.8,4.2,68.7,3.36,Struggling & Backups,1
+Bryce Young,YounBr01,CAR,2023,22.0,527.0,59.8,5.5,2.1,1.9,73.7,3.68,Struggling & Backups,1
+Daniel Jones,JoneDa05,NYG,2023,26.0,160.0,67.5,5.7,1.3,3.8,70.5,2.69,Struggling & Backups,1
+Jimmy Garoppolo,GaroJi00,LVR,2023,32.0,169.0,65.1,7.1,4.1,5.3,77.7,4.58,Struggling & Backups,1
+Joshua Dobbs,DobbJo00,2TM,2023,28.0,417.0,62.8,5.9,3.1,2.4,79.5,4.6,Struggling & Backups,1
+Mac Jones,JoneMa05,NWE,2023,25.0,345.0,64.9,6.1,2.9,3.5,77.0,4.5,Struggling & Backups,1
+Ryan Tannehill,TannRy00,TEN,2023,35.0,230.0,64.8,7.0,1.7,3.0,78.5,4.39,Struggling & Backups,1
+Sam Howell,HoweSa00,WAS,2023,23.0,612.0,63.4,6.4,3.4,3.4,78.9,4.39,Struggling & Backups,1
+Trevor Siemian,SiemTr00,NYJ,2023,32.0,153.0,56.2,4.7,1.3,2.6,62.1,3.38,Struggling & Backups,1
+Zach Wilson,WilsZa00,NYJ,2023,24.0,368.0,60.1,6.2,2.2,1.9,77.2,4.29,Struggling & Backups,1
+Aidan O'Connell,OConAi00,LVR,2023,25.0,343.0,62.1,6.5,3.5,2.0,83.9,5.37,The League Core,0
+Baker Mayfield,MayfBa00,TAM,2023,28.0,566.0,64.3,7.1,4.9,1.8,94.6,6.47,The League Core,0
+Derek Carr,CarrDe02,NOR,2023,32.0,548.0,68.4,7.1,4.6,1.5,97.7,6.56,The League Core,0
+Deshaun Watson,WatsDe00,CLE,2023,28.0,171.0,61.4,6.5,4.1,2.3,84.3,5.27,The League Core,0
+Desmond Ridder,RiddDe00,ATL,2023,24.0,388.0,64.2,7.3,3.1,3.1,83.4,5.58,The League Core,0
+Easton Stick,SticEa00,LAC,2023,28.0,174.0,63.8,6.5,1.7,0.6,85.6,5.44,The League Core,0
+Gardner Minshew II,MinsGa00,IND,2023,27.0,490.0,62.2,6.7,3.1,1.8,84.6,5.75,The League Core,0
+Geno Smith,SmitGe00,SEA,2023,33.0,499.0,64.7,7.3,4.0,1.8,92.1,6.39,The League Core,0
+Jalen Hurts,HurtJa00,PHI,2023,25.0,538.0,65.4,7.2,4.3,2.8,89.1,5.96,The League Core,0
+Joe Burrow,BurrJo01,CIN,2023,27.0,365.0,66.8,6.3,4.1,1.6,91.0,5.55,The League Core,0
+Jordan Love,LoveJo03,GNB,2023,25.0,579.0,64.2,7.2,5.5,1.9,96.1,6.67,The League Core,0
+Justin Fields,FielJu00,CHI,2023,24.0,370.0,61.4,6.9,4.3,2.4,86.3,5.29,The League Core,0
+Justin Herbert,HerbJu00,LAC,2023,25.0,456.0,65.1,6.9,4.4,1.5,93.2,6.16,The League Core,0
+Kenny Pickett,PickKe00,PIT,2023,25.0,324.0,62.0,6.4,1.9,1.2,81.4,5.29,The League Core,0
+Kyler Murray,MurrKy00,ARI,2023,26.0,268.0,65.7,6.7,3.7,1.9,89.4,5.79,The League Core,0
+Matthew Stafford,StafMa00,LAR,2023,35.0,521.0,62.6,7.6,4.6,2.1,92.5,6.8,The League Core,0
+Patrick Mahomes,MahoPa00,KAN,2023,28.0,597.0,67.2,7.0,4.5,2.3,92.6,6.26,The League Core,0
+Tommy DeVito,DeViTo00,NYG,2023,25.0,178.0,64.0,6.2,4.5,1.7,89.2,4.33,The League Core,0
+Trevor Lawrence,LawrTr00,JAX,2023,24.0,564.0,65.6,7.1,3.7,2.5,88.5,5.98,The League Core,0
+Tyrod Taylor,TaylTy00,NYG,2023,34.0,180.0,64.4,7.5,2.8,1.7,89.1,6.15,The League Core,0
+Will Levis,LeviWi00,TEN,2023,24.0,255.0,58.4,7.1,3.1,1.6,84.2,5.66,The League Core,0
+Baker Mayfield,MayfBa00,TAM,2024,29.0,570.0,71.4,7.9,7.2,2.8,106.8,7.13,Elite Quarterbacks,2
+Brock Purdy,PurdBr00,SFO,2024,25.0,455.0,65.9,8.5,4.4,2.6,96.1,7.34,Elite Quarterbacks,2
+Derek Carr,CarrDe02,NOR,2024,33.0,279.0,67.7,7.7,5.4,1.8,101.0,7.57,Elite Quarterbacks,2
+Jalen Hurts,HurtJa00,PHI,2024,26.0,361.0,68.7,8.0,5.0,1.4,103.7,6.93,Elite Quarterbacks,2
+Jared Goff,GoffJa00,DET,2024,30.0,539.0,72.4,8.6,6.9,2.2,111.8,8.06,Elite Quarterbacks,2
+Jayden Daniels,DaniJa02,WAS,2024,24.0,480.0,69.0,7.4,5.2,1.9,100.1,6.5,Elite Quarterbacks,2
+Joe Burrow,BurrJo01,CIN,2024,28.0,652.0,70.6,7.5,6.6,1.4,108.5,7.28,Elite Quarterbacks,2
+Jordan Love,LoveJo03,GNB,2024,26.0,425.0,63.1,8.0,5.9,2.6,96.7,7.51,Elite Quarterbacks,2
+Josh Allen,AlleJo02,BUF,2024,28.0,483.0,63.6,7.7,5.8,1.2,101.4,7.96,Elite Quarterbacks,2
+Justin Herbert,HerbJu00,LAC,2024,26.0,504.0,65.9,7.7,4.6,0.6,101.7,7.25,Elite Quarterbacks,2
+Lamar Jackson,JackLa00,BAL,2024,27.0,474.0,66.7,8.8,8.6,0.8,119.6,9.38,Elite Quarterbacks,2
+Sam Darnold,DarnSa00,MIN,2024,27.0,545.0,66.2,7.9,6.4,2.2,102.5,6.99,Elite Quarterbacks,2
+Tua Tagovailoa,TagoTu00,MIA,2024,26.0,399.0,72.9,7.2,4.8,1.8,101.4,6.61,Elite Quarterbacks,2
+Andy Dalton,DaltAn00,CAR,2024,37.0,160.0,66.3,6.2,4.4,3.8,82.0,4.92,Struggling & Backups,1
+Anthony Richardson,RichAn03,IND,2024,22.0,264.0,47.7,6.9,3.0,4.5,61.6,4.74,Struggling & Backups,1
+Bryce Young,YounBr01,CAR,2024,23.0,384.0,60.9,6.3,3.9,2.3,82.2,5.11,Struggling & Backups,1
+Daniel Jones,JoneDa05,NYG,2024,27.0,341.0,63.3,6.1,2.3,2.1,79.4,4.71,Struggling & Backups,1
+Deshaun Watson,WatsDe00,CLE,2024,29.0,216.0,63.4,5.3,2.3,1.4,79.0,3.7,Struggling & Backups,1
+Drew Lock,LockDr00,NYG,2024,28.0,181.0,59.1,5.9,3.3,2.8,75.5,4.55,Struggling & Backups,1
+Gardner Minshew II,MinsGa00,LVR,2024,28.0,306.0,66.3,6.6,2.9,3.3,81.0,4.71,Struggling & Backups,1
+Jacoby Brissett,BrisJa00,NWE,2024,32.0,161.0,59.0,5.1,1.2,0.6,74.2,3.92,Struggling & Backups,1
+Jameis Winston,WinsJa00,CLE,2024,30.0,296.0,61.1,7.2,4.4,4.1,80.6,5.35,Struggling & Backups,1
+Mac Jones,JoneMa05,JAX,2024,26.0,262.0,65.3,6.4,3.1,3.1,80.5,4.97,Struggling & Backups,1
+Mason Rudolph,RudoMa00,TEN,2024,29.0,228.0,64.0,6.7,3.9,3.9,80.1,5.16,Struggling & Backups,1
+Spencer Rattler,RattSp00,NOR,2024,24.0,228.0,57.0,5.8,1.8,2.2,70.4,4.14,Struggling & Backups,1
+Will Levis,LeviWi00,TEN,2024,25.0,301.0,63.1,6.9,4.3,4.0,81.4,4.61,Struggling & Backups,1
+Aaron Rodgers,RodgAa00,NYJ,2024,41.0,584.0,63.0,6.7,4.8,1.9,90.5,5.87,The League Core,0
+Aidan O'Connell,OConAi00,LVR,2024,26.0,243.0,63.4,6.6,3.3,1.6,86.7,5.97,The League Core,0
+Bo Nix,NixxBo00,DEN,2024,24.0,567.0,66.3,6.7,5.1,2.1,93.3,6.12,The League Core,0
+C.J. Stroud,StroCJ00,HOU,2024,23.0,532.0,63.2,7.0,3.8,2.3,87.0,5.44,The League Core,0
+Caleb Williams,WillCa03,CHI,2024,23.0,562.0,62.5,6.3,3.6,1.1,87.8,5.09,The League Core,0
+Cooper Rush,RushCo00,DAL,2024,31.0,308.0,60.7,6.0,3.9,1.6,83.8,5.5,The League Core,0
+Dak Prescott,PresDa01,DAL,2024,31.0,286.0,64.7,6.9,3.8,2.8,86.0,5.62,The League Core,0
+Drake Maye,MayeDr00,NWE,2024,22.0,338.0,66.6,6.7,4.4,3.0,88.1,5.1,The League Core,0
+Geno Smith,SmitGe00,SEA,2024,34.0,578.0,70.4,7.5,3.6,2.6,93.2,5.93,The League Core,0
+Joe Flacco,FlacJo00,IND,2024,39.0,248.0,65.3,7.1,4.8,2.8,90.5,5.88,The League Core,0
+Justin Fields,FielJu00,PIT,2024,25.0,161.0,65.8,6.9,3.1,0.6,93.3,5.86,The League Core,0
+Kirk Cousins,CousKi00,ATL,2024,36.0,453.0,66.9,7.7,4.0,3.5,88.6,6.13,The League Core,0
+Kyler Murray,MurrKy00,ARI,2024,27.0,541.0,68.8,7.1,3.9,2.0,93.5,6.23,The League Core,0
+Matthew Stafford,StafMa00,LAR,2024,36.0,517.0,65.8,7.3,3.9,1.5,93.7,6.59,The League Core,0
+Patrick Mahomes,MahoPa00,KAN,2024,29.0,581.0,67.5,6.8,4.5,1.9,93.5,6.02,The League Core,0
+Russell Wilson,WilsRu00,PIT,2024,36.0,336.0,63.7,7.4,4.8,1.5,95.6,6.39,The League Core,0
+Trevor Lawrence,LawrTr00,JAX,2024,25.0,284.0,60.6,7.2,3.9,2.5,85.2,5.99,The League Core,0

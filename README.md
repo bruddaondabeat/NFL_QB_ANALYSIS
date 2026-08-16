@@ -15,6 +15,16 @@ This performance analysis is then fused with salary data to create an "Archetype
 
 ---
 
+## 🧩 Extension Projects
+
+Three follow-on projects that build directly on this analysis — each with an interactive dashboard and a Tableau-ready CSV export. See [`extensions/README.md`](extensions/README.md) for methods and how to run them.
+
+* [**🔀 QB Archetype Drift, 2021–2024**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/extensions/qb-archetype-drift.html) — the KMeans archetype model refit on four seasons (including new 2024 data), with a Sankey flow tracking every QB's movement between archetypes.
+* [**🧬 QB Similarity Engine**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/extensions/qb-similarity-map.html) — nearest-neighbor "comps" for every 2019–2023 QB season, plus a PCA style map (passing efficiency × dual-threat value).
+* [**💰 2025 Contract Value Board**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/extensions/qb-contract-value.html) — current contracts vs 2024 efficiency: the market's best bargains and the deals under pressure.
+
+---
+
 ## Key Features
 * **Deep Situational Analysis:** Goes beyond the box score to analyze performance on crucial downs.
 * **Time-Series Visualization:** Tracks QB performance over a 5-year period against the league average.
