@@ -32,9 +32,12 @@ Usage:
 """
 
 import argparse
+import csv
+import io
 import json
 import re
 import sys
+import unicodedata
 from datetime import date
 from pathlib import Path
 
@@ -67,7 +70,96 @@ PBP_COLS = [
     "passing_yards", "pass_touchdown", "interception", "down", "qb_epa",
     "cpoe", "half_seconds_remaining", "score_differential", "first_down",
     "two_point_attempt", "sack",
+    "posteam", "home_team", "result",        # game outcome (win impact)
+    "ydstogo", "yardline_100", "qtr",        # play-success model features
 ]
+
+
+def norm_name(s):
+    """Normalize player names for matching across sources."""
+    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
+    s = s.lower().replace(".", "").replace("'", "")
+    s = re.sub(r"\s+(jr|sr|ii|iii|iv|v)$", "", s.strip())
+    return re.sub(r"\s+", " ", s)
+
+
+def load_pfr_extras():
+    """Official records the pbp can't cleanly reproduce, from the committed
+    Pro Football Reference season tables (Raw Data/): ESPN Total QBR,
+    4th-quarter comebacks, game-winning drives. Returns
+    {season(str): {normalized name: {qbr, fourth_qc, gwd}}}."""
+    fields = ["Rk", "Player", "Age", "Team", "Pos", "G", "GS", "QBrec",
+              "Cmp", "Att", "Cmp%", "Yds", "TD", "TD%", "Int", "Int%",
+              "1D", "Succ%", "Lng", "Y/A", "AY/A", "Y/C", "Y/G", "Rate",
+              "QBR", "Sk", "SkYds", "Sk%", "NY/A", "ANY/A", "4QC", "GWD"]
+    out = {}
+    for path in sorted(ROOT.glob("Raw Data/nfl_passing_*_standard.csv")):
+        year = re.search(r"(\d{4})", path.name).group(1)
+        lines = path.read_text().splitlines()
+        records, cur = [], None
+        for ln in lines[1:]:
+            if re.match(r"^\d+,", ln):
+                if cur is not None:
+                    records.append(cur)
+                cur = ln
+            elif cur is not None:
+                cur = cur.rstrip() + " " + ln.lstrip()
+        if cur is not None:
+            records.append(cur)
+        season = {}
+        rows = []
+        for rec in records:
+            f = next(csv.reader(io.StringIO(rec)))
+            if len(f) < len(fields):
+                continue
+            row = dict(zip(fields, f[:len(fields)]))
+            for c in ["Att", "QBR", "4QC", "GWD"]:
+                row[c] = pd.to_numeric(row[c], errors="coerce")
+            if pd.isna(row["Att"]):
+                continue
+            rows.append(row)
+        # multi-team players: keep the combined (max-Att) season line
+        for row in sorted(rows, key=lambda r: -r["Att"]):
+            k = norm_name(row["Player"])
+            if k not in season:
+                season[k] = {
+                    "qbr": None if pd.isna(row["QBR"]) else float(row["QBR"]),
+                    "fourth_qc": 0 if pd.isna(row["4QC"]) else int(row["4QC"]),
+                    "gwd": 0 if pd.isna(row["GWD"]) else int(row["GWD"]),
+                }
+        out[year] = season
+        print(f"pfr extras {year}: {len(season)} players", file=sys.stderr)
+    return out
+
+
+def load_contracts():
+    """QB contracts from 'NFL Player Salary.txt' (3-line records:
+    'Name\\t' / 'Team' / 'Age\\t$Total\\t$Avg\\t$TotalGuar\\t$FullyGuar\\tFA')."""
+    path = ROOT / "NFL Player Salary.txt"
+    if not path.exists():
+        return []
+    lines = path.read_text().splitlines()
+    money = lambda s: float(re.sub(r"[^\d.]", "", s) or 0)
+    out, i = [], 0
+    while i < len(lines) - 2:
+        name, team, data = lines[i], lines[i + 1], lines[i + 2]
+        if name.endswith("\t") and "\t" not in team and data.count("\t") >= 4:
+            parts = data.split("\t")
+            out.append({
+                "name": name.strip(),
+                "key": norm_name(name),
+                "team": team.strip(),
+                "age": pd.to_numeric(parts[0], errors="coerce"),
+                "total": money(parts[1]),
+                "apy": money(parts[2]),
+                "guaranteed": money(parts[3]),
+                "free_agency": parts[5].strip() if len(parts) > 5 else None,
+            })
+            i += 3
+        else:
+            i += 1
+    print(f"contracts parsed: {len(out)}", file=sys.stderr)
+    return out
 
 
 def passer_rating(cmp_, att, yds, td, ints):
@@ -182,9 +274,17 @@ def build_from_exports():
         })
 
     # exports carry situational splits for the 2023 season only
+    extras23 = load_pfr_extras().get("2023", {})
+    for row in situational:
+        ex = extras23.get(norm_name(row["name"]), {})
+        row["qbr"] = ex.get("qbr")
+        row["fourth_qc"] = ex.get("fourth_qc")
+        row["gwd"] = ex.get("gwd")
+        row["fourth_conv_wins"] = np.nan
     return assemble(archetypes, {"2023": situational}, players,
                     league_by_season, window="2019–2023", live=False,
-                    latest=2023, latest_week=None)
+                    latest=2023, latest_week=None,
+                    contracts=load_contracts(), play_model=None)
 
 
 # ---------------------------------------------------------------------------
@@ -227,8 +327,16 @@ def load_passes(years):
     return official, dropbacks
 
 
-def season_situational(latest, arch_map, id_to_name):
+def season_situational(latest, arch_map, id_to_name, extras=None):
     """Per-QB situational splits for one season's pass plays."""
+    latest = latest.copy()
+    # did the passer's team win this game? (for 4th-down win impact)
+    latest["team_won"] = (
+        ((latest["posteam"] == latest["home_team"]) & (latest["result"] > 0))
+        | ((latest["posteam"] != latest["home_team"]) & (latest["result"] < 0))
+    )
+    latest["conv_win"] = latest["first_down"].fillna(0) * latest["team_won"]
+
     def down_cmp(down):
         d = latest[latest["down"] == down].groupby("passer_player_id").agg(
             att=("play_id", "size"), cmp=("is_completion", "sum"))
@@ -247,7 +355,8 @@ def season_situational(latest, arch_map, id_to_name):
         ints=("interception", "sum"))
 
     fourth = latest[latest["down"] == 4].groupby("passer_player_id").agg(
-        att=("play_id", "size"), conv=("first_down", "sum"))
+        att=("play_id", "size"), conv=("first_down", "sum"),
+        conv_wins=("conv_win", "sum"))
 
     season_tot = latest.groupby("passer_player_id").agg(
         attempts=("play_id", "size"), yards=("passing_yards", "sum"),
@@ -258,9 +367,14 @@ def season_situational(latest, arch_map, id_to_name):
     for pid, r in season_tot.iterrows():
         c = clutch.loc[pid] if pid in clutch.index else None
         f = fourth.loc[pid] if pid in fourth.index else None
+        name = id_to_name.get(pid, pid)
+        ex = (extras or {}).get(norm_name(name), {})
         rows.append({
-            "name": id_to_name.get(pid, pid),
+            "name": name,
             "id": pid,
+            "qbr": ex.get("qbr"),
+            "fourth_qc": ex.get("fourth_qc"),
+            "gwd": ex.get("gwd"),
             "archetype": arch_map.get(pid),
             "attempts": int(r["attempts"]),
             "yards": float(r["yards"] or 0),
@@ -277,8 +391,51 @@ def season_situational(latest, arch_map, id_to_name):
             "fourth_att": float(f["att"]) if f is not None else np.nan,
             "fourth_conv": float(f["conv"]) if f is not None else np.nan,
             "fourth_rate": float(f["conv"] / f["att"] * 100) if f is not None else np.nan,
+            "fourth_conv_wins": float(f["conv_wins"]) if f is not None else np.nan,
         })
     return rows
+
+
+MODEL_FEATURES = ["down", "ydstogo", "yardline_100", "score_differential",
+                  "qtr", "is_redzone", "is_two_minute", "down_x_distance"]
+
+
+def train_play_model(passes):
+    """Logistic play-success model (the notebook's Iteration-2 feature set),
+    trained on the window's regular-season pass plays. Success = EPA > 0.
+    Exports raw coefficients so the dashboard can score plays client-side."""
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+
+    d = passes[(passes["season_type"] == "REG")
+               & (passes["play_type"] == "pass")].copy()
+    d = d.dropna(subset=["down", "ydstogo", "yardline_100",
+                         "score_differential", "qtr", "qb_epa"])
+    d = d[d["qtr"] <= 4]
+    d["is_redzone"] = (d["yardline_100"] <= 20).astype(int)
+    d["is_two_minute"] = (d["half_seconds_remaining"] <= 120).astype(int)
+    d["down_x_distance"] = d["down"] * d["ydstogo"]
+    y = (d["qb_epa"] > 0).astype(int)
+    X = d[MODEL_FEATURES].astype(float)
+
+    Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2,
+                                          random_state=42, stratify=y)
+    m = LogisticRegression(max_iter=2000)
+    m.fit(Xtr, ytr)
+    acc = float(m.score(Xte, yte))
+    base = float(y.mean())
+    print(f"play model: acc {acc:.3f} vs base {max(base, 1-base):.3f} "
+          f"({len(d)} plays)", file=sys.stderr)
+    return {
+        "type": "logistic",
+        "target": "pass play success (EPA > 0)",
+        "features": MODEL_FEATURES,
+        "intercept": float(m.intercept_[0]),
+        "coef": {f: float(c) for f, c in zip(MODEL_FEATURES, m.coef_[0])},
+        "holdout_accuracy": acc,
+        "success_base_rate": base,
+        "n_plays": int(len(d)),
+    }
 
 
 def build_live(seasons):
@@ -337,10 +494,12 @@ def build_live(seasons):
     arch_map = g["archetype"].to_dict()
 
     # --- Situational benchmarks: every season in the window -----------------
+    pfr_extras = load_pfr_extras()
     situational_by_season = {}
     for y in years:
         rows = season_situational(passes[passes["season"] == y],
-                                  arch_map, id_to_name)
+                                  arch_map, id_to_name,
+                                  extras=pfr_extras.get(str(y)))
         if rows:
             situational_by_season[str(y)] = rows
         print(f"situational {y}: {len(rows)} QBs", file=sys.stderr)
@@ -384,7 +543,9 @@ def build_live(seasons):
     latest_week = int(passes.loc[passes["season"] == latest, "week"].max())
     return assemble(archetypes, situational_by_season, players,
                     league_by_season, window=window, live=True,
-                    latest=latest, latest_week=latest_week)
+                    latest=latest, latest_week=latest_week,
+                    contracts=load_contracts(),
+                    play_model=train_play_model(passes))
 
 
 # ---------------------------------------------------------------------------
@@ -429,10 +590,21 @@ def season_kpis(situational):
 
 
 def assemble(archetypes, situational_by_season, players, league_by_season,
-             window, live, latest, latest_week):
+             window, live, latest, latest_week, contracts=None,
+             play_model=None):
     # qualification floor applies in both modes (exports CSVs predate it)
     archetypes = [a for a in archetypes if a["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
     arch = pd.DataFrame(archetypes)
+
+    # join contracts to window performance for the value map
+    arch_by_key = {norm_name(a["name"]): a for a in archetypes}
+    for c in (contracts or []):
+        a = arch_by_key.get(c["key"])
+        if a:
+            c.update({"id": a["id"], "archetype": a["archetype"],
+                      "rating": a["rating"], "attempts": a["attempts"],
+                      "epa_per_db": a.get("epa_per_db"),
+                      "cpoe": a.get("cpoe")})
 
     kpis_by_season = {s: season_kpis(rows)
                       for s, rows in situational_by_season.items()}
@@ -467,6 +639,8 @@ def assemble(archetypes, situational_by_season, players, league_by_season,
         "league_avg_by_season": {int(k): float(v)
                                  for k, v in league_by_season.items()},
         "players": players,
+        "contracts": contracts or [],
+        "play_model": play_model,
     }
     return round_rec(payload)
 
