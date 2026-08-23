@@ -1,0 +1,392 @@
+#!/usr/bin/env python3
+"""Build the data payload for the QB dashboard (dashboard/index.html).
+
+Two modes:
+
+  --from-exports   Offline. Reshapes the committed tableau_exports/*.csv
+                   (2019-2023 baseline) into dashboard/data/qb_data.json.
+
+  --live           Pulls fresh data from nflverse via nfl_data_py and
+                   recomputes every benchmark from play-by-play + seasonal
+                   data. This is what the weekly GitHub Actions cron runs.
+
+Both modes end by injecting the JSON into dashboard/index.html between the
+<script id="qb-data" type="application/json"> ... </script> tags, so the
+dashboard stays a single self-contained file.
+
+Usage:
+  python pipeline/build_dashboard_data.py --from-exports
+  python pipeline/build_dashboard_data.py --live --seasons 2019 2026
+"""
+
+import argparse
+import json
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent.parent
+EXPORTS = ROOT / "tableau_exports"
+OUT_JSON = ROOT / "dashboard" / "data" / "qb_data.json"
+DASHBOARD_HTML = ROOT / "dashboard" / "index.html"
+
+# Benchmark thresholds (mirror the notebook's qualification rules)
+MIN_ARCHETYPE_ATTEMPTS = 100   # window attempts to enter the KMeans model
+MIN_DOWN_ATTEMPTS = 20         # attempts on a given down for the 1st-vs-3rd split
+MIN_CLUTCH_ATTEMPTS = 10       # attempts inside the clutch window to be ranked
+MIN_FOURTH_ATTEMPTS = 5        # 4th-down attempts to be ranked
+CLUTCH_SECONDS = 120           # last two minutes of a half
+CLUTCH_SCORE_BAND = (-8, 7)    # one-score game, trailing by 8 to leading by 7
+TS_TOP_N = 20                  # trajectory panel: top N by window passing yards
+MIN_SEASON_ATTEMPTS = 100      # per-season attempts to count toward league avg
+
+
+def passer_rating(cmp_, att, yds, td, ints):
+    """Official NFL passer rating."""
+    att = np.asarray(att, dtype=float)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        a = np.clip((cmp_ / att - 0.3) * 5, 0, 2.375)
+        b = np.clip((yds / att - 3) * 0.25, 0, 2.375)
+        c = np.clip(td / att * 20, 0, 2.375)
+        d = np.clip(2.375 - ints / att * 25, 0, 2.375)
+    return (a + b + c + d) / 6 * 100
+
+
+def round_rec(obj, nd=4):
+    if isinstance(obj, dict):
+        return {k: round_rec(v, nd) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [round_rec(v, nd) for v in obj]
+    if isinstance(obj, float):
+        if np.isnan(obj):
+            return None
+        return round(obj, nd)
+    if isinstance(obj, (np.integer,)):
+        return int(obj)
+    if isinstance(obj, (np.floating,)):
+        return round_rec(float(obj), nd)
+    return obj
+
+
+# ---------------------------------------------------------------------------
+# Mode 1: reshape the committed exports (offline baseline)
+# ---------------------------------------------------------------------------
+
+def build_from_exports():
+    master = pd.read_csv(EXPORTS / "qb_master_analytics_2019_2023.csv")
+    arch = pd.read_csv(EXPORTS / "qb_archetypes_2019_2023.csv")
+    ts = pd.read_csv(EXPORTS / "qb_time_series_2019_2023.csv")
+
+    names = arch.set_index("player_id")["display_name"].to_dict()
+    master["name"] = master["gsis_id"].map(names).fillna(
+        master["passer_name"].str.replace(".", ". ", n=1, regex=False)
+    )
+
+    archetypes = [
+        {
+            "name": r.display_name,
+            "id": r.player_id,
+            "archetype": r.archetype,
+            "cmp_pct": r.completion_pct * 100,
+            "ypa": r.yards_per_attempt,
+            "td_rate": r.td_rate * 100,
+            "int_rate": r.int_rate * 100,
+            "rating": r.passer_rating,
+            "attempts": int(r.attempts),
+        }
+        for r in arch.itertuples()
+    ]
+
+    situational = []
+    for r in master.itertuples():
+        situational.append({
+            "name": r.name,
+            "id": r.gsis_id,
+            "archetype": r.archetype if isinstance(r.archetype, str) else None,
+            "attempts": int(r.attempts),
+            "yards": r.passing_yards,
+            "tds": int(r.touchdowns),
+            "ints": int(r.interceptions),
+            "cmp1": r.completion_pct_1,
+            "cmp3": r.completion_pct_3,
+            "delta": r.cmp_pct_delta,
+            "clutch_att": r.clutch_attempts,
+            "clutch_cmp_pct": r.clutch_cmp_pct,
+            "clutch_ypa": r.clutch_ypa,
+            "clutch_tds": r.clutch_tds,
+            "clutch_ints": r.clutch_ints,
+            "fourth_att": r.fourth_down_attempts,
+            "fourth_conv": r.fourth_down_conversions,
+            "fourth_rate": r.fourth_down_conversion_rate,
+        })
+
+    league_by_season = (
+        ts[ts["attempts"] >= MIN_SEASON_ATTEMPTS]
+        .groupby("season")["passer_rating"].mean()
+    )
+    players = []
+    for name, g in ts.sort_values("season").groupby("display_name"):
+        players.append({
+            "name": name,
+            "id": g["player_id"].iloc[0],
+            "seasons": [
+                {
+                    "season": int(r.season),
+                    "rating": r.passer_rating,
+                    "epa": r.passing_epa,
+                    "yards": r.passing_yards,
+                    "tds": int(r.passing_tds),
+                    "ints": r.interceptions,
+                    "games": int(r.games),
+                }
+                for r in g.itertuples()
+            ],
+        })
+
+    return assemble(archetypes, situational, players, league_by_season,
+                    window="2019–2023", live=False)
+
+
+# ---------------------------------------------------------------------------
+# Mode 2: live nflverse pull (weekly cron)
+# ---------------------------------------------------------------------------
+
+def build_live(seasons):
+    import nfl_data_py as nfl
+
+    years = list(range(seasons[0], seasons[1] + 1))
+    window = f"{years[0]}–{years[-1]}"
+    print(f"Pulling play-by-play for {window} ...", file=sys.stderr)
+
+    pbp = nfl.import_pbp_data(years, downcast=True)
+    passes = pbp[(pbp["play_type"] == "pass") & pbp["passer_player_id"].notna()].copy()
+    passes["is_completion"] = passes["complete_pass"].fillna(0)
+
+    ids = nfl.import_ids()
+    id_to_name = (
+        ids.dropna(subset=["gsis_id"]).set_index("gsis_id")["name"].to_dict()
+    )
+
+    def agg_names(df):
+        return df.index.to_series().map(id_to_name).fillna(df.index.to_series())
+
+    # --- Archetype model inputs: window rate stats per passer ---------------
+    g = passes.groupby("passer_player_id").agg(
+        attempts=("play_id", "size"),
+        completions=("is_completion", "sum"),
+        yards=("passing_yards", "sum"),
+        tds=("pass_touchdown", "sum"),
+        ints=("interception", "sum"),
+    )
+    g = g[g["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
+    g["cmp_pct"] = g["completions"] / g["attempts"] * 100
+    g["ypa"] = g["yards"].fillna(0) / g["attempts"]
+    g["td_rate"] = g["tds"] / g["attempts"] * 100
+    g["int_rate"] = g["ints"] / g["attempts"] * 100
+    g["rating"] = passer_rating(g["completions"], g["attempts"],
+                                g["yards"].fillna(0), g["tds"], g["ints"])
+
+    # --- KMeans archetypes (3 clusters, labeled by mean rating) -------------
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import StandardScaler
+
+    feats = g[["cmp_pct", "ypa", "td_rate", "int_rate"]]
+    X = StandardScaler().fit_transform(feats)
+    g["cluster"] = KMeans(n_clusters=3, random_state=42, n_init=10).fit_predict(X)
+    order = g.groupby("cluster")["rating"].mean().sort_values(ascending=False)
+    labels = ["Elite Quarterbacks", "The League Core", "Struggling & Backups"]
+    cluster_names = {c: labels[i] for i, c in enumerate(order.index)}
+    g["archetype"] = g["cluster"].map(cluster_names)
+    g["name"] = agg_names(g)
+
+    archetypes = [
+        {"name": r.name, "id": r.Index, "archetype": r.archetype,
+         "cmp_pct": r.cmp_pct, "ypa": r.ypa, "td_rate": r.td_rate,
+         "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts)}
+        for r in g.itertuples()
+    ]
+    arch_map = g["archetype"].to_dict()
+
+    # --- Situational benchmarks: latest season only -------------------------
+    latest = passes[passes["season"] == passes["season"].max()].copy()
+
+    def down_cmp(down):
+        d = latest[latest["down"] == down].groupby("passer_player_id").agg(
+            att=("play_id", "size"), cmp=("is_completion", "sum"))
+        d = d[d["att"] >= MIN_DOWN_ATTEMPTS]
+        return d["cmp"] / d["att"] * 100
+
+    cmp1, cmp3 = down_cmp(1), down_cmp(3)
+
+    lo, hi = CLUTCH_SCORE_BAND
+    clutch = latest[
+        (latest["half_seconds_remaining"] <= CLUTCH_SECONDS)
+        & latest["score_differential"].between(lo, hi)
+    ].groupby("passer_player_id").agg(
+        att=("play_id", "size"), cmp=("is_completion", "sum"),
+        yds=("passing_yards", "sum"), tds=("pass_touchdown", "sum"),
+        ints=("interception", "sum"))
+
+    fourth = latest[latest["down"] == 4].groupby("passer_player_id").agg(
+        att=("play_id", "size"), conv=("first_down", "sum"))
+
+    season_tot = latest.groupby("passer_player_id").agg(
+        attempts=("play_id", "size"), yards=("passing_yards", "sum"),
+        tds=("pass_touchdown", "sum"), ints=("interception", "sum"))
+
+    situational = []
+    for pid, r in season_tot.iterrows():
+        c = clutch.loc[pid] if pid in clutch.index else None
+        f = fourth.loc[pid] if pid in fourth.index else None
+        situational.append({
+            "name": id_to_name.get(pid, pid),
+            "id": pid,
+            "archetype": arch_map.get(pid),
+            "attempts": int(r["attempts"]),
+            "yards": float(r["yards"] or 0),
+            "tds": int(r["tds"]),
+            "ints": int(r["ints"]),
+            "cmp1": cmp1.get(pid, np.nan),
+            "cmp3": cmp3.get(pid, np.nan),
+            "delta": cmp3.get(pid, np.nan) - cmp1.get(pid, np.nan),
+            "clutch_att": float(c["att"]) if c is not None else np.nan,
+            "clutch_cmp_pct": float(c["cmp"] / c["att"] * 100) if c is not None else np.nan,
+            "clutch_ypa": float((c["yds"] or 0) / c["att"]) if c is not None else np.nan,
+            "clutch_tds": float(c["tds"]) if c is not None else np.nan,
+            "clutch_ints": float(c["ints"]) if c is not None else np.nan,
+            "fourth_att": float(f["att"]) if f is not None else np.nan,
+            "fourth_conv": float(f["conv"]) if f is not None else np.nan,
+            "fourth_rate": float(f["conv"] / f["att"] * 100) if f is not None else np.nan,
+        })
+
+    # --- Trajectories: seasonal passer rating vs league average -------------
+    # Computed from pbp directly: nflverse retired the legacy per-year
+    # player_stats assets after 2024 (nfl_data_py's import_seasonal_data
+    # 404s for 2025+), and pbp remains fully published.
+    reg = passes[passes["season_type"] == "REG"] if "season_type" in passes.columns else passes
+    epa_col = "qb_epa" if "qb_epa" in reg.columns else "epa"
+    seas = reg.groupby(["passer_player_id", "season"]).agg(
+        completions=("is_completion", "sum"),
+        attempts=("play_id", "size"),
+        passing_yards=("passing_yards", "sum"),
+        passing_tds=("pass_touchdown", "sum"),
+        interceptions=("interception", "sum"),
+        passing_epa=(epa_col, "sum"),
+        games=("game_id", "nunique"),
+    ).reset_index().rename(columns={"passer_player_id": "player_id"})
+    seas = seas[seas["attempts"] >= MIN_SEASON_ATTEMPTS].copy()
+    seas["passing_yards"] = seas["passing_yards"].fillna(0)
+    seas["rating"] = passer_rating(seas["completions"], seas["attempts"],
+                                   seas["passing_yards"], seas["passing_tds"],
+                                   seas["interceptions"])
+    league_by_season = seas.groupby("season")["rating"].mean()
+
+    top_ids = (seas.groupby("player_id")["passing_yards"].sum()
+               .nlargest(TS_TOP_N).index)
+    players = []
+    for pid in top_ids:
+        gp = seas[seas["player_id"] == pid].sort_values("season")
+        players.append({
+            "name": id_to_name.get(pid, pid),
+            "id": pid,
+            "seasons": [
+                {"season": int(r.season), "rating": r.rating,
+                 "epa": r.passing_epa, "yards": r.passing_yards,
+                 "tds": int(r.passing_tds), "ints": int(r.interceptions),
+                 "games": int(r.games)}
+                for r in gp.itertuples()
+            ],
+        })
+
+    return assemble(archetypes, situational, players, league_by_season,
+                    window=window, live=True)
+
+
+# ---------------------------------------------------------------------------
+# Shared: KPIs, assembly, injection
+# ---------------------------------------------------------------------------
+
+def assemble(archetypes, situational, players, league_by_season, window, live):
+    sit = pd.DataFrame(situational)
+    arch = pd.DataFrame(archetypes)
+
+    deltas = sit["delta"].dropna()
+    clutch_ranked = sit[sit["clutch_att"] >= MIN_CLUTCH_ATTEMPTS] \
+        .sort_values("clutch_cmp_pct", ascending=False)
+    fourth_ranked = sit[sit["fourth_att"] >= MIN_FOURTH_ATTEMPTS]
+
+    kpis = {
+        "league_avg_rating": float(np.average(arch["rating"], weights=arch["attempts"])),
+        "avg_third_down_delta": float(deltas.mean()),
+        "pct_declining_on_third": float((deltas < 0).mean() * 100),
+        "clutch_leader": clutch_ranked.iloc[0]["name"] if len(clutch_ranked) else None,
+        "clutch_leader_pct": float(clutch_ranked.iloc[0]["clutch_cmp_pct"]) if len(clutch_ranked) else None,
+        "fourth_down_league_rate": float(
+            fourth_ranked["fourth_conv"].sum() / fourth_ranked["fourth_att"].sum() * 100
+        ) if len(fourth_ranked) else None,
+        "elite_count": int((arch["archetype"] == "Elite Quarterbacks").sum()),
+        "qualified_qbs": int(len(arch)),
+    }
+
+    payload = {
+        "meta": {
+            "updated": date.today().isoformat(),
+            "window": window,
+            "source": "nflverse via nfl_data_py",
+            "mode": "live" if live else "baseline-exports",
+            "thresholds": {
+                "archetype_attempts": MIN_ARCHETYPE_ATTEMPTS,
+                "down_attempts": MIN_DOWN_ATTEMPTS,
+                "clutch_attempts": MIN_CLUTCH_ATTEMPTS,
+                "fourth_attempts": MIN_FOURTH_ATTEMPTS,
+            },
+        },
+        "kpis": kpis,
+        "archetypes": archetypes,
+        "situational": situational,
+        "league_avg_by_season": {int(k): float(v) for k, v in league_by_season.items()},
+        "players": players,
+    }
+    return round_rec(payload)
+
+
+def inject(payload):
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    blob = json.dumps(payload, separators=(",", ":"), ensure_ascii=False)
+    OUT_JSON.write_text(json.dumps(payload, indent=1, ensure_ascii=False))
+    print(f"wrote {OUT_JSON}")
+
+    if DASHBOARD_HTML.exists():
+        html = DASHBOARD_HTML.read_text()
+        safe = blob.replace("</", "<\\/")
+        new = re.sub(
+            r'(<script id="qb-data" type="application/json">).*?(</script>)',
+            lambda m: m.group(1) + safe + m.group(2),
+            html, flags=re.S)
+        DASHBOARD_HTML.write_text(new)
+        print(f"injected payload into {DASHBOARD_HTML}")
+    else:
+        print(f"note: {DASHBOARD_HTML} not found; JSON written only")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    mode = ap.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--from-exports", action="store_true")
+    mode.add_argument("--live", action="store_true")
+    today = date.today()
+    latest_season = today.year if today.month >= 9 else today.year - 1
+    ap.add_argument("--seasons", nargs=2, type=int, default=[2019, latest_season],
+                    metavar=("FIRST", "LAST"))
+    args = ap.parse_args()
+
+    payload = build_live(args.seasons) if args.live else build_from_exports()
+    inject(payload)
+
+
+if __name__ == "__main__":
+    main()

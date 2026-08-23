@@ -8,6 +8,7 @@ This performance analysis is then fused with salary data to create an "Archetype
 
 ## 📊 View Interactive Analysis
 
+### [**🏈 Fourth & Data — Live QB Dashboard**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/dashboard/)
 ### [**📈 View the Executive Dashboard on Tableau**](https://public.tableau.com/app/profile/tyler.mclaurin/viz/QBSalaryAnalyticsW/ExecutiveSummary)
 ### [**➡️ View Interactive Dashboard**](https://bruddaondabeat.github.io/NFL_QB_ANALYSIS/)
 ### [**📊 View Analysis on nbviewer**](https://nbviewer.org/github/bruddaondabeat/NFL_QB_ANALYSIS/blob/main/nfl-qb-analysis.ipynb)
@@ -20,6 +21,20 @@ This performance analysis is then fused with salary data to create an "Archetype
 * **Time-Series Visualization:** Tracks QB performance over a 5-year period against the league average.
 * **Unsupervised Machine Learning:** Implements KMeans clustering to identify data-driven QB archetypes.
 * **Interactive Data Visualization:** Uses Plotly to create an interactive bubble chart for exploring the QB archetypes.
+
+## 🏈 Live Dashboard: Fourth & Data
+
+`dashboard/index.html` is a self-contained, dependency-free interactive dashboard built from this analysis — QB archetype map (KMeans), 1st-vs-3rd down pressure deltas, the clutch board (final 2:00 of one-score games + 4th-down conversion), and 5-season passer-rating trajectories.
+
+**Prototype skins:** the masthead has a live skin switcher (also via `?skin=` URL param) with four complete visual treatments — **Film Room** (chalkboard editorial), **Aurora** (glassmorphism over an animated WebGL nebula — default), **Terminal** (trading-floor phosphor green with volumetric light shafts, Fragment Mono numerals), and **Press Box** (light print editorial, Instrument Serif/Newsreader). The Aurora and Terminal backdrops and embedded OFL fonts are adapted from [ThreeUI Community](https://github.com/MengTo/threeui) (MIT © Meng To) — see `dashboard/NOTICES.md`.
+
+**Weekly ingestion:** `.github/workflows/update-dashboard-data.yml` runs every Tuesday morning during the season (Sep–Feb), pulls fresh play-by-play from nflverse via `nfl_data_py`, recomputes every benchmark, and commits the refreshed data. Rebuild locally with:
+
+```bash
+pip install -r pipeline/requirements.txt
+python pipeline/build_dashboard_data.py --from-exports   # offline, from committed CSVs
+python pipeline/build_dashboard_data.py --live           # fresh pull from nflverse
+```
 
 ## Tech Stack
 * **Data Manipulation & Analysis:** Python, pandas, NumPy
