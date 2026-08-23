@@ -5,21 +5,25 @@
   "source": "nflverse via nfl_data_py",
   "mode": "baseline-exports",
   "thresholds": {
-   "archetype_attempts": 100,
+   "archetype_attempts": 200,
    "down_attempts": 20,
-   "clutch_attempts": 10,
-   "fourth_attempts": 5
+   "clutch_attempts": 20,
+   "fourth_attempts": 5,
+   "shrink_k_clutch": 20,
+   "shrink_k_fourth": 15
   }
  },
  "kpis": {
-  "league_avg_rating": 91.1111,
+  "league_avg_rating": 91.5398,
   "avg_third_down_delta": -7.2142,
   "pct_declining_on_third": 86.4865,
-  "clutch_leader": "C.J. Stroud",
-  "clutch_leader_pct": 85.7143,
+  "clutch_leader": "Jared Goff",
+  "clutch_leader_pct": 85.0,
+  "clutch_leader_adj": 70.0709,
+  "clutch_league_rate": 55.1418,
   "fourth_down_league_rate": 44.8529,
-  "elite_count": 34,
-  "qualified_qbs": 87
+  "elite_count": 33,
+  "qualified_qbs": 71
  },
  "archetypes": [
   {
@@ -43,17 +47,6 @@
    "int_rate": 1.3021,
    "rating": 111.324,
    "attempts": 768
-  },
-  {
-   "name": "Eli Manning",
-   "id": "00-0022803",
-   "archetype": "The League Core",
-   "cmp_pct": 61.9048,
-   "ypa": 7.0884,
-   "td_rate": 4.0816,
-   "int_rate": 3.4014,
-   "rating": 82.6389,
-   "attempts": 147
   },
   {
    "name": "Ben Roethlisberger",
@@ -142,17 +135,6 @@
    "int_rate": 2.2727,
    "rating": 97.0442,
    "attempts": 2244
-  },
-  {
-   "name": "Colt McCoy",
-   "id": "00-0027688",
-   "archetype": "The League Core",
-   "cmp_pct": 68.1818,
-   "ypa": 5.9091,
-   "td_rate": 0.7576,
-   "int_rate": 2.2727,
-   "rating": 76.5783,
-   "attempts": 132
   },
   {
    "name": "Cam Newton",
@@ -342,28 +324,6 @@
    "attempts": 460
   },
   {
-   "name": "Brandon Allen",
-   "id": "00-0032434",
-   "archetype": "The League Core",
-   "cmp_pct": 63.3803,
-   "ypa": 6.5141,
-   "td_rate": 3.5211,
-   "int_rate": 2.8169,
-   "rating": 82.0423,
-   "attempts": 142
-  },
-  {
-   "name": "Jeff Driskel",
-   "id": "00-0032436",
-   "archetype": "The League Core",
-   "cmp_pct": 59.0476,
-   "ypa": 6.5238,
-   "td_rate": 3.8095,
-   "int_rate": 3.8095,
-   "rating": 75.2976,
-   "attempts": 105
-  },
-  {
    "name": "Carson Wentz",
    "id": "00-0032950",
    "archetype": "The League Core",
@@ -452,17 +412,6 @@
    "attempts": 1380
   },
   {
-   "name": "Cooper Rush",
-   "id": "00-0033662",
-   "archetype": "The League Core",
-   "cmp_pct": 58.0247,
-   "ypa": 6.4877,
-   "td_rate": 3.0864,
-   "int_rate": 1.8519,
-   "rating": 80.0412,
-   "attempts": 162
-  },
-  {
    "name": "Mitchell Trubisky",
    "id": "00-0033869",
    "archetype": "The League Core",
@@ -485,17 +434,6 @@
    "attempts": 2975
   },
   {
-   "name": "C.J. Beathard",
-   "id": "00-0033936",
-   "archetype": "Elite Quarterbacks",
-   "cmp_pct": 63.4615,
-   "ypa": 7.5673,
-   "td_rate": 5.7692,
-   "int_rate": 0.0,
-   "rating": 105.7292,
-   "attempts": 104
-  },
-  {
    "name": "Joshua Dobbs",
    "id": "00-0033949",
    "archetype": "The League Core",
@@ -505,17 +443,6 @@
    "int_rate": 2.3981,
    "rating": 79.4614,
    "attempts": 417
-  },
-  {
-   "name": "Josh Rosen",
-   "id": "00-0034343",
-   "archetype": "Struggling & Backups",
-   "cmp_pct": 53.211,
-   "ypa": 5.2018,
-   "td_rate": 0.9174,
-   "int_rate": 4.5872,
-   "rating": 52.0451,
-   "attempts": 109
   },
   {
    "name": "Mike White",
@@ -595,17 +522,6 @@
    "attempts": 1351
   },
   {
-   "name": "David Blough",
-   "id": "00-0035040",
-   "archetype": "Struggling & Backups",
-   "cmp_pct": 54.023,
-   "ypa": 5.6552,
-   "td_rate": 2.2989,
-   "int_rate": 3.4483,
-   "rating": 63.9607,
-   "attempts": 174
-  },
-  {
    "name": "Jake Browning",
    "id": "00-0035100",
    "archetype": "Elite Quarterbacks",
@@ -639,17 +555,6 @@
    "attempts": 444
   },
   {
-   "name": "Easton Stick",
-   "id": "00-0035282",
-   "archetype": "The League Core",
-   "cmp_pct": 63.7931,
-   "ypa": 6.4885,
-   "td_rate": 1.7241,
-   "int_rate": 0.5747,
-   "rating": 85.6322,
-   "attempts": 174
-  },
-  {
    "name": "Gardner Minshew",
    "id": "00-0035289",
    "archetype": "The League Core",
@@ -659,17 +564,6 @@
    "int_rate": 1.554,
    "rating": 90.5497,
    "attempts": 1287
-  },
-  {
-   "name": "Devlin Hodges",
-   "id": "00-0035577",
-   "archetype": "The League Core",
-   "cmp_pct": 62.5,
-   "ypa": 6.6437,
-   "td_rate": 3.125,
-   "int_rate": 5.0,
-   "rating": 71.4323,
-   "attempts": 160
   },
   {
    "name": "Drew Lock",
@@ -727,17 +621,6 @@
    "attempts": 579
   },
   {
-   "name": "Jake Luton",
-   "id": "00-0036312",
-   "archetype": "Struggling & Backups",
-   "cmp_pct": 54.5455,
-   "ypa": 5.6727,
-   "td_rate": 1.8182,
-   "int_rate": 5.4545,
-   "rating": 54.5076,
-   "attempts": 110
-  },
-  {
    "name": "Justin Herbert",
    "id": "00-0036355",
    "archetype": "Elite Quarterbacks",
@@ -769,17 +652,6 @@
    "int_rate": 1.9525,
    "rating": 97.4687,
    "attempts": 1895
-  },
-  {
-   "name": "Sam Ehlinger",
-   "id": "00-0036879",
-   "archetype": "The League Core",
-   "cmp_pct": 63.3663,
-   "ypa": 5.6733,
-   "td_rate": 2.9703,
-   "int_rate": 2.9703,
-   "rating": 76.052,
-   "attempts": 101
   },
   {
    "name": "Davis Mills",
@@ -848,17 +720,6 @@
    "attempts": 612
   },
   {
-   "name": "Skylar Thompson",
-   "id": "00-0037327",
-   "archetype": "Struggling & Backups",
-   "cmp_pct": 57.1429,
-   "ypa": 5.0857,
-   "td_rate": 0.9524,
-   "int_rate": 2.8571,
-   "rating": 62.1627,
-   "attempts": 105
-  },
-  {
    "name": "Brock Purdy",
    "id": "00-0037834",
    "archetype": "Elite Quarterbacks",
@@ -903,28 +764,6 @@
    "attempts": 503
   },
   {
-   "name": "Tyson Bagent",
-   "id": "00-0038416",
-   "archetype": "The League Core",
-   "cmp_pct": 65.7343,
-   "ypa": 6.007,
-   "td_rate": 2.0979,
-   "int_rate": 4.1958,
-   "rating": 71.4015,
-   "attempts": 143
-  },
-  {
-   "name": "Tommy DeVito",
-   "id": "00-0038476",
-   "archetype": "The League Core",
-   "cmp_pct": 64.0449,
-   "ypa": 6.1854,
-   "td_rate": 4.4944,
-   "int_rate": 1.6854,
-   "rating": 89.1854,
-   "attempts": 178
-  },
-  {
    "name": "Aidan O'Connell",
    "id": "00-0038579",
    "archetype": "The League Core",
@@ -934,17 +773,6 @@
    "int_rate": 2.0408,
    "rating": 83.9346,
    "attempts": 343
-  },
-  {
-   "name": "Dorian Thompson-Robinson",
-   "id": "00-0038583",
-   "archetype": "Struggling & Backups",
-   "cmp_pct": 53.5714,
-   "ypa": 3.9286,
-   "td_rate": 0.8929,
-   "int_rate": 3.5714,
-   "rating": 51.1905,
-   "attempts": 112
   },
   {
    "name": "Bryce Young",
@@ -999,7 +827,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "A. Richardson",
@@ -1019,7 +849,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "B. Gabbert",
@@ -1039,7 +871,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "B. Hoyer",
@@ -1059,7 +893,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Baker Mayfield",
@@ -1079,7 +915,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 11.0,
    "fourth_conv": 6.0,
-   "fourth_rate": 54.5454
+   "fourth_rate": 54.5454,
+   "clutch_cmp_adj": 57.5709,
+   "fourth_rate_adj": 48.9536
   },
   {
    "name": "Brock Purdy",
@@ -1099,7 +937,9 @@
    "clutch_ints": 1.0,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": 53.2136,
+   "fourth_rate_adj": null
   },
   {
    "name": "B. Rypien",
@@ -1119,7 +959,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Bryce Young",
@@ -1139,7 +981,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 28.0,
    "fourth_conv": 13.0,
-   "fourth_rate": 46.4286
+   "fourth_rate": 46.4286,
+   "clutch_cmp_adj": 53.4279,
+   "fourth_rate_adj": 45.8789
   },
   {
    "name": "Bailey Zappe",
@@ -1159,7 +1003,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 7.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 28.5714
+   "fourth_rate": 28.5714,
+   "clutch_cmp_adj": 57.6617,
+   "fourth_rate_adj": 39.6725
   },
   {
    "name": "C.J. Beathard",
@@ -1179,7 +1025,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Case Keenum",
@@ -1199,7 +1047,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "C.J. Stroud",
@@ -1219,7 +1069,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 8.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 37.5
+   "fourth_rate": 37.5,
+   "clutch_cmp_adj": 67.7305,
+   "fourth_rate_adj": 42.2954
   },
   {
    "name": "Derek Carr",
@@ -1239,7 +1091,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 8.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 25.0
+   "fourth_rate": 25.0,
+   "clutch_cmp_adj": 47.4431,
+   "fourth_rate_adj": 37.9476
   },
   {
    "name": "Daniel Jones",
@@ -1259,7 +1113,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 60.0
+   "fourth_rate": 60.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 48.6397
   },
   {
    "name": "Drew Lock",
@@ -1279,7 +1135,9 @@
    "clutch_ints": 0.0,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": 53.4279,
+   "fourth_rate_adj": null
   },
   {
    "name": "Davis Mills",
@@ -1299,7 +1157,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 1.0,
-   "fourth_rate": 20.0
+   "fourth_rate": 20.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 38.6397
   },
   {
    "name": "Dak Prescott",
@@ -1319,7 +1179,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 14.0,
    "fourth_conv": 7.0,
-   "fourth_rate": 50.0
+   "fourth_rate": 50.0,
+   "clutch_cmp_adj": 56.7612,
+   "fourth_rate_adj": 47.3377
   },
   {
    "name": "Desmond Ridder",
@@ -1339,7 +1201,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 8.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 25.0
+   "fourth_rate": 25.0,
+   "clutch_cmp_adj": 68.4957,
+   "fourth_rate_adj": 37.9476
   },
   {
    "name": "Deshaun Watson",
@@ -1359,7 +1223,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Easton Stick",
@@ -1379,7 +1245,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 60.0
+   "fourth_rate": 60.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 48.6397
   },
   {
    "name": "Gardner Minshew",
@@ -1399,7 +1267,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 21.0,
    "fourth_conv": 11.0,
-   "fourth_rate": 52.3809
+   "fourth_rate": 52.3809,
+   "clutch_cmp_adj": 53.4279,
+   "fourth_rate_adj": 49.2443
   },
   {
    "name": "Geno Smith",
@@ -1419,7 +1289,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 7.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 28.5714
+   "fourth_rate": 28.5714,
+   "clutch_cmp_adj": 61.593,
+   "fourth_rate_adj": 39.6725
   },
   {
    "name": "Josh Allen",
@@ -1439,7 +1311,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 11.0,
    "fourth_conv": 5.0,
-   "fourth_rate": 45.4545
+   "fourth_rate": 45.4545,
+   "clutch_cmp_adj": 53.2136,
+   "fourth_rate_adj": 45.1075
   },
   {
    "name": "Jake Browning",
@@ -1459,7 +1333,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 5.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 40.0
+   "fourth_rate": 40.0,
+   "clutch_cmp_adj": 58.156,
+   "fourth_rate_adj": 43.6397
   },
   {
    "name": "Joe Burrow",
@@ -1479,7 +1355,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 60.0
+   "fourth_rate": 60.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 48.6397
   },
   {
    "name": "Joshua Dobbs",
@@ -1499,7 +1377,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 14.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 21.4286
+   "fourth_rate": 21.4286,
+   "clutch_cmp_adj": 51.2887,
+   "fourth_rate_adj": 33.5446
   },
   {
    "name": "Jeff Driskel",
@@ -1519,7 +1399,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Justin Fields",
@@ -1539,7 +1421,9 @@
    "clutch_ints": 2.0,
    "fourth_att": 8.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 50.0
+   "fourth_rate": 50.0,
+   "clutch_cmp_adj": 45.7953,
+   "fourth_rate_adj": 46.6432
   },
   {
    "name": "Joe Flacco",
@@ -1559,7 +1443,9 @@
    "clutch_ints": null,
    "fourth_att": 10.0,
    "fourth_conv": 5.0,
-   "fourth_rate": 50.0
+   "fourth_rate": 50.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 46.9118
   },
   {
    "name": "Jimmy Garoppolo",
@@ -1579,7 +1465,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 40.0
+   "fourth_rate": 40.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 43.6397
   },
   {
    "name": "Jared Goff",
@@ -1599,7 +1487,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 31.0,
    "fourth_conv": 13.0,
-   "fourth_rate": 41.9355
+   "fourth_rate": 41.9355,
+   "clutch_cmp_adj": 70.0709,
+   "fourth_rate_adj": 42.8868
   },
   {
    "name": "Justin Herbert",
@@ -1619,7 +1509,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 14.0,
    "fourth_conv": 7.0,
-   "fourth_rate": 50.0
+   "fourth_rate": 50.0,
+   "clutch_cmp_adj": 57.5709,
+   "fourth_rate_adj": 47.3377
   },
   {
    "name": "Jalen Hurts",
@@ -1639,7 +1531,9 @@
    "clutch_ints": 3.0,
    "fourth_att": 13.0,
    "fourth_conv": 6.0,
-   "fourth_rate": 46.1538
+   "fourth_rate": 46.1538,
+   "clutch_cmp_adj": 52.4485,
+   "fourth_rate_adj": 45.4569
   },
   {
    "name": "Jordan Love",
@@ -1659,7 +1553,9 @@
    "clutch_ints": 4.0,
    "fourth_att": 18.0,
    "fourth_conv": 10.0,
-   "fourth_rate": 55.5556
+   "fourth_rate": 55.5556,
+   "clutch_cmp_adj": 46.8689,
+   "fourth_rate_adj": 50.6907
   },
   {
    "name": "J. Stidham",
@@ -1679,7 +1575,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Jameis Winston",
@@ -1699,7 +1597,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Kirk Cousins",
@@ -1719,7 +1619,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 10.0,
    "fourth_conv": 7.0,
-   "fourth_rate": 70.0
+   "fourth_rate": 70.0,
+   "clutch_cmp_adj": 53.2136,
+   "fourth_rate_adj": 54.9118
   },
   {
    "name": "Kyler Murray",
@@ -1739,7 +1641,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 11.0,
    "fourth_conv": 5.0,
-   "fourth_rate": 45.4545
+   "fourth_rate": 45.4545,
+   "clutch_cmp_adj": 58.907,
+   "fourth_rate_adj": 45.1075
   },
   {
    "name": "Kenny Pickett",
@@ -1759,7 +1663,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Lamar Jackson",
@@ -1779,7 +1685,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 5.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 40.0
+   "fourth_rate": 40.0,
+   "clutch_cmp_adj": 58.156,
+   "fourth_rate_adj": 43.6397
   },
   {
    "name": "Mac Jones",
@@ -1799,7 +1707,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 10.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 30.0
+   "fourth_rate": 30.0,
+   "clutch_cmp_adj": 58.7573,
+   "fourth_rate_adj": 38.9118
   },
   {
    "name": "Mason Rudolph",
@@ -1819,7 +1729,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Matthew Stafford",
@@ -1839,7 +1751,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 8.0,
    "fourth_conv": 6.0,
-   "fourth_rate": 75.0
+   "fourth_rate": 75.0,
+   "clutch_cmp_adj": 51.5096,
+   "fourth_rate_adj": 55.3389
   },
   {
    "name": "Mitchell Trubisky",
@@ -1859,7 +1773,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 1.0,
-   "fourth_rate": 20.0
+   "fourth_rate": 20.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 38.6397
   },
   {
    "name": "Nick Mullens",
@@ -1879,7 +1795,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 1.0,
-   "fourth_rate": 20.0
+   "fourth_rate": 20.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 38.6397
   },
   {
    "name": "Patrick Mahomes",
@@ -1899,7 +1817,9 @@
    "clutch_ints": 0.0,
    "fourth_att": 12.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 33.3333
+   "fourth_rate": 33.3333,
+   "clutch_cmp_adj": 48.0567,
+   "fourth_rate_adj": 39.7331
   },
   {
    "name": "PJ Walker",
@@ -1919,7 +1839,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Ryan Tannehill",
@@ -1939,7 +1861,9 @@
    "clutch_ints": null,
    "fourth_att": 5.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 80.0
+   "fourth_rate": 80.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 53.6397
   },
   {
    "name": "Russell Wilson",
@@ -1959,7 +1883,9 @@
    "clutch_ints": 1.0,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": 53.1191,
+   "fourth_rate_adj": null
   },
   {
    "name": "Sam Darnold",
@@ -1979,7 +1905,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Sam Howell",
@@ -1999,7 +1927,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 19.0,
    "fourth_conv": 10.0,
-   "fourth_rate": 52.6316
+   "fourth_rate": 52.6316,
+   "clutch_cmp_adj": 54.2258,
+   "fourth_rate_adj": 49.1998
   },
   {
    "name": "Tyson Bagent",
@@ -2019,7 +1949,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "T. Boyle",
@@ -2039,7 +1971,9 @@
    "clutch_ints": null,
    "fourth_att": 6.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 66.6667
+   "fourth_rate": 66.6667,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 51.0854
   },
   {
    "name": "Tommy DeVito",
@@ -2059,7 +1993,9 @@
    "clutch_ints": null,
    "fourth_att": 10.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 40.0
+   "fourth_rate": 40.0,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 42.9118
   },
   {
    "name": "Taylor Heinicke",
@@ -2079,7 +2015,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Tyler Huntley",
@@ -2099,7 +2037,9 @@
    "clutch_ints": null,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": null
   },
   {
    "name": "Trevor Lawrence",
@@ -2119,7 +2059,9 @@
    "clutch_ints": null,
    "fourth_att": 13.0,
    "fourth_conv": 4.0,
-   "fourth_rate": 30.7692
+   "fourth_rate": 30.7692,
+   "clutch_cmp_adj": null,
+   "fourth_rate_adj": 38.3141
   },
   {
    "name": "Trevor Siemian",
@@ -2139,7 +2081,9 @@
    "clutch_ints": 0.0,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": 48.4786,
+   "fourth_rate_adj": null
   },
   {
    "name": "Tua Tagovailoa",
@@ -2159,7 +2103,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 17.0,
    "fourth_conv": 8.0,
-   "fourth_rate": 47.0588
+   "fourth_rate": 47.0588,
+   "clutch_cmp_adj": 55.6344,
+   "fourth_rate_adj": 46.0248
   },
   {
    "name": "Tyrod Taylor",
@@ -2179,7 +2125,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 5.0,
    "fourth_conv": 2.0,
-   "fourth_rate": 40.0
+   "fourth_rate": 40.0,
+   "clutch_cmp_adj": 56.1668,
+   "fourth_rate_adj": 43.6397
   },
   {
    "name": "Will Levis",
@@ -2199,7 +2147,9 @@
    "clutch_ints": 1.0,
    "fourth_att": null,
    "fourth_conv": null,
-   "fourth_rate": null
+   "fourth_rate": null,
+   "clutch_cmp_adj": 51.3548,
+   "fourth_rate_adj": null
   },
   {
    "name": "Zach Wilson",
@@ -2219,7 +2169,9 @@
    "clutch_ints": 1.0,
    "fourth_att": 6.0,
    "fourth_conv": 3.0,
-   "fourth_rate": 50.0
+   "fourth_rate": 50.0,
+   "clutch_cmp_adj": 51.428,
+   "fourth_rate_adj": 46.3235
   }
  ],
  "league_avg_by_season": {

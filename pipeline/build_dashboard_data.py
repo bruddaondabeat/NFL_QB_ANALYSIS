@@ -34,11 +34,17 @@ EXPORTS = ROOT / "tableau_exports"
 OUT_JSON = ROOT / "dashboard" / "data" / "qb_data.json"
 DASHBOARD_HTML = ROOT / "dashboard" / "index.html"
 
-# Benchmark thresholds (mirror the notebook's qualification rules)
-MIN_ARCHETYPE_ATTEMPTS = 100   # window attempts to enter the KMeans model
+# Benchmark thresholds — hardened after the 2026-08 stability audit
+# (see research/stability_findings.md): small samples were allowed to
+# headline leaderboards (a 101-attempt QB topping the elite tier, a
+# 12-attempt "clutch leader"), so floors went up and rate leaderboards
+# now also carry empirical-Bayes shrunk estimates.
+MIN_ARCHETYPE_ATTEMPTS = 200   # window attempts to enter the KMeans model
 MIN_DOWN_ATTEMPTS = 20         # attempts on a given down for the 1st-vs-3rd split
-MIN_CLUTCH_ATTEMPTS = 10       # attempts inside the clutch window to be ranked
+MIN_CLUTCH_ATTEMPTS = 20       # attempts inside the clutch window to be ranked
 MIN_FOURTH_ATTEMPTS = 5        # 4th-down attempts to be ranked
+SHRINK_K_CLUTCH = 20           # prior strength (pseudo-attempts) for clutch cmp%
+SHRINK_K_FOURTH = 15           # prior strength for 4th-down conversion rate
 CLUTCH_SECONDS = 120           # last two minutes of a half
 CLUTCH_SCORE_BAND = (-8, 7)    # one-score game, trailing by 8 to leading by 7
 TS_TOP_N = 20                  # trajectory panel: top N by window passing yards
@@ -175,12 +181,15 @@ def build_live(seasons):
         return df.index.to_series().map(id_to_name).fillna(df.index.to_series())
 
     # --- Archetype model inputs: window rate stats per passer ---------------
+    epa_col_w = "qb_epa" if "qb_epa" in passes.columns else "epa"
     g = passes.groupby("passer_player_id").agg(
         attempts=("play_id", "size"),
         completions=("is_completion", "sum"),
         yards=("passing_yards", "sum"),
         tds=("pass_touchdown", "sum"),
         ints=("interception", "sum"),
+        epa_per_db=(epa_col_w, "mean"),
+        cpoe=("cpoe", "mean"),
     )
     g = g[g["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
     g["cmp_pct"] = g["completions"] / g["attempts"] * 100
@@ -206,7 +215,8 @@ def build_live(seasons):
     archetypes = [
         {"name": r.name, "id": r.Index, "archetype": r.archetype,
          "cmp_pct": r.cmp_pct, "ypa": r.ypa, "td_rate": r.td_rate,
-         "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts)}
+         "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts),
+         "epa_per_db": r.epa_per_db, "cpoe": r.cpoe}
         for r in g.itertuples()
     ]
     arch_map = g["archetype"].to_dict()
@@ -310,13 +320,40 @@ def build_live(seasons):
 # Shared: KPIs, assembly, injection
 # ---------------------------------------------------------------------------
 
+def shrink(rate_pct, n, prior_pct, k):
+    """Empirical-Bayes: pull a small-sample rate toward the league rate.
+    A 12-attempt 80% should not outrank a 40-attempt 65%."""
+    bad = lambda v: v is None or (isinstance(v, float) and np.isnan(v))
+    if bad(rate_pct) or bad(n) or n <= 0:
+        return np.nan
+    return (rate_pct / 100 * n + prior_pct / 100 * k) / (n + k) * 100
+
+
 def assemble(archetypes, situational, players, league_by_season, window, live):
+    # qualification floor applies in both modes (exports CSVs predate it)
+    archetypes = [a for a in archetypes if a["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
     sit = pd.DataFrame(situational)
     arch = pd.DataFrame(archetypes)
 
+    # league priors for shrinkage (attempt-weighted league rates)
+    cl = sit[(sit["clutch_att"].notna()) & (sit["clutch_att"] > 0)]
+    prior_clutch = float((cl["clutch_cmp_pct"] / 100 * cl["clutch_att"]).sum()
+                         / cl["clutch_att"].sum() * 100) if len(cl) else 60.0
+    fo = sit[(sit["fourth_att"].notna()) & (sit["fourth_att"] > 0)]
+    prior_fourth = float((fo["fourth_rate"] / 100 * fo["fourth_att"]).sum()
+                         / fo["fourth_att"].sum() * 100) if len(fo) else 45.0
+    for row in situational:
+        row["clutch_cmp_adj"] = shrink(row.get("clutch_cmp_pct"),
+                                       row.get("clutch_att"),
+                                       prior_clutch, SHRINK_K_CLUTCH)
+        row["fourth_rate_adj"] = shrink(row.get("fourth_rate"),
+                                        row.get("fourth_att"),
+                                        prior_fourth, SHRINK_K_FOURTH)
+    sit = pd.DataFrame(situational)
+
     deltas = sit["delta"].dropna()
     clutch_ranked = sit[sit["clutch_att"] >= MIN_CLUTCH_ATTEMPTS] \
-        .sort_values("clutch_cmp_pct", ascending=False)
+        .sort_values("clutch_cmp_adj", ascending=False)
     fourth_ranked = sit[sit["fourth_att"] >= MIN_FOURTH_ATTEMPTS]
 
     kpis = {
@@ -325,6 +362,8 @@ def assemble(archetypes, situational, players, league_by_season, window, live):
         "pct_declining_on_third": float((deltas < 0).mean() * 100),
         "clutch_leader": clutch_ranked.iloc[0]["name"] if len(clutch_ranked) else None,
         "clutch_leader_pct": float(clutch_ranked.iloc[0]["clutch_cmp_pct"]) if len(clutch_ranked) else None,
+        "clutch_leader_adj": float(clutch_ranked.iloc[0]["clutch_cmp_adj"]) if len(clutch_ranked) else None,
+        "clutch_league_rate": prior_clutch,
         "fourth_down_league_rate": float(
             fourth_ranked["fourth_conv"].sum() / fourth_ranked["fourth_att"].sum() * 100
         ) if len(fourth_ranked) else None,
@@ -343,6 +382,8 @@ def assemble(archetypes, situational, players, league_by_season, window, live):
                 "down_attempts": MIN_DOWN_ATTEMPTS,
                 "clutch_attempts": MIN_CLUTCH_ATTEMPTS,
                 "fourth_attempts": MIN_FOURTH_ATTEMPTS,
+                "shrink_k_clutch": SHRINK_K_CLUTCH,
+                "shrink_k_fourth": SHRINK_K_FOURTH,
             },
         },
         "kpis": kpis,

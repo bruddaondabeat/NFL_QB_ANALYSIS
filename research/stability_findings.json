@@ -1,0 +1,80 @@
+{
+ "generated": "2026-08-22",
+ "seasons": [
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "qualification": {
+  "season_attempts": 150,
+  "down_attempts": 20,
+  "clutch_attempts": 10,
+  "fourth_attempts": 5
+ },
+ "yoy": {
+  "epa_per_db": {
+   "label": "EPA per dropback",
+   "yoy_r": 0.4507584061484383,
+   "pairs": 117
+  },
+  "cpoe": {
+   "label": "CPOE",
+   "yoy_r": 0.3748015443665141,
+   "pairs": 117
+  },
+  "rating": {
+   "label": "Passer rating",
+   "yoy_r": 0.4083035323362785,
+   "pairs": 117
+  },
+  "cmp_pct": {
+   "label": "Completion %",
+   "yoy_r": 0.5346464425879665,
+   "pairs": 117
+  },
+  "ypa": {
+   "label": "Yards / attempt",
+   "yoy_r": 0.3913089991975884,
+   "pairs": 117
+  },
+  "third_down_delta": {
+   "label": "3rd-down delta (cmp% 3rd - 1st)",
+   "yoy_r": -0.1988549650152721,
+   "pairs": 117
+  },
+  "clutch_cmp_pct": {
+   "label": "Clutch cmp% (last 2:00, one-score)",
+   "yoy_r": 0.35217527213597466,
+   "pairs": 113
+  },
+  "fourth_rate": {
+   "label": "4th-down conversion rate",
+   "yoy_r": 0.09952910706739515,
+   "pairs": 97
+  }
+ },
+ "league_third_down": {
+  "2021": {
+   "share_declining": 89.5,
+   "mean_delta": -9.81
+  },
+  "2022": {
+   "share_declining": 90.0,
+   "mean_delta": -9.34
+  },
+  "2023": {
+   "share_declining": 86.0,
+   "mean_delta": -9.57
+  },
+  "2024": {
+   "share_declining": 95.3,
+   "mean_delta": -10.91
+  },
+  "2025": {
+   "share_declining": 95.2,
+   "mean_delta": -10.07
+  }
+ }
+}
