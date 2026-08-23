@@ -16,65 +16,65 @@
  "yoy": {
   "epa_per_db": {
    "label": "EPA per dropback",
-   "yoy_r": 0.4507584061484383,
+   "yoy_r": 0.4053106753633404,
    "pairs": 117
   },
   "cpoe": {
    "label": "CPOE",
-   "yoy_r": 0.3748015443665141,
+   "yoy_r": 0.3748015542402134,
    "pairs": 117
   },
   "rating": {
    "label": "Passer rating",
-   "yoy_r": 0.4083035323362785,
+   "yoy_r": 0.37933049588393164,
    "pairs": 117
   },
   "cmp_pct": {
    "label": "Completion %",
-   "yoy_r": 0.5346464425879665,
+   "yoy_r": 0.3896978786787231,
    "pairs": 117
   },
   "ypa": {
    "label": "Yards / attempt",
-   "yoy_r": 0.3913089991975884,
+   "yoy_r": 0.3714189045861235,
    "pairs": 117
   },
   "third_down_delta": {
    "label": "3rd-down delta (cmp% 3rd - 1st)",
-   "yoy_r": -0.1988549650152721,
+   "yoy_r": -0.045923981832081955,
    "pairs": 117
   },
   "clutch_cmp_pct": {
    "label": "Clutch cmp% (last 2:00, one-score)",
-   "yoy_r": 0.35217527213597466,
+   "yoy_r": 0.2534054036661656,
    "pairs": 113
   },
   "fourth_rate": {
    "label": "4th-down conversion rate",
-   "yoy_r": 0.09952910706739515,
-   "pairs": 97
+   "yoy_r": -0.010722330875083935,
+   "pairs": 92
   }
  },
  "league_third_down": {
   "2021": {
    "share_declining": 89.5,
-   "mean_delta": -9.81
+   "mean_delta": -7.38
   },
   "2022": {
-   "share_declining": 90.0,
-   "mean_delta": -9.34
+   "share_declining": 82.5,
+   "mean_delta": -6.51
   },
   "2023": {
-   "share_declining": 86.0,
-   "mean_delta": -9.57
+   "share_declining": 85.7,
+   "mean_delta": -6.83
   },
   "2024": {
-   "share_declining": 95.3,
-   "mean_delta": -10.91
+   "share_declining": 90.7,
+   "mean_delta": -7.94
   },
   "2025": {
-   "share_declining": 95.2,
-   "mean_delta": -10.07
+   "share_declining": 90.5,
+   "mean_delta": -7.28
   }
  }
 }

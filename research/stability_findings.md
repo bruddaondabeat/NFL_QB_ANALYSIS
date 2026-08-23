@@ -9,21 +9,21 @@ not a prediction.
 
 | Metric | YoY r | pairs |
 |---|---|---|
-| EPA per dropback | 0.451 | 117 |
+| EPA per dropback | 0.405 | 117 |
 | CPOE | 0.375 | 117 |
-| Passer rating | 0.408 | 117 |
-| Completion % | 0.535 | 117 |
-| Yards / attempt | 0.391 | 117 |
-| 3rd-down delta (cmp% 3rd - 1st) | -0.199 | 117 |
-| Clutch cmp% (last 2:00, one-score) | 0.352 | 113 |
-| 4th-down conversion rate | 0.100 | 97 |
+| Passer rating | 0.379 | 117 |
+| Completion % | 0.390 | 117 |
+| Yards / attempt | 0.371 | 117 |
+| 3rd-down delta (cmp% 3rd - 1st) | -0.046 | 117 |
+| Clutch cmp% (last 2:00, one-score) | 0.253 | 113 |
+| 4th-down conversion rate | -0.011 | 92 |
 
 ## League-level 3rd-down decline by season
 
 | Season | % of QBs declining | mean delta (pts) |
 |---|---|---|
-| 2021 | 89.5% | -9.81 |
-| 2022 | 90.0% | -9.34 |
-| 2023 | 86.0% | -9.57 |
-| 2024 | 95.3% | -10.91 |
-| 2025 | 95.2% | -10.07 |
+| 2021 | 89.5% | -7.38 |
+| 2022 | 82.5% | -6.51 |
+| 2023 | 85.7% | -6.83 |
+| 2024 | 90.7% | -7.94 |
+| 2025 | 90.5% | -7.28 |

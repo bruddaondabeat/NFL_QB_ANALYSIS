@@ -48,14 +48,25 @@ def passer_rating(cmp_, att, yds, td, ints):
 
 
 def season_metrics(season):
-    import nfl_data_py as nfl
-    print(f"season {season}: downloading pbp ...", file=sys.stderr, flush=True)
-    pbp = nfl.import_pbp_data([season], downcast=True)
-    p = pbp[(pbp["play_type"] == "pass") & pbp["passer_player_id"].notna()].copy()
-    del pbp
+    """Per-QB metrics for one season under the official attempt rule
+    (validated vs PFR in research/reconciliation_report.md): play_type in
+    {pass, qb_spike} with a credited passer, minus 2pt plays and sacks."""
+    import nflreadpy as nfl
+    import polars as pl
+    print(f"season {season}: loading pbp ...", file=sys.stderr, flush=True)
+    p = (nfl.load_pbp([season])
+         .filter(pl.col("play_type").is_in(["pass", "qb_spike"])
+                 & pl.col("passer_player_id").is_not_null())
+         .select(["play_id", "play_type", "passer_player_id",
+                  "passer_player_name", "complete_pass", "passing_yards",
+                  "pass_touchdown", "interception", "down", "qb_epa", "cpoe",
+                  "half_seconds_remaining", "score_differential",
+                  "first_down", "two_point_attempt", "sack"])
+         .to_pandas())
+    p = p[(p["two_point_attempt"] != 1) & (p["sack"] != 1)].copy()
     gc.collect()
     p["is_completion"] = p["complete_pass"].fillna(0)
-    epa_col = "qb_epa" if "qb_epa" in p.columns else "epa"
+    epa_col = "qb_epa"
 
     g = p.groupby("passer_player_id").agg(
         attempts=("play_id", "size"),

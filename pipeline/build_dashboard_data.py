@@ -66,6 +66,7 @@ PBP_COLS = [
     "passer_player_id", "passer_player_name", "complete_pass",
     "passing_yards", "pass_touchdown", "interception", "down", "qb_epa",
     "cpoe", "half_seconds_remaining", "score_differential", "first_down",
+    "two_point_attempt", "sack",
 ]
 
 
@@ -191,8 +192,19 @@ def build_from_exports():
 # ---------------------------------------------------------------------------
 
 def load_passes(years):
-    """Pass plays for all seasons, one season at a time, slimmed to the
-    columns we use — keeps memory flat regardless of window size."""
+    """Passing plays for all seasons, one season at a time, slimmed to the
+    columns we use — keeps memory flat regardless of window size.
+
+    Returns (official, dropbacks):
+      official   the reverse-engineered official-attempt rule, validated
+                 100% against PFR season tables 2021-2024 (see
+                 research/reconciliation_report.md): play_type in
+                 {pass, qb_spike} with a credited passer, EXCLUDING
+                 two-point conversion plays and sacks. All counting
+                 stats (cmp%, yards, TD, INT, rating) use this frame.
+      dropbacks  pass plays incl. sacks, excl. two-point plays — the
+                 conventional base for EPA/dropback and CPOE.
+    """
     import nflreadpy as nfl
     import polars as pl
 
@@ -201,15 +213,18 @@ def load_passes(years):
         print(f"loading pbp {y} ...", file=sys.stderr, flush=True)
         df = (
             nfl.load_pbp([y])
-            .filter((pl.col("play_type") == "pass")
+            .filter(pl.col("play_type").is_in(["pass", "qb_spike"])
                     & pl.col("passer_player_id").is_not_null())
             .select(PBP_COLS)
             .to_pandas()
         )
         frames.append(df)
-    passes = pd.concat(frames, ignore_index=True)
-    passes["is_completion"] = passes["complete_pass"].fillna(0)
-    return passes
+    plays = pd.concat(frames, ignore_index=True)
+    plays["is_completion"] = plays["complete_pass"].fillna(0)
+    no2pt = plays[plays["two_point_attempt"] != 1]
+    official = no2pt[no2pt["sack"] != 1].copy()
+    dropbacks = no2pt[no2pt["play_type"] == "pass"].copy()
+    return official, dropbacks
 
 
 def season_situational(latest, arch_map, id_to_name):
@@ -271,22 +286,26 @@ def build_live(seasons):
 
     years = list(range(seasons[0], seasons[1] + 1))
     window = f"{years[0]}–{years[-1]}"
-    passes = load_passes(years)
+    passes, dropbacks = load_passes(years)
 
     players_tbl = nfl.load_players().to_pandas()
     id_to_name = (players_tbl.dropna(subset=["gsis_id"])
                   .set_index("gsis_id")["display_name"].to_dict())
 
     # --- Archetype model inputs: window rate stats per passer ---------------
+    # counting stats from the official-rule frame; EPA/CPOE from dropbacks
     g = passes.groupby("passer_player_id").agg(
         attempts=("play_id", "size"),
         completions=("is_completion", "sum"),
         yards=("passing_yards", "sum"),
         tds=("pass_touchdown", "sum"),
         ints=("interception", "sum"),
+    )
+    db = dropbacks.groupby("passer_player_id").agg(
         epa_per_db=("qb_epa", "mean"),
         cpoe=("cpoe", "mean"),
     )
+    g = g.join(db)
     g = g[g["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
     g["cmp_pct"] = g["completions"] / g["attempts"] * 100
     g["ypa"] = g["yards"].fillna(0) / g["attempts"]
