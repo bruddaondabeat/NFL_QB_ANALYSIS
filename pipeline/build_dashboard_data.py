@@ -72,7 +72,13 @@ PBP_COLS = [
     "two_point_attempt", "sack",
     "posteam", "home_team", "result",        # game outcome (win impact)
     "ydstogo", "yardline_100", "qtr",        # play-success model features
+    "pass", "rush", "rusher_player_id",      # cQBR action plays
+    "wp", "qb_spike", "qb_kneel",            # cQBR leverage weighting
 ]
+
+CQBR_SPEC_PATH = ROOT / "research" / "metrics" / "cqbr_current.json"
+QBR_OFFICIAL_URL = ("https://github.com/nflverse/nflverse-data/releases/"
+                    "download/espn_data/qbr_season_level.csv")
 
 
 def norm_name(s):
@@ -284,7 +290,7 @@ def build_from_exports():
     return assemble(archetypes, {"2023": situational}, players,
                     league_by_season, window="2019–2023", live=False,
                     latest=2023, latest_week=None,
-                    contracts=load_contracts(), play_model=None)
+                    contracts=load_contracts(), play_model=None, cqbr=None)
 
 
 # ---------------------------------------------------------------------------
@@ -295,7 +301,7 @@ def load_passes(years):
     """Passing plays for all seasons, one season at a time, slimmed to the
     columns we use — keeps memory flat regardless of window size.
 
-    Returns (official, dropbacks):
+    Returns (official, dropbacks, action):
       official   the reverse-engineered official-attempt rule, validated
                  100% against PFR season tables 2021-2024 (see
                  research/reconciliation_report.md): play_type in
@@ -304,6 +310,9 @@ def load_passes(years):
                  stats (cmp%, yards, TD, INT, rating) use this frame.
       dropbacks  pass plays incl. sacks, excl. two-point plays — the
                  conventional base for EPA/dropback and CPOE.
+      action     QB action plays for cQBR: pass or rush credited to the
+                 passer (else rusher), excluding spikes and kneels, with
+                 EPA and win probability present.
     """
     import nflreadpy as nfl
     import polars as pl
@@ -313,18 +322,77 @@ def load_passes(years):
         print(f"loading pbp {y} ...", file=sys.stderr, flush=True)
         df = (
             nfl.load_pbp([y])
-            .filter(pl.col("play_type").is_in(["pass", "qb_spike"])
-                    & pl.col("passer_player_id").is_not_null())
+            .filter((pl.col("play_type").is_in(["pass", "qb_spike"])
+                     & pl.col("passer_player_id").is_not_null())
+                    | (pl.col("pass") == 1) | (pl.col("rush") == 1))
             .select(PBP_COLS)
             .to_pandas()
         )
         frames.append(df)
     plays = pd.concat(frames, ignore_index=True)
     plays["is_completion"] = plays["complete_pass"].fillna(0)
-    no2pt = plays[plays["two_point_attempt"] != 1]
+    passing = plays[plays["play_type"].isin(["pass", "qb_spike"])
+                    & plays["passer_player_id"].notna()]
+    no2pt = passing[passing["two_point_attempt"] != 1]
     official = no2pt[no2pt["sack"] != 1].copy()
     dropbacks = no2pt[no2pt["play_type"] == "pass"].copy()
-    return official, dropbacks
+    action = plays[((plays["pass"] == 1) | (plays["rush"] == 1))
+                   & (plays["qb_spike"] != 1) & (plays["qb_kneel"] != 1)].copy()
+    action["qb_id"] = action["passer_player_id"].fillna(action["rusher_player_id"])
+    action = action.dropna(subset=["qb_id", "qb_epa", "wp", "down"])
+    return official, dropbacks, action
+
+
+def score_cqbr(action):
+    """Score cQBR from the promoted metric spec (never refits here —
+    refitting is a deliberate research action via research/fit_cqbr.py).
+    Returns (per_season_df[qb_id, season, cqbr, n], window_map, spec)."""
+    if not CQBR_SPEC_PATH.exists():
+        return None, {}, None
+    spec = json.loads(CQBR_SPEC_PATH.read_text())
+    a, b = spec["coef"]["a"], spec["coef"]["b"]
+    d = action[action["season_type"] == "REG"].copy()
+    d["epa_f"] = d["qb_epa"].clip(lower=spec["epa_floor"])
+    wp = d["wp"].to_numpy()
+    w = np.ones(len(d))
+    w[(wp < 0.10) | (wp > 0.90)] = spec["wp_weights"]["extreme"]
+    w[((wp >= 0.10) & (wp < 0.20)) | ((wp > 0.80) & (wp <= 0.90))] = spec["wp_weights"]["band"]
+    d["w"] = w
+    d["wepa"] = d["epa_f"] * d["w"]
+
+    def to_cqbr(g):
+        x = g["wepa"] / g["wsum"]
+        return 100.0 / (1.0 + np.exp(-(a + b * x)))
+
+    seas = d.groupby(["qb_id", "season"]).agg(
+        wepa=("wepa", "sum"), wsum=("w", "sum"), n=("play_id", "size")).reset_index()
+    seas = seas[seas["n"] >= spec["min_action_plays"]]
+    seas["cqbr"] = to_cqbr(seas)
+
+    win = d.groupby("qb_id").agg(
+        wepa=("wepa", "sum"), wsum=("w", "sum"), n=("play_id", "size")).reset_index()
+    win = win[win["n"] >= spec["min_action_plays"]]
+    win["cqbr"] = to_cqbr(win)
+    window_map = win.set_index("qb_id")["cqbr"].to_dict()
+    return seas, window_map, spec
+
+
+def load_official_qbr(seasons, espn_to_gsis):
+    """Official ESPN QBR season values from nflverse (2006-2025). Returns
+    {(gsis_id, season): qbr_total} for qualified QBs, or {} on failure —
+    the weekly cron must not die because one optional feed is down."""
+    import polars as pl
+    try:
+        q = pl.read_csv(QBR_OFFICIAL_URL).to_pandas()
+    except Exception as e:
+        print(f"warning: official QBR feed unavailable ({e})", file=sys.stderr)
+        return {}
+    q = q[(q["season"].isin(seasons)) & (q["season_type"] == "Regular")
+          & (q["qualified"] == True)]
+    q["gsis_id"] = pd.to_numeric(q["player_id"], errors="coerce").map(espn_to_gsis)
+    q = q.dropna(subset=["gsis_id"])
+    return {(r.gsis_id, int(r.season)): float(r.qbr_total)
+            for r in q.itertuples()}
 
 
 def season_situational(latest, arch_map, id_to_name, extras=None):
@@ -443,11 +511,21 @@ def build_live(seasons):
 
     years = list(range(seasons[0], seasons[1] + 1))
     window = f"{years[0]}–{years[-1]}"
-    passes, dropbacks = load_passes(years)
+    passes, dropbacks, action = load_passes(years)
 
     players_tbl = nfl.load_players().to_pandas()
     id_to_name = (players_tbl.dropna(subset=["gsis_id"])
                   .set_index("gsis_id")["display_name"].to_dict())
+    espn_to_gsis = (players_tbl.dropna(subset=["espn_id", "gsis_id"])
+                    .astype({"espn_id": "int64"})
+                    .set_index("espn_id")["gsis_id"].to_dict())
+
+    # cQBR: score from the promoted metric spec; join official ESPN QBR
+    cqbr_seas, cqbr_window, cqbr_spec = score_cqbr(action)
+    qbr_map = load_official_qbr(years, espn_to_gsis)
+    cqbr_lookup = ({(r.qb_id, int(r.season)): float(r.cqbr)
+                    for r in cqbr_seas.itertuples()}
+                   if cqbr_seas is not None else {})
 
     # --- Archetype model inputs: window rate stats per passer ---------------
     # counting stats from the official-rule frame; EPA/CPOE from dropbacks
@@ -488,7 +566,8 @@ def build_live(seasons):
         {"name": r.name, "id": r.Index, "archetype": r.archetype,
          "cmp_pct": r.cmp_pct, "ypa": r.ypa, "td_rate": r.td_rate,
          "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts),
-         "epa_per_db": r.epa_per_db, "cpoe": r.cpoe}
+         "epa_per_db": r.epa_per_db, "cpoe": r.cpoe,
+         "cqbr": cqbr_window.get(r.Index)}
         for r in g.itertuples()
     ]
     arch_map = g["archetype"].to_dict()
@@ -500,6 +579,11 @@ def build_live(seasons):
         rows = season_situational(passes[passes["season"] == y],
                                   arch_map, id_to_name,
                                   extras=pfr_extras.get(str(y)))
+        for row in rows:
+            # prefer the live nflverse ESPN feed over the PFR extras
+            v = qbr_map.get((row["id"], y))
+            if v is not None:
+                row["qbr"] = v
         if rows:
             situational_by_season[str(y)] = rows
         print(f"situational {y}: {len(rows)} QBs", file=sys.stderr)
@@ -534,10 +618,44 @@ def build_live(seasons):
                 {"season": int(r.season), "rating": r.rating,
                  "epa": r.passing_epa, "yards": r.passing_yards,
                  "tds": int(r.passing_tds), "ints": int(r.interceptions),
-                 "games": int(r.games)}
+                 "games": int(r.games),
+                 "cqbr": cqbr_lookup.get((pid, int(r.season))),
+                 "qbr_official": qbr_map.get((pid, int(r.season)))}
                 for r in gp.itertuples()
             ],
         })
+
+    # cQBR league averages + live drift validation vs official QBR
+    cqbr_block = None
+    if cqbr_seas is not None:
+        league_cqbr = cqbr_seas.groupby("season")["cqbr"].mean()
+        qbr_df = pd.DataFrame([{"qb_id": k[0], "season": k[1], "qbr": v}
+                               for k, v in qbr_map.items()])
+        league_qbr = (qbr_df.groupby("season")["qbr"].mean()
+                      if len(qbr_df) else pd.Series(dtype=float))
+        drift = None
+        if len(qbr_df):
+            mm = cqbr_seas.merge(qbr_df, on=["qb_id", "season"])
+            if len(mm) >= 20:
+                err = mm["cqbr"] - mm["qbr"]
+                drift = {"r": float(np.corrcoef(mm["cqbr"], mm["qbr"])[0, 1]),
+                         "mae": float(err.abs().mean()), "n": int(len(mm))}
+                print(f"cQBR live drift: r={drift['r']:.3f} "
+                      f"MAE={drift['mae']:.2f} (n={drift['n']}, "
+                      f"spec MAE {cqbr_spec['validation']['mae']})",
+                      file=sys.stderr)
+        cqbr_block = {
+            "version": cqbr_spec["version"],
+            "fitted": cqbr_spec["fitted"],
+            "coef": cqbr_spec["coef"],
+            "spec_validation": {"r": cqbr_spec["validation"]["r"],
+                                "mae": cqbr_spec["validation"]["mae"]},
+            "live_drift": drift,
+            "league_cqbr_by_season": {int(k): float(v)
+                                      for k, v in league_cqbr.items()},
+            "league_qbr_by_season": {int(k): float(v)
+                                     for k, v in league_qbr.items()},
+        }
 
     latest = int(passes["season"].max())
     latest_week = int(passes.loc[passes["season"] == latest, "week"].max())
@@ -545,7 +663,8 @@ def build_live(seasons):
                     league_by_season, window=window, live=True,
                     latest=latest, latest_week=latest_week,
                     contracts=load_contracts(),
-                    play_model=train_play_model(passes))
+                    play_model=train_play_model(passes),
+                    cqbr=cqbr_block)
 
 
 # ---------------------------------------------------------------------------
@@ -591,7 +710,7 @@ def season_kpis(situational):
 
 def assemble(archetypes, situational_by_season, players, league_by_season,
              window, live, latest, latest_week, contracts=None,
-             play_model=None):
+             play_model=None, cqbr=None):
     # qualification floor applies in both modes (exports CSVs predate it)
     archetypes = [a for a in archetypes if a["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
     arch = pd.DataFrame(archetypes)
@@ -641,6 +760,7 @@ def assemble(archetypes, situational_by_season, players, league_by_season,
         "players": players,
         "contracts": contracts or [],
         "play_model": play_model,
+        "cqbr": cqbr,
     }
     return round_rec(payload)
 

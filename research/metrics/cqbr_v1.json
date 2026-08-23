@@ -1,0 +1,71 @@
+{
+ "metric": "cQBR",
+ "version": 1,
+ "fitted": "2026-08-22",
+ "train_seasons": [
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "n_qb_seasons": 215,
+ "coef": {
+  "a": -0.1362,
+  "b": 3.8768
+ },
+ "epa_floor": -4.5,
+ "wp_weights": {
+  "extreme": 0.6,
+  "band": 0.9
+ },
+ "min_action_plays": 200,
+ "validation": {
+  "method": "leave-one-season-out",
+  "target": "official ESPN qbr_total (nflverse espn_data)",
+  "r": 0.9061,
+  "mae": 3.997,
+  "within_5pts_pct": 67.0,
+  "within_10pts_pct": 95.3,
+  "per_season": {
+   "2019": {
+    "n": 30,
+    "mae": 4.9239018141998825,
+    "r": 0.8811205181758124
+   },
+   "2020": {
+    "n": 33,
+    "mae": 4.328837741999447,
+    "r": 0.9064579012470269
+   },
+   "2021": {
+    "n": 31,
+    "mae": 3.512736955765956,
+    "r": 0.9327983067600649
+   },
+   "2022": {
+    "n": 31,
+    "mae": 3.8899142046991333,
+    "r": 0.914042312378996
+   },
+   "2023": {
+    "n": 30,
+    "mae": 4.012799977160669,
+    "r": 0.9250385711224077
+   },
+   "2024": {
+    "n": 32,
+    "mae": 3.594433557141275,
+    "r": 0.922439156807057
+   },
+   "2025": {
+    "n": 28,
+    "mae": 3.7072538749324004,
+    "r": 0.9231830638891327
+   }
+  }
+ },
+ "notes": "Transparent approximation of ESPN Total QBR. Cannot replicate ESPN's charted inputs (pressure, drops) or credit-division layer; see research/qbr_research_brief.md."
+}
