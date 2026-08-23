@@ -1,5 +1,7 @@
 # Slim dependency set for the weekly data pipeline (CI)
-nfl_data_py>=0.3.3
+nflreadpy>=0.1.5
+polars>=1.0
 pandas>=1.5,<3
 numpy>=1.24
 scikit-learn>=1.3
+pyarrow>=14

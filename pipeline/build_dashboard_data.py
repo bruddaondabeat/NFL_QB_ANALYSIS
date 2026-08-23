@@ -4,15 +4,27 @@
 Two modes:
 
   --from-exports   Offline. Reshapes the committed tableau_exports/*.csv
-                   (2019-2023 baseline) into dashboard/data/qb_data.json.
+                   (2019-2023 baseline; situational splits for 2023 only)
+                   into the dashboard payload.
 
-  --live           Pulls fresh data from nflverse via nfl_data_py and
-                   recomputes every benchmark from play-by-play + seasonal
-                   data. This is what the weekly GitHub Actions cron runs.
+  --live           Pulls play-by-play from nflverse via nflreadpy and
+                   recomputes every benchmark for EVERY season in range:
+                   per-season situational splits + KPIs, window-pooled
+                   KMeans archetypes, and seasonal trajectories. This is
+                   what the weekly GitHub Actions cron runs.
+
+Payload schema (v2, season-aware):
+  meta                    window, seasons, situational_seasons, latest,
+                          latest_week, thresholds
+  kpis_window             league rating / elite count over the full window
+  kpis_by_season          {season: situational KPIs}
+  situational_by_season   {season: [per-QB splits + shrunk rates]}
+  archetypes              window-pooled KMeans clusters
+  league_avg_by_season    qualified-passer league average rating
+  players                 top-N trajectories (rating, EPA by season)
 
 Both modes end by injecting the JSON into dashboard/index.html between the
-<script id="qb-data" type="application/json"> ... </script> tags, so the
-dashboard stays a single self-contained file.
+<script id="qb-data" type="application/json"> ... </script> tags.
 
 Usage:
   python pipeline/build_dashboard_data.py --from-exports
@@ -36,9 +48,8 @@ DASHBOARD_HTML = ROOT / "dashboard" / "index.html"
 
 # Benchmark thresholds — hardened after the 2026-08 stability audit
 # (see research/stability_findings.md): small samples were allowed to
-# headline leaderboards (a 101-attempt QB topping the elite tier, a
-# 12-attempt "clutch leader"), so floors went up and rate leaderboards
-# now also carry empirical-Bayes shrunk estimates.
+# headline leaderboards, so floors went up and rate leaderboards carry
+# empirical-Bayes shrunk estimates.
 MIN_ARCHETYPE_ATTEMPTS = 200   # window attempts to enter the KMeans model
 MIN_DOWN_ATTEMPTS = 20         # attempts on a given down for the 1st-vs-3rd split
 MIN_CLUTCH_ATTEMPTS = 20       # attempts inside the clutch window to be ranked
@@ -46,9 +57,16 @@ MIN_FOURTH_ATTEMPTS = 5        # 4th-down attempts to be ranked
 SHRINK_K_CLUTCH = 20           # prior strength (pseudo-attempts) for clutch cmp%
 SHRINK_K_FOURTH = 15           # prior strength for 4th-down conversion rate
 CLUTCH_SECONDS = 120           # last two minutes of a half
-CLUTCH_SCORE_BAND = (-8, 7)    # one-score game, trailing by 8 to leading by 7
+CLUTCH_SCORE_BAND = (-8, 7)    # one-score game
 TS_TOP_N = 20                  # trajectory panel: top N by window passing yards
 MIN_SEASON_ATTEMPTS = 100      # per-season attempts to count toward league avg
+
+PBP_COLS = [
+    "play_id", "game_id", "week", "season", "season_type", "play_type",
+    "passer_player_id", "passer_player_name", "complete_pass",
+    "passing_yards", "pass_touchdown", "interception", "down", "qb_epa",
+    "cpoe", "half_seconds_remaining", "score_differential", "first_down",
+]
 
 
 def passer_rating(cmp_, att, yds, td, ints):
@@ -60,6 +78,15 @@ def passer_rating(cmp_, att, yds, td, ints):
         c = np.clip(td / att * 20, 0, 2.375)
         d = np.clip(2.375 - ints / att * 25, 0, 2.375)
     return (a + b + c + d) / 6 * 100
+
+
+def shrink(rate_pct, n, prior_pct, k):
+    """Empirical-Bayes: pull a small-sample rate toward the league rate.
+    A 12-attempt 80% should not outrank a 40-attempt 65%."""
+    bad = lambda v: v is None or (isinstance(v, float) and np.isnan(v))
+    if bad(rate_pct) or bad(n) or n <= 0:
+        return np.nan
+    return (rate_pct / 100 * n + prior_pct / 100 * k) / (n + k) * 100
 
 
 def round_rec(obj, nd=4):
@@ -146,84 +173,47 @@ def build_from_exports():
                     "epa": r.passing_epa,
                     "yards": r.passing_yards,
                     "tds": int(r.passing_tds),
-                    "ints": r.interceptions,
+                    "ints": int(r.interceptions),
                     "games": int(r.games),
                 }
                 for r in g.itertuples()
             ],
         })
 
-    return assemble(archetypes, situational, players, league_by_season,
-                    window="2019–2023", live=False)
+    # exports carry situational splits for the 2023 season only
+    return assemble(archetypes, {"2023": situational}, players,
+                    league_by_season, window="2019–2023", live=False,
+                    latest=2023, latest_week=None)
 
 
 # ---------------------------------------------------------------------------
-# Mode 2: live nflverse pull (weekly cron)
+# Mode 2: live nflverse pull via nflreadpy (weekly cron)
 # ---------------------------------------------------------------------------
 
-def build_live(seasons):
-    import nfl_data_py as nfl
+def load_passes(years):
+    """Pass plays for all seasons, one season at a time, slimmed to the
+    columns we use — keeps memory flat regardless of window size."""
+    import nflreadpy as nfl
+    import polars as pl
 
-    years = list(range(seasons[0], seasons[1] + 1))
-    window = f"{years[0]}–{years[-1]}"
-    print(f"Pulling play-by-play for {window} ...", file=sys.stderr)
-
-    pbp = nfl.import_pbp_data(years, downcast=True)
-    passes = pbp[(pbp["play_type"] == "pass") & pbp["passer_player_id"].notna()].copy()
+    frames = []
+    for y in years:
+        print(f"loading pbp {y} ...", file=sys.stderr, flush=True)
+        df = (
+            nfl.load_pbp([y])
+            .filter((pl.col("play_type") == "pass")
+                    & pl.col("passer_player_id").is_not_null())
+            .select(PBP_COLS)
+            .to_pandas()
+        )
+        frames.append(df)
+    passes = pd.concat(frames, ignore_index=True)
     passes["is_completion"] = passes["complete_pass"].fillna(0)
+    return passes
 
-    ids = nfl.import_ids()
-    id_to_name = (
-        ids.dropna(subset=["gsis_id"]).set_index("gsis_id")["name"].to_dict()
-    )
 
-    def agg_names(df):
-        return df.index.to_series().map(id_to_name).fillna(df.index.to_series())
-
-    # --- Archetype model inputs: window rate stats per passer ---------------
-    epa_col_w = "qb_epa" if "qb_epa" in passes.columns else "epa"
-    g = passes.groupby("passer_player_id").agg(
-        attempts=("play_id", "size"),
-        completions=("is_completion", "sum"),
-        yards=("passing_yards", "sum"),
-        tds=("pass_touchdown", "sum"),
-        ints=("interception", "sum"),
-        epa_per_db=(epa_col_w, "mean"),
-        cpoe=("cpoe", "mean"),
-    )
-    g = g[g["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
-    g["cmp_pct"] = g["completions"] / g["attempts"] * 100
-    g["ypa"] = g["yards"].fillna(0) / g["attempts"]
-    g["td_rate"] = g["tds"] / g["attempts"] * 100
-    g["int_rate"] = g["ints"] / g["attempts"] * 100
-    g["rating"] = passer_rating(g["completions"], g["attempts"],
-                                g["yards"].fillna(0), g["tds"], g["ints"])
-
-    # --- KMeans archetypes (3 clusters, labeled by mean rating) -------------
-    from sklearn.cluster import KMeans
-    from sklearn.preprocessing import StandardScaler
-
-    feats = g[["cmp_pct", "ypa", "td_rate", "int_rate"]]
-    X = StandardScaler().fit_transform(feats)
-    g["cluster"] = KMeans(n_clusters=3, random_state=42, n_init=10).fit_predict(X)
-    order = g.groupby("cluster")["rating"].mean().sort_values(ascending=False)
-    labels = ["Elite Quarterbacks", "The League Core", "Struggling & Backups"]
-    cluster_names = {c: labels[i] for i, c in enumerate(order.index)}
-    g["archetype"] = g["cluster"].map(cluster_names)
-    g["name"] = agg_names(g)
-
-    archetypes = [
-        {"name": r.name, "id": r.Index, "archetype": r.archetype,
-         "cmp_pct": r.cmp_pct, "ypa": r.ypa, "td_rate": r.td_rate,
-         "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts),
-         "epa_per_db": r.epa_per_db, "cpoe": r.cpoe}
-        for r in g.itertuples()
-    ]
-    arch_map = g["archetype"].to_dict()
-
-    # --- Situational benchmarks: latest season only -------------------------
-    latest = passes[passes["season"] == passes["season"].max()].copy()
-
+def season_situational(latest, arch_map, id_to_name):
+    """Per-QB situational splits for one season's pass plays."""
     def down_cmp(down):
         d = latest[latest["down"] == down].groupby("passer_player_id").agg(
             att=("play_id", "size"), cmp=("is_completion", "sum"))
@@ -247,12 +237,13 @@ def build_live(seasons):
     season_tot = latest.groupby("passer_player_id").agg(
         attempts=("play_id", "size"), yards=("passing_yards", "sum"),
         tds=("pass_touchdown", "sum"), ints=("interception", "sum"))
+    season_tot = season_tot[season_tot["attempts"] >= MIN_DOWN_ATTEMPTS]
 
-    situational = []
+    rows = []
     for pid, r in season_tot.iterrows():
         c = clutch.loc[pid] if pid in clutch.index else None
         f = fourth.loc[pid] if pid in fourth.index else None
-        situational.append({
+        rows.append({
             "name": id_to_name.get(pid, pid),
             "id": pid,
             "archetype": arch_map.get(pid),
@@ -272,20 +263,78 @@ def build_live(seasons):
             "fourth_conv": float(f["conv"]) if f is not None else np.nan,
             "fourth_rate": float(f["conv"] / f["att"] * 100) if f is not None else np.nan,
         })
+    return rows
+
+
+def build_live(seasons):
+    import nflreadpy as nfl
+
+    years = list(range(seasons[0], seasons[1] + 1))
+    window = f"{years[0]}–{years[-1]}"
+    passes = load_passes(years)
+
+    players_tbl = nfl.load_players().to_pandas()
+    id_to_name = (players_tbl.dropna(subset=["gsis_id"])
+                  .set_index("gsis_id")["display_name"].to_dict())
+
+    # --- Archetype model inputs: window rate stats per passer ---------------
+    g = passes.groupby("passer_player_id").agg(
+        attempts=("play_id", "size"),
+        completions=("is_completion", "sum"),
+        yards=("passing_yards", "sum"),
+        tds=("pass_touchdown", "sum"),
+        ints=("interception", "sum"),
+        epa_per_db=("qb_epa", "mean"),
+        cpoe=("cpoe", "mean"),
+    )
+    g = g[g["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
+    g["cmp_pct"] = g["completions"] / g["attempts"] * 100
+    g["ypa"] = g["yards"].fillna(0) / g["attempts"]
+    g["td_rate"] = g["tds"] / g["attempts"] * 100
+    g["int_rate"] = g["ints"] / g["attempts"] * 100
+    g["rating"] = passer_rating(g["completions"], g["attempts"],
+                                g["yards"].fillna(0), g["tds"], g["ints"])
+
+    # --- KMeans archetypes (3 clusters, labeled by mean rating) -------------
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import StandardScaler
+
+    feats = g[["cmp_pct", "ypa", "td_rate", "int_rate"]]
+    X = StandardScaler().fit_transform(feats)
+    g["cluster"] = KMeans(n_clusters=3, random_state=42, n_init=10).fit_predict(X)
+    order = g.groupby("cluster")["rating"].mean().sort_values(ascending=False)
+    labels = ["Elite Quarterbacks", "The League Core", "Struggling & Backups"]
+    cluster_names = {c: labels[i] for i, c in enumerate(order.index)}
+    g["archetype"] = g["cluster"].map(cluster_names)
+    g["name"] = g.index.to_series().map(id_to_name).fillna(g.index.to_series())
+
+    archetypes = [
+        {"name": r.name, "id": r.Index, "archetype": r.archetype,
+         "cmp_pct": r.cmp_pct, "ypa": r.ypa, "td_rate": r.td_rate,
+         "int_rate": r.int_rate, "rating": r.rating, "attempts": int(r.attempts),
+         "epa_per_db": r.epa_per_db, "cpoe": r.cpoe}
+        for r in g.itertuples()
+    ]
+    arch_map = g["archetype"].to_dict()
+
+    # --- Situational benchmarks: every season in the window -----------------
+    situational_by_season = {}
+    for y in years:
+        rows = season_situational(passes[passes["season"] == y],
+                                  arch_map, id_to_name)
+        if rows:
+            situational_by_season[str(y)] = rows
+        print(f"situational {y}: {len(rows)} QBs", file=sys.stderr)
 
     # --- Trajectories: seasonal passer rating vs league average -------------
-    # Computed from pbp directly: nflverse retired the legacy per-year
-    # player_stats assets after 2024 (nfl_data_py's import_seasonal_data
-    # 404s for 2025+), and pbp remains fully published.
-    reg = passes[passes["season_type"] == "REG"] if "season_type" in passes.columns else passes
-    epa_col = "qb_epa" if "qb_epa" in reg.columns else "epa"
+    reg = passes[passes["season_type"] == "REG"]
     seas = reg.groupby(["passer_player_id", "season"]).agg(
         completions=("is_completion", "sum"),
         attempts=("play_id", "size"),
         passing_yards=("passing_yards", "sum"),
         passing_tds=("pass_touchdown", "sum"),
         interceptions=("interception", "sum"),
-        passing_epa=(epa_col, "sum"),
+        passing_epa=("qb_epa", "sum"),
         games=("game_id", "nunique"),
     ).reset_index().rename(columns={"passer_player_id": "player_id"})
     seas = seas[seas["attempts"] >= MIN_SEASON_ATTEMPTS].copy()
@@ -312,30 +361,21 @@ def build_live(seasons):
             ],
         })
 
-    return assemble(archetypes, situational, players, league_by_season,
-                    window=window, live=True)
+    latest = int(passes["season"].max())
+    latest_week = int(passes.loc[passes["season"] == latest, "week"].max())
+    return assemble(archetypes, situational_by_season, players,
+                    league_by_season, window=window, live=True,
+                    latest=latest, latest_week=latest_week)
 
 
 # ---------------------------------------------------------------------------
-# Shared: KPIs, assembly, injection
+# Shared: per-season KPIs + shrinkage, assembly, injection
 # ---------------------------------------------------------------------------
 
-def shrink(rate_pct, n, prior_pct, k):
-    """Empirical-Bayes: pull a small-sample rate toward the league rate.
-    A 12-attempt 80% should not outrank a 40-attempt 65%."""
-    bad = lambda v: v is None or (isinstance(v, float) and np.isnan(v))
-    if bad(rate_pct) or bad(n) or n <= 0:
-        return np.nan
-    return (rate_pct / 100 * n + prior_pct / 100 * k) / (n + k) * 100
-
-
-def assemble(archetypes, situational, players, league_by_season, window, live):
-    # qualification floor applies in both modes (exports CSVs predate it)
-    archetypes = [a for a in archetypes if a["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
+def season_kpis(situational):
+    """Situational KPIs + shrunk rates for one season (mutates rows)."""
     sit = pd.DataFrame(situational)
-    arch = pd.DataFrame(archetypes)
 
-    # league priors for shrinkage (attempt-weighted league rates)
     cl = sit[(sit["clutch_att"].notna()) & (sit["clutch_att"] > 0)]
     prior_clutch = float((cl["clutch_cmp_pct"] / 100 * cl["clutch_att"]).sum()
                          / cl["clutch_att"].sum() * 100) if len(cl) else 60.0
@@ -356,10 +396,9 @@ def assemble(archetypes, situational, players, league_by_season, window, live):
         .sort_values("clutch_cmp_adj", ascending=False)
     fourth_ranked = sit[sit["fourth_att"] >= MIN_FOURTH_ATTEMPTS]
 
-    kpis = {
-        "league_avg_rating": float(np.average(arch["rating"], weights=arch["attempts"])),
-        "avg_third_down_delta": float(deltas.mean()),
-        "pct_declining_on_third": float((deltas < 0).mean() * 100),
+    return {
+        "avg_third_down_delta": float(deltas.mean()) if len(deltas) else None,
+        "pct_declining_on_third": float((deltas < 0).mean() * 100) if len(deltas) else None,
         "clutch_leader": clutch_ranked.iloc[0]["name"] if len(clutch_ranked) else None,
         "clutch_leader_pct": float(clutch_ranked.iloc[0]["clutch_cmp_pct"]) if len(clutch_ranked) else None,
         "clutch_leader_adj": float(clutch_ranked.iloc[0]["clutch_cmp_adj"]) if len(clutch_ranked) else None,
@@ -367,16 +406,27 @@ def assemble(archetypes, situational, players, league_by_season, window, live):
         "fourth_down_league_rate": float(
             fourth_ranked["fourth_conv"].sum() / fourth_ranked["fourth_att"].sum() * 100
         ) if len(fourth_ranked) else None,
-        "elite_count": int((arch["archetype"] == "Elite Quarterbacks").sum()),
-        "qualified_qbs": int(len(arch)),
     }
+
+
+def assemble(archetypes, situational_by_season, players, league_by_season,
+             window, live, latest, latest_week):
+    # qualification floor applies in both modes (exports CSVs predate it)
+    archetypes = [a for a in archetypes if a["attempts"] >= MIN_ARCHETYPE_ATTEMPTS]
+    arch = pd.DataFrame(archetypes)
+
+    kpis_by_season = {s: season_kpis(rows)
+                      for s, rows in situational_by_season.items()}
 
     payload = {
         "meta": {
             "updated": date.today().isoformat(),
             "window": window,
-            "source": "nflverse via nfl_data_py",
+            "source": "nflverse via nflreadpy",
             "mode": "live" if live else "baseline-exports",
+            "latest": int(latest),
+            "latest_week": latest_week,
+            "situational_seasons": sorted(situational_by_season.keys()),
             "thresholds": {
                 "archetype_attempts": MIN_ARCHETYPE_ATTEMPTS,
                 "down_attempts": MIN_DOWN_ATTEMPTS,
@@ -386,10 +436,17 @@ def assemble(archetypes, situational, players, league_by_season, window, live):
                 "shrink_k_fourth": SHRINK_K_FOURTH,
             },
         },
-        "kpis": kpis,
+        "kpis_window": {
+            "league_avg_rating": float(np.average(arch["rating"],
+                                                  weights=arch["attempts"])),
+            "elite_count": int((arch["archetype"] == "Elite Quarterbacks").sum()),
+            "qualified_qbs": int(len(arch)),
+        },
+        "kpis_by_season": kpis_by_season,
         "archetypes": archetypes,
-        "situational": situational,
-        "league_avg_by_season": {int(k): float(v) for k, v in league_by_season.items()},
+        "situational_by_season": situational_by_season,
+        "league_avg_by_season": {int(k): float(v)
+                                 for k, v in league_by_season.items()},
         "players": players,
     }
     return round_rec(payload)

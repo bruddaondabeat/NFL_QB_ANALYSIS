@@ -28,7 +28,7 @@ This performance analysis is then fused with salary data to create an "Archetype
 
 **Prototype skins:** the masthead has a live skin switcher (also via `?skin=` URL param) with four complete visual treatments — **Film Room** (chalkboard editorial), **Aurora** (glassmorphism over an animated WebGL nebula — default), **Terminal** (trading-floor phosphor green with volumetric light shafts, Fragment Mono numerals), and **Press Box** (light print editorial, Instrument Serif/Newsreader). The Aurora and Terminal backdrops and embedded OFL fonts are adapted from [ThreeUI Community](https://github.com/MengTo/threeui) (MIT © Meng To) — see `dashboard/NOTICES.md`.
 
-**Weekly ingestion:** `.github/workflows/update-dashboard-data.yml` runs every Tuesday morning during the season (Sep–Feb), pulls fresh play-by-play from nflverse via `nfl_data_py`, recomputes every benchmark, and commits the refreshed data. Rebuild locally with:
+**Weekly ingestion:** `.github/workflows/update-dashboard-data.yml` runs every Tuesday morning during the season (Sep–Feb), pulls fresh play-by-play from nflverse via `nflreadpy`, recomputes every benchmark for every season (2019 → current, scoped by the dashboard's season selector), and commits the refreshed data. Rebuild locally with:
 
 ```bash
 pip install -r pipeline/requirements.txt
