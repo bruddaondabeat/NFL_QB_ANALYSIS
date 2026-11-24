@@ -1,11 +1,11 @@
 {
  "meta": {
-  "updated": "2026-11-17",
+  "updated": "2026-11-24",
   "window": "2019–2026",
   "source": "nflverse via nflreadpy",
   "mode": "live",
   "latest": 2026,
-  "latest_week": 10,
+  "latest_week": 11,
   "situational_seasons": [
    "2019",
    "2020",
@@ -26,7 +26,7 @@
   }
  },
  "kpis_window": {
-  "league_avg_rating": 91.6383,
+  "league_avg_rating": 91.6595,
   "elite_count": 38,
   "qualified_qbs": 96
  },
@@ -95,13 +95,13 @@
    "fourth_down_league_rate": 51.2195
   },
   "2026": {
-   "avg_third_down_delta": -7.5949,
-   "pct_declining_on_third": 86.4865,
+   "avg_third_down_delta": -7.1188,
+   "pct_declining_on_third": 89.1892,
    "clutch_leader": "Deshaun Watson",
    "clutch_leader_pct": 76.9231,
-   "clutch_leader_adj": 70.3793,
-   "clutch_league_rate": 57.619,
-   "fourth_down_league_rate": 51.5337
+   "clutch_leader_adj": 70.2762,
+   "clutch_league_rate": 57.3148,
+   "fourth_down_league_rate": 51.8325
   }
  },
  "archetypes": [
@@ -115,9 +115,9 @@
    "int_rate": 1.563,
    "rating": 94.7297,
    "attempts": 3007,
-   "epa_per_db": 0.1298,
+   "epa_per_db": 0.1155,
    "cpoe": 0.2417,
-   "cqbr": 60.9657
+   "cqbr": 58.7904
   },
   {
    "name": "Drew Brees",
@@ -129,9 +129,9 @@
    "int_rate": 1.6018,
    "rating": 107.48,
    "attempts": 874,
-   "epa_per_db": 0.162,
+   "epa_per_db": 0.1458,
    "cpoe": 3.1347,
-   "cqbr": 67.1776
+   "cqbr": 64.3776
   },
   {
    "name": "Ben Roethlisberger",
@@ -143,9 +143,9 @@
    "int_rate": 1.8025,
    "rating": 89.1718,
    "attempts": 1387,
-   "epa_per_db": 0.0014,
+   "epa_per_db": 0.005,
    "cpoe": -1.7689,
-   "cqbr": 48.3559
+   "cqbr": 47.8858
   },
   {
    "name": "Philip Rivers",
@@ -157,9 +157,9 @@
    "int_rate": 2.673,
    "rating": 91.6961,
    "attempts": 1272,
-   "epa_per_db": 0.1322,
+   "epa_per_db": 0.1168,
    "cpoe": 1.6044,
-   "cqbr": 60.2727
+   "cqbr": 57.8181
   },
   {
    "name": "Alex Smith",
@@ -171,23 +171,23 @@
    "int_rate": 3.1746,
    "rating": 78.5053,
    "attempts": 252,
-   "epa_per_db": -0.1193,
+   "epa_per_db": -0.0998,
    "cpoe": -0.8452,
-   "cqbr": 36.0679
+   "cqbr": 37.132
   },
   {
    "name": "Aaron Rodgers",
    "id": "00-0023459",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 65.2554,
-   "ypa": 7.1252,
-   "td_rate": 5.6364,
-   "int_rate": 1.4025,
-   "rating": 99.0953,
-   "attempts": 3779,
-   "epa_per_db": 0.1018,
-   "cpoe": 1.6575,
-   "cqbr": 59.061
+   "cmp_pct": 65.289,
+   "ypa": 7.1025,
+   "td_rate": 5.5977,
+   "int_rate": 1.3863,
+   "rating": 98.9673,
+   "attempts": 3823,
+   "epa_per_db": 0.0908,
+   "cpoe": 1.6634,
+   "cqbr": 57.1437
   },
   {
    "name": "Ryan Fitzpatrick",
@@ -199,9 +199,9 @@
    "int_rate": 2.7097,
    "rating": 88.7124,
    "attempts": 775,
-   "epa_per_db": 0.0811,
+   "epa_per_db": 0.0763,
    "cpoe": 0.6861,
-   "cqbr": 59.0694
+   "cqbr": 57.4736
   },
   {
    "name": "Matt Ryan",
@@ -213,9 +213,9 @@
    "int_rate": 2.2095,
    "rating": 90.3364,
    "attempts": 2263,
-   "epa_per_db": 0.0301,
+   "epa_per_db": 0.0302,
    "cpoe": 1.2495,
-   "cqbr": 52.4322
+   "cqbr": 51.3173
   },
   {
    "name": "Joe Flacco",
@@ -227,9 +227,9 @@
    "int_rate": 2.4627,
    "rating": 84.0611,
    "attempts": 1543,
-   "epa_per_db": -0.0681,
+   "epa_per_db": -0.0493,
    "cpoe": -1.3909,
-   "cqbr": 45.3893
+   "cqbr": 44.9668
   },
   {
    "name": "Matthew Stafford",
@@ -241,9 +241,9 @@
    "int_rate": 1.9775,
    "rating": 98.7803,
    "attempts": 4096,
-   "epa_per_db": 0.1403,
+   "epa_per_db": 0.124,
    "cpoe": 0.0067,
-   "cqbr": 61.2065
+   "cqbr": 58.7218
   },
   {
    "name": "Colt McCoy",
@@ -255,9 +255,9 @@
    "int_rate": 1.8519,
    "rating": 82.5489,
    "attempts": 324,
-   "epa_per_db": -0.134,
+   "epa_per_db": -0.1138,
    "cpoe": 0.2225,
-   "cqbr": 37.5829
+   "cqbr": 37.9887
   },
   {
    "name": "Cam Newton",
@@ -269,9 +269,9 @@
    "int_rate": 2.7444,
    "rating": 77.0762,
    "attempts": 583,
-   "epa_per_db": -0.0842,
+   "epa_per_db": -0.0709,
    "cpoe": -4.4545,
-   "cqbr": 44.379
+   "cqbr": 44.1587
   },
   {
    "name": "Andy Dalton",
@@ -283,9 +283,9 @@
    "int_rate": 2.773,
    "rating": 84.1481,
    "attempts": 1731,
-   "epa_per_db": -0.0344,
+   "epa_per_db": -0.022,
    "cpoe": -1.6945,
-   "cqbr": 47.2905
+   "cqbr": 46.7434
   },
   {
    "name": "Tyrod Taylor",
@@ -297,9 +297,9 @@
    "int_rate": 2.6316,
    "rating": 82.9652,
    "attempts": 532,
-   "epa_per_db": -0.0264,
+   "epa_per_db": -0.0221,
    "cpoe": 0.6861,
-   "cqbr": 46.1646
+   "cqbr": 45.865
   },
   {
    "name": "Case Keenum",
@@ -311,9 +311,9 @@
    "int_rate": 2.2624,
    "rating": 85.8786,
    "attempts": 442,
-   "epa_per_db": -0.0855,
+   "epa_per_db": -0.0656,
    "cpoe": -2.071,
-   "cqbr": 42.0049
+   "cqbr": 42.7925
   },
   {
    "name": "Russell Wilson",
@@ -325,9 +325,9 @@
    "int_rate": 1.7473,
    "rating": 98.3367,
    "attempts": 2976,
-   "epa_per_db": 0.0348,
+   "epa_per_db": 0.0393,
    "cpoe": 4.0666,
-   "cqbr": 52.7059
+   "cqbr": 52.2368
   },
   {
    "name": "Nick Foles",
@@ -339,23 +339,23 @@
    "int_rate": 2.7668,
    "rating": 79.0184,
    "attempts": 506,
-   "epa_per_db": -0.1415,
+   "epa_per_db": -0.1112,
    "cpoe": 0.841,
-   "cqbr": 34.5593
+   "cqbr": 36.2279
   },
   {
    "name": "Kirk Cousins",
    "id": "00-0029604",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 66.749,
-   "ypa": 7.5316,
-   "td_rate": 5.3542,
-   "int_rate": 2.0868,
-   "rating": 98.2416,
-   "attempts": 3642,
-   "epa_per_db": 0.1027,
-   "cpoe": 2.0583,
-   "cqbr": 59.1267
+   "cmp_pct": 66.7663,
+   "ypa": 7.5177,
+   "td_rate": 5.2989,
+   "int_rate": 2.0924,
+   "rating": 97.9903,
+   "attempts": 3680,
+   "epa_per_db": 0.0934,
+   "cpoe": 2.0793,
+   "cqbr": 56.8754
   },
   {
    "name": "Ryan Tannehill",
@@ -367,9 +367,9 @@
    "int_rate": 2.2924,
    "rating": 97.0931,
    "attempts": 1963,
-   "epa_per_db": 0.0981,
+   "epa_per_db": 0.092,
    "cpoe": 2.6938,
-   "cqbr": 63.1169
+   "cqbr": 60.725
   },
   {
    "name": "Mike Glennon",
@@ -381,23 +381,23 @@
    "int_rate": 4.2135,
    "rating": 66.6667,
    "attempts": 356,
-   "epa_per_db": -0.2652,
+   "epa_per_db": -0.2193,
    "cpoe": -5.3647,
-   "cqbr": 26.151
+   "cqbr": 27.8226
   },
   {
    "name": "Geno Smith",
    "id": "00-0030565",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 68.1854,
-   "ypa": 7.3158,
-   "td_rate": 4.3185,
-   "int_rate": 2.2583,
-   "rating": 94.3724,
-   "attempts": 2524,
-   "epa_per_db": 0.0116,
-   "cpoe": 4.0361,
-   "cqbr": 49.5369
+   "cmp_pct": 68.2908,
+   "ypa": 7.3246,
+   "td_rate": 4.4008,
+   "int_rate": 2.2397,
+   "rating": 94.8486,
+   "attempts": 2545,
+   "epa_per_db": 0.0238,
+   "cpoe": 4.1086,
+   "cqbr": 49.5705
   },
   {
    "name": "Teddy Bridgewater",
@@ -409,9 +409,9 @@
    "int_rate": 1.9851,
    "rating": 93.4708,
    "attempts": 1209,
-   "epa_per_db": 0.0796,
+   "epa_per_db": 0.0689,
    "cpoe": 3.0075,
-   "cqbr": 56.1852
+   "cqbr": 54.26
   },
   {
    "name": "Derek Carr",
@@ -423,9 +423,9 @@
    "int_rate": 1.9414,
    "rating": 95.9958,
    "attempts": 3039,
-   "epa_per_db": 0.0949,
+   "epa_per_db": 0.0824,
    "cpoe": 2.1124,
-   "cqbr": 59.0764
+   "cqbr": 56.5765
   },
   {
    "name": "Jimmy Garoppolo",
@@ -437,23 +437,23 @@
    "int_rate": 2.9291,
    "rating": 95.8687,
    "attempts": 1707,
-   "epa_per_db": 0.1421,
+   "epa_per_db": 0.1253,
    "cpoe": 0.3048,
-   "cqbr": 62.4819
+   "cqbr": 59.8999
   },
   {
    "name": "Jameis Winston",
    "id": "00-0031503",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 60.1075,
-   "ypa": 7.5541,
-   "td_rate": 5.1713,
-   "int_rate": 4.0296,
-   "rating": 84.0959,
-   "attempts": 1489,
-   "epa_per_db": 0.022,
-   "cpoe": -1.2882,
-   "cqbr": 55.6668
+   "cmp_pct": 60.0671,
+   "ypa": 7.549,
+   "td_rate": 5.1678,
+   "int_rate": 4.0268,
+   "rating": 84.0408,
+   "attempts": 1490,
+   "epa_per_db": 0.0257,
+   "cpoe": -1.3295,
+   "cqbr": 54.2867
   },
   {
    "name": "Taylor Heinicke",
@@ -465,9 +465,9 @@
    "int_rate": 2.7168,
    "rating": 85.2382,
    "attempts": 957,
-   "epa_per_db": -0.0428,
+   "epa_per_db": -0.0311,
    "cpoe": -0.7271,
-   "cqbr": 47.3152
+   "cqbr": 46.883
   },
   {
    "name": "Trevor Siemian",
@@ -479,9 +479,9 @@
    "int_rate": 2.1448,
    "rating": 76.0891,
    "attempts": 373,
-   "epa_per_db": -0.1879,
+   "epa_per_db": -0.1543,
    "cpoe": -6.5609,
-   "cqbr": 31.257
+   "cqbr": 32.825
   },
   {
    "name": "Marcus Mariota",
@@ -493,9 +493,9 @@
    "int_rate": 2.3923,
    "rating": 91.5919,
    "attempts": 836,
-   "epa_per_db": 0.0331,
+   "epa_per_db": 0.0353,
    "cpoe": 0.9664,
-   "cqbr": 55.7484
+   "cqbr": 53.839
   },
   {
    "name": "Brandon Allen",
@@ -507,9 +507,9 @@
    "int_rate": 2.7864,
    "rating": 73.3166,
    "attempts": 323,
-   "epa_per_db": -0.2264,
+   "epa_per_db": -0.1886,
    "cpoe": -8.5153,
-   "cqbr": 33.4306
+   "cqbr": 34.8457
   },
   {
    "name": "Jeff Driskel",
@@ -521,65 +521,65 @@
    "int_rate": 3.7209,
    "rating": 77.1027,
    "attempts": 215,
-   "epa_per_db": -0.1491,
+   "epa_per_db": -0.1295,
    "cpoe": -4.8867,
-   "cqbr": 35.3894
+   "cqbr": 36.4884
   },
   {
    "name": "Carson Wentz",
    "id": "00-0032950",
    "archetype": "The League Core",
-   "cmp_pct": 61.6257,
-   "ypa": 6.5378,
-   "td_rate": 4.3478,
-   "int_rate": 2.1739,
-   "rating": 86.1137,
-   "attempts": 2116,
-   "epa_per_db": -0.0362,
-   "cpoe": -2.2976,
-   "cqbr": 45.6499
+   "cmp_pct": 61.6219,
+   "ypa": 6.5361,
+   "td_rate": 4.3376,
+   "int_rate": 2.1688,
+   "rating": 86.0905,
+   "attempts": 2121,
+   "epa_per_db": -0.0256,
+   "cpoe": -2.281,
+   "cqbr": 45.5734
   },
   {
    "name": "Dak Prescott",
    "id": "00-0033077",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 66.8314,
-   "ypa": 7.5455,
-   "td_rate": 5.359,
-   "int_rate": 2.0291,
-   "rating": 98.6245,
-   "attempts": 3844,
-   "epa_per_db": 0.1475,
-   "cpoe": 1.4101,
-   "cqbr": 63.7248
+   "cmp_pct": 66.9848,
+   "ypa": 7.5651,
+   "td_rate": 5.4166,
+   "int_rate": 2.0119,
+   "rating": 99.0978,
+   "attempts": 3877,
+   "epa_per_db": 0.136,
+   "cpoe": 1.5362,
+   "cqbr": 61.5328
   },
   {
    "name": "Jared Goff",
    "id": "00-0033106",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 67.0013,
-   "ypa": 7.5763,
-   "td_rate": 4.8193,
-   "int_rate": 1.8519,
-   "rating": 97.8339,
-   "attempts": 4482,
-   "epa_per_db": 0.1289,
-   "cpoe": 0.8649,
-   "cqbr": 59.9608
+   "cmp_pct": 67.0288,
+   "ypa": 7.5911,
+   "td_rate": 4.8337,
+   "int_rate": 1.8404,
+   "rating": 98.0146,
+   "attempts": 4510,
+   "epa_per_db": 0.1186,
+   "cpoe": 0.8635,
+   "cqbr": 58.045
   },
   {
    "name": "Jacoby Brissett",
    "id": "00-0033119",
    "archetype": "The League Core",
-   "cmp_pct": 62.9826,
-   "ypa": 6.431,
-   "td_rate": 3.5232,
-   "int_rate": 1.5927,
-   "rating": 86.4724,
-   "attempts": 2072,
-   "epa_per_db": -0.0187,
-   "cpoe": -0.1891,
-   "cqbr": 49.8104
+   "cmp_pct": 63.0156,
+   "ypa": 6.449,
+   "td_rate": 3.5088,
+   "int_rate": 1.6121,
+   "rating": 86.446,
+   "attempts": 2109,
+   "epa_per_db": -0.0092,
+   "cpoe": -0.225,
+   "cqbr": 49.2646
   },
   {
    "name": "PJ Walker",
@@ -591,9 +591,9 @@
    "int_rate": 4.7198,
    "rating": 60.0356,
    "attempts": 339,
-   "epa_per_db": -0.2538,
+   "epa_per_db": -0.2141,
    "cpoe": -9.1989,
-   "cqbr": 28.5036
+   "cqbr": 30.1304
   },
   {
    "name": "Nick Mullens",
@@ -605,9 +605,9 @@
    "int_rate": 3.9326,
    "rating": 87.063,
    "attempts": 534,
-   "epa_per_db": 0.0677,
+   "epa_per_db": 0.0693,
    "cpoe": 1.2931,
-   "cqbr": 52.8011
+   "cqbr": 51.8758
   },
   {
    "name": "Taysom Hill",
@@ -619,9 +619,9 @@
    "int_rate": 2.649,
    "rating": 90.8251,
    "attempts": 302,
-   "epa_per_db": -0.0138,
+   "epa_per_db": -0.0128,
    "cpoe": -0.5981,
-   "cqbr": 56.0995
+   "cqbr": 54.4349
   },
   {
    "name": "Deshaun Watson",
@@ -633,9 +633,9 @@
    "int_rate": 1.7839,
    "rating": 96.0202,
    "attempts": 1962,
-   "epa_per_db": 0.0508,
+   "epa_per_db": 0.0459,
    "cpoe": 1.7065,
-   "cqbr": 54.5211
+   "cqbr": 53.076
   },
   {
    "name": "Cooper Rush",
@@ -647,9 +647,9 @@
    "int_rate": 2.8481,
    "rating": 78.3821,
    "attempts": 632,
-   "epa_per_db": -0.109,
+   "epa_per_db": -0.0893,
    "cpoe": -6.6373,
-   "cqbr": 39.2001
+   "cqbr": 39.5895
   },
   {
    "name": "Mitchell Trubisky",
@@ -661,23 +661,23 @@
    "int_rate": 2.4207,
    "rating": 86.6375,
    "attempts": 1198,
-   "epa_per_db": 0.0093,
+   "epa_per_db": 0.0129,
    "cpoe": -0.2552,
-   "cqbr": 49.0551
+   "cqbr": 48.5249
   },
   {
    "name": "Patrick Mahomes",
    "id": "00-0033873",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 66.5807,
-   "ypa": 7.5777,
-   "td_rate": 5.5368,
-   "int_rate": 1.7067,
-   "rating": 100.4858,
-   "attempts": 5039,
-   "epa_per_db": 0.1986,
-   "cpoe": 2.7112,
-   "cqbr": 69.1694
+   "cmp_pct": 66.601,
+   "ypa": 7.5833,
+   "td_rate": 5.5534,
+   "int_rate": 1.6936,
+   "rating": 100.6359,
+   "attempts": 5078,
+   "epa_per_db": 0.1777,
+   "cpoe": 2.7499,
+   "cqbr": 66.3579
   },
   {
    "name": "Joshua Dobbs",
@@ -689,9 +689,9 @@
    "int_rate": 2.5547,
    "rating": 79.562,
    "attempts": 548,
-   "epa_per_db": -0.1486,
+   "epa_per_db": -0.119,
    "cpoe": -1.1041,
-   "cqbr": 39.3897
+   "cqbr": 40.0133
   },
   {
    "name": "Tim Boyle",
@@ -703,9 +703,9 @@
    "int_rate": 5.5794,
    "rating": 58.0562,
    "attempts": 233,
-   "epa_per_db": -0.2344,
+   "epa_per_db": -0.1968,
    "cpoe": -6.1961,
-   "cqbr": 29.6361
+   "cqbr": 31.8233
   },
   {
    "name": "Mike White",
@@ -717,9 +717,9 @@
    "int_rate": 4.0123,
    "rating": 74.7042,
    "attempts": 324,
-   "epa_per_db": -0.0566,
+   "epa_per_db": -0.0486,
    "cpoe": -5.2759,
-   "cqbr": 47.3768
+   "cqbr": 45.9413
   },
   {
    "name": "Kyle Allen",
@@ -731,9 +731,9 @@
    "int_rate": 3.1065,
    "rating": 80.6521,
    "attempts": 676,
-   "epa_per_db": -0.0718,
+   "epa_per_db": -0.0522,
    "cpoe": -1.0383,
-   "cqbr": 41.3702
+   "cqbr": 41.2959
   },
   {
    "name": "Mason Rudolph",
@@ -745,9 +745,9 @@
    "int_rate": 2.9412,
    "rating": 84.1272,
    "attempts": 782,
-   "epa_per_db": -0.0072,
+   "epa_per_db": -0.0037,
    "cpoe": 0.0864,
-   "cqbr": 47.6247
+   "cqbr": 46.564
   },
   {
    "name": "Lamar Jackson",
@@ -759,37 +759,37 @@
    "int_rate": 1.9822,
    "rating": 102.5032,
    "attempts": 3027,
-   "epa_per_db": 0.1562,
+   "epa_per_db": 0.1435,
    "cpoe": 2.4476,
-   "cqbr": 65.3195
+   "cqbr": 62.8955
   },
   {
    "name": "Baker Mayfield",
    "id": "00-0034855",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 63.3777,
-   "ypa": 7.1968,
-   "td_rate": 4.9202,
-   "int_rate": 2.5,
-   "rating": 90.8688,
-   "attempts": 3760,
-   "epa_per_db": 0.0503,
-   "cpoe": -0.8021,
-   "cqbr": 53.242
+   "cmp_pct": 63.3535,
+   "ypa": 7.1835,
+   "td_rate": 4.9301,
+   "int_rate": 2.4782,
+   "rating": 90.9169,
+   "attempts": 3793,
+   "epa_per_db": 0.0492,
+   "cpoe": -0.8549,
+   "cqbr": 52.0452
   },
   {
    "name": "Josh Allen",
    "id": "00-0034857",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 65.102,
-   "ypa": 7.4942,
-   "td_rate": 5.5275,
-   "int_rate": 2.0838,
-   "rating": 97.3034,
-   "attempts": 4559,
-   "epa_per_db": 0.1581,
-   "cpoe": 2.7922,
-   "cqbr": 66.2432
+   "cmp_pct": 65.0521,
+   "ypa": 7.487,
+   "td_rate": 5.4952,
+   "int_rate": 2.1069,
+   "rating": 97.0279,
+   "attempts": 4604,
+   "epa_per_db": 0.1414,
+   "cpoe": 2.7215,
+   "cqbr": 63.8464
   },
   {
    "name": "Sam Darnold",
@@ -801,9 +801,9 @@
    "int_rate": 2.7888,
    "rating": 87.6818,
    "attempts": 2761,
-   "epa_per_db": -0.0155,
+   "epa_per_db": -0.0115,
    "cpoe": 0.8569,
-   "cqbr": 50.0773
+   "cqbr": 48.634
   },
   {
    "name": "David Blough",
@@ -815,9 +815,9 @@
    "int_rate": 3.719,
    "rating": 67.0799,
    "attempts": 242,
-   "epa_per_db": -0.2249,
+   "epa_per_db": -0.1851,
    "cpoe": -9.5834,
-   "cqbr": 30.8036
+   "cqbr": 32.7591
   },
   {
    "name": "Jake Browning",
@@ -829,9 +829,9 @@
    "int_rate": 4.0761,
    "rating": 89.1191,
    "attempts": 368,
-   "epa_per_db": -0.0401,
+   "epa_per_db": -0.0209,
    "cpoe": 2.683,
-   "cqbr": 50.4444
+   "cqbr": 50.1078
   },
   {
    "name": "Kyler Murray",
@@ -845,7 +845,7 @@
    "attempts": 3129,
    "epa_per_db": 0.034,
    "cpoe": 0.7396,
-   "cqbr": 54.8987
+   "cqbr": 53.5634
   },
   {
    "name": "Dwayne Haskins",
@@ -857,9 +857,9 @@
    "int_rate": 3.1532,
    "rating": 74.3806,
    "attempts": 444,
-   "epa_per_db": -0.1841,
+   "epa_per_db": -0.1482,
    "cpoe": -5.1092,
-   "cqbr": 32.6345
+   "cqbr": 34.0831
   },
   {
    "name": "Jarrett Stidham",
@@ -871,9 +871,9 @@
    "int_rate": 3.9474,
    "rating": 76.1879,
    "attempts": 228,
-   "epa_per_db": -0.1793,
+   "epa_per_db": -0.1443,
    "cpoe": -3.779,
-   "cqbr": 42.8269
+   "cqbr": 42.3041
   },
   {
    "name": "Gardner Minshew",
@@ -885,9 +885,9 @@
    "int_rate": 1.9499,
    "rating": 88.6223,
    "attempts": 1795,
-   "epa_per_db": -0.0104,
+   "epa_per_db": -0.0034,
    "cpoe": -0.9,
-   "cqbr": 48.4651
+   "cqbr": 47.8924
   },
   {
    "name": "Drew Lock",
@@ -899,23 +899,23 @@
    "int_rate": 2.6341,
    "rating": 82.8532,
    "attempts": 1063,
-   "epa_per_db": -0.0373,
+   "epa_per_db": -0.023,
    "cpoe": -3.7172,
-   "cqbr": 48.5788
+   "cqbr": 48.2738
   },
   {
    "name": "Daniel Jones",
    "id": "00-0035710",
    "archetype": "The League Core",
-   "cmp_pct": 64.0983,
-   "ypa": 6.6254,
-   "td_rate": 3.2547,
-   "int_rate": 2.2584,
-   "rating": 84.5435,
-   "attempts": 3011,
-   "epa_per_db": -0.0436,
-   "cpoe": -0.5828,
-   "cqbr": 48.8652
+   "cmp_pct": 63.9236,
+   "ypa": 6.6139,
+   "td_rate": 3.2258,
+   "int_rate": 2.2712,
+   "rating": 84.2001,
+   "attempts": 3038,
+   "epa_per_db": -0.0392,
+   "cpoe": -0.7129,
+   "cqbr": 47.5596
   },
   {
    "name": "Tyler Huntley",
@@ -927,9 +927,9 @@
    "int_rate": 1.7291,
    "rating": 84.366,
    "attempts": 694,
-   "epa_per_db": -0.0604,
+   "epa_per_db": -0.0491,
    "cpoe": 1.3059,
-   "cqbr": 44.3888
+   "cqbr": 44.7094
   },
   {
    "name": "Tua Tagovailoa",
@@ -941,9 +941,9 @@
    "int_rate": 2.4767,
    "rating": 95.7344,
    "attempts": 2463,
-   "epa_per_db": 0.1199,
+   "epa_per_db": 0.109,
    "cpoe": 2.0747,
-   "cqbr": 59.808
+   "cqbr": 57.9172
   },
   {
    "name": "Jordan Love",
@@ -955,23 +955,23 @@
    "int_rate": 2.1203,
    "rating": 96.4168,
    "attempts": 2028,
-   "epa_per_db": 0.1608,
+   "epa_per_db": 0.1417,
    "cpoe": 1.7057,
-   "cqbr": 63.7487
+   "cqbr": 61.3535
   },
   {
    "name": "Justin Herbert",
    "id": "00-0036355",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 65.8151,
-   "ypa": 7.1672,
-   "td_rate": 4.5036,
-   "int_rate": 1.9226,
-   "rating": 93.7939,
-   "attempts": 3797,
-   "epa_per_db": 0.0646,
-   "cpoe": 0.0161,
-   "cqbr": 57.5039
+   "cmp_pct": 65.846,
+   "ypa": 7.1621,
+   "td_rate": 4.5312,
+   "int_rate": 1.912,
+   "rating": 93.9344,
+   "attempts": 3818,
+   "epa_per_db": 0.0592,
+   "cpoe": 0.0096,
+   "cqbr": 55.783
   },
   {
    "name": "Jalen Hurts",
@@ -983,23 +983,23 @@
    "int_rate": 1.797,
    "rating": 93.7926,
    "attempts": 2838,
-   "epa_per_db": 0.0833,
+   "epa_per_db": 0.0777,
    "cpoe": 2.3799,
-   "cqbr": 61.0883
+   "cqbr": 59.1753
   },
   {
    "name": "Joe Burrow",
    "id": "00-0036442",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 69.0021,
-   "ypa": 7.4863,
-   "td_rate": 5.6815,
-   "int_rate": 1.7957,
-   "rating": 102.2342,
-   "attempts": 3397,
-   "epa_per_db": 0.1403,
-   "cpoe": 4.902,
-   "cqbr": 64.2475
+   "cmp_pct": 69.0137,
+   "ypa": 7.4865,
+   "td_rate": 5.6736,
+   "int_rate": 1.7748,
+   "rating": 102.3052,
+   "attempts": 3437,
+   "epa_per_db": 0.1298,
+   "cpoe": 4.8737,
+   "cqbr": 61.9801
   },
   {
    "name": "Davis Mills",
@@ -1011,51 +1011,51 @@
    "int_rate": 2.3423,
    "rating": 82.47,
    "attempts": 1110,
-   "epa_per_db": -0.125,
+   "epa_per_db": -0.0989,
    "cpoe": -3.7638,
-   "cqbr": 37.9002
+   "cqbr": 39.0342
   },
   {
    "name": "Justin Fields",
    "id": "00-0036945",
    "archetype": "The League Core",
-   "cmp_pct": 61.3293,
-   "ypa": 6.827,
-   "td_rate": 3.9275,
-   "int_rate": 2.4169,
-   "rating": 84.6582,
-   "attempts": 1324,
-   "epa_per_db": -0.1221,
-   "cpoe": -0.8354,
-   "cqbr": 46.2955
+   "cmp_pct": 61.283,
+   "ypa": 6.8219,
+   "td_rate": 3.9245,
+   "int_rate": 2.4151,
+   "rating": 84.5959,
+   "attempts": 1325,
+   "epa_per_db": -0.1007,
+   "cpoe": -0.8782,
+   "cqbr": 46.0965
   },
   {
    "name": "Trevor Lawrence",
    "id": "00-0036971",
    "archetype": "The League Core",
-   "cmp_pct": 62.9842,
-   "ypa": 7.0118,
-   "td_rate": 4.2775,
-   "int_rate": 2.3577,
-   "rating": 88.2206,
-   "attempts": 2969,
-   "epa_per_db": 0.0465,
-   "cpoe": -0.7921,
-   "cqbr": 54.137
+   "cmp_pct": 62.8316,
+   "ypa": 7.0023,
+   "td_rate": 4.244,
+   "int_rate": 2.3873,
+   "rating": 87.8191,
+   "attempts": 3016,
+   "epa_per_db": 0.0468,
+   "cpoe": -0.8132,
+   "cqbr": 53.0659
   },
   {
    "name": "Mac Jones",
    "id": "00-0036972",
    "archetype": "The League Core",
-   "cmp_pct": 66.3861,
-   "ypa": 6.8264,
-   "td_rate": 3.6297,
-   "int_rate": 2.7354,
-   "rating": 86.5498,
-   "attempts": 1901,
-   "epa_per_db": 0.0059,
-   "cpoe": 0.5667,
-   "cqbr": 50.2638
+   "cmp_pct": 66.4038,
+   "ypa": 6.8254,
+   "td_rate": 3.6278,
+   "int_rate": 2.734,
+   "rating": 86.5602,
+   "attempts": 1902,
+   "epa_per_db": 0.0118,
+   "cpoe": 0.5738,
+   "cqbr": 49.4379
   },
   {
    "name": "Trey Lance",
@@ -1067,9 +1067,9 @@
    "int_rate": 2.5,
    "rating": 71.8542,
    "attempts": 200,
-   "epa_per_db": -0.216,
+   "epa_per_db": -0.178,
    "cpoe": -8.1309,
-   "cqbr": 33.8374
+   "cqbr": 35.511
   },
   {
    "name": "Zach Wilson",
@@ -1081,9 +1081,9 @@
    "int_rate": 2.49,
    "rating": 73.0702,
    "attempts": 1004,
-   "epa_per_db": -0.2151,
+   "epa_per_db": -0.1769,
    "cpoe": -6.2788,
-   "cqbr": 30.7616
+   "cqbr": 32.7576
   },
   {
    "name": "Sam Howell",
@@ -1095,23 +1095,23 @@
    "int_rate": 3.5659,
    "rating": 77.5291,
    "attempts": 645,
-   "epa_per_db": -0.1767,
+   "epa_per_db": -0.1408,
    "cpoe": -1.3114,
-   "cqbr": 39.3045
+   "cqbr": 40.5928
   },
   {
    "name": "Brock Purdy",
    "id": "00-0037834",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 67.3889,
-   "ypa": 8.5585,
-   "td_rate": 6.0672,
-   "int_rate": 2.4919,
-   "rating": 103.7423,
-   "attempts": 1846,
-   "epa_per_db": 0.2262,
-   "cpoe": 3.6225,
-   "cqbr": 71.3232
+   "cmp_pct": 67.5748,
+   "ypa": 8.5759,
+   "td_rate": 6.1432,
+   "int_rate": 2.4573,
+   "rating": 104.367,
+   "attempts": 1872,
+   "epa_per_db": 0.2107,
+   "cpoe": 3.8066,
+   "cqbr": 69.0073
   },
   {
    "name": "Kenny Pickett",
@@ -1123,9 +1123,9 @@
    "int_rate": 1.9851,
    "rating": 78.1793,
    "attempts": 806,
-   "epa_per_db": -0.0891,
+   "epa_per_db": -0.071,
    "cpoe": -0.964,
-   "cqbr": 42.692
+   "cqbr": 43.3546
   },
   {
    "name": "Bailey Zappe",
@@ -1137,9 +1137,9 @@
    "int_rate": 4.1791,
    "rating": 76.0012,
    "attempts": 335,
-   "epa_per_db": -0.2492,
+   "epa_per_db": -0.2044,
    "cpoe": -2.4836,
-   "cqbr": 29.1942
+   "cqbr": 30.7497
   },
   {
    "name": "Desmond Ridder",
@@ -1151,9 +1151,9 @@
    "int_rate": 2.381,
    "rating": 82.5964,
    "attempts": 588,
-   "epa_per_db": -0.0796,
+   "epa_per_db": -0.063,
    "cpoe": -1.5884,
-   "cqbr": 40.8534
+   "cqbr": 41.0642
   },
   {
    "name": "Malik Willis",
@@ -1165,9 +1165,9 @@
    "int_rate": 2.4793,
    "rating": 85.8528,
    "attempts": 363,
-   "epa_per_db": -0.0266,
+   "epa_per_db": -0.036,
    "cpoe": -0.8734,
-   "cqbr": 49.5146
+   "cqbr": 47.8336
   },
   {
    "name": "Tanner McKee",
@@ -1179,9 +1179,9 @@
    "int_rate": 1.4851,
    "rating": 84.901,
    "attempts": 202,
-   "epa_per_db": -0.0243,
+   "epa_per_db": -0.0383,
    "cpoe": -1.1214,
-   "cqbr": 43.1478
+   "cqbr": 42.2739
   },
   {
    "name": "Tyson Bagent",
@@ -1193,9 +1193,9 @@
    "int_rate": 4.2254,
    "rating": 70.2758,
    "attempts": 213,
-   "epa_per_db": -0.1223,
+   "epa_per_db": -0.0993,
    "cpoe": -0.9284,
-   "cqbr": 44.1255
+   "cqbr": 44.2332
   },
   {
    "name": "Tommy DeVito",
@@ -1207,9 +1207,9 @@
    "int_rate": 1.5748,
    "rating": 84.5965,
    "attempts": 254,
-   "epa_per_db": -0.2315,
+   "epa_per_db": -0.185,
    "cpoe": -3.1594,
-   "cqbr": 26.8916
+   "cqbr": 30.4216
   },
   {
    "name": "Aidan O'Connell",
@@ -1221,9 +1221,9 @@
    "int_rate": 1.8092,
    "rating": 84.1283,
    "attempts": 608,
-   "epa_per_db": -0.0282,
+   "epa_per_db": -0.0128,
    "cpoe": -4.5244,
-   "cqbr": 41.7323
+   "cqbr": 42.7638
   },
   {
    "name": "Dorian Thompson-Robinson",
@@ -1235,23 +1235,23 @@
    "int_rate": 4.3478,
    "rating": 45.1993,
    "attempts": 230,
-   "epa_per_db": -0.4517,
+   "epa_per_db": -0.3585,
    "cpoe": -11.6616,
-   "cqbr": 18.5142
+   "cqbr": 22.7573
   },
   {
    "name": "Bryce Young",
    "id": "00-0039150",
    "archetype": "The League Core",
-   "cmp_pct": 60.9508,
-   "ypa": 6.1981,
-   "td_rate": 3.7351,
-   "int_rate": 2.0939,
-   "rating": 82.4267,
-   "attempts": 1767,
-   "epa_per_db": -0.1022,
-   "cpoe": -0.0878,
-   "cqbr": 42.7824
+   "cmp_pct": 61.1575,
+   "ypa": 6.2359,
+   "td_rate": 3.7841,
+   "int_rate": 2.1146,
+   "rating": 82.8337,
+   "attempts": 1797,
+   "epa_per_db": -0.0708,
+   "cpoe": 0.0479,
+   "cqbr": 44.0657
   },
   {
    "name": "Will Levis",
@@ -1263,37 +1263,37 @@
    "int_rate": 2.8777,
    "rating": 82.7113,
    "attempts": 556,
-   "epa_per_db": -0.1281,
+   "epa_per_db": -0.0997,
    "cpoe": -0.4095,
-   "cqbr": 36.0202
+   "cqbr": 36.975
   },
   {
    "name": "C.J. Stroud",
    "id": "00-0039163",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 63.313,
-   "ypa": 7.5081,
-   "td_rate": 4.4207,
-   "int_rate": 1.7276,
-   "rating": 93.6653,
-   "attempts": 1968,
-   "epa_per_db": 0.0646,
-   "cpoe": -0.6203,
-   "cqbr": 56.7984
+   "cmp_pct": 63.5088,
+   "ypa": 7.5038,
+   "td_rate": 4.5113,
+   "int_rate": 1.7544,
+   "rating": 94.0006,
+   "attempts": 1995,
+   "epa_per_db": 0.063,
+   "cpoe": -0.4909,
+   "cqbr": 55.5948
   },
   {
    "name": "Anthony Richardson",
    "id": "00-0039164",
    "archetype": "Struggling & Backups",
-   "cmp_pct": 50.8523,
-   "ypa": 6.8409,
-   "td_rate": 3.125,
-   "int_rate": 3.6932,
-   "rating": 67.9924,
-   "attempts": 352,
-   "epa_per_db": -0.1037,
-   "cpoe": -9.8632,
-   "cqbr": 44.3114
+   "cmp_pct": 50.565,
+   "ypa": 6.8023,
+   "td_rate": 3.1073,
+   "int_rate": 3.6723,
+   "rating": 67.6201,
+   "attempts": 354,
+   "epa_per_db": -0.0808,
+   "cpoe": -10.125,
+   "cqbr": 44.8316
   },
   {
    "name": "Spencer Rattler",
@@ -1305,23 +1305,23 @@
    "int_rate": 2.0619,
    "rating": 78.9132,
    "attempts": 485,
-   "epa_per_db": -0.1841,
+   "epa_per_db": -0.1425,
    "cpoe": -2.9538,
-   "cqbr": 37.7556
+   "cqbr": 39.0157
   },
   {
    "name": "Bo Nix",
    "id": "00-0039732",
    "archetype": "The League Core",
-   "cmp_pct": 63.6897,
+   "cmp_pct": 63.4799,
    "ypa": 6.427,
-   "td_rate": 4.498,
-   "int_rate": 1.8253,
-   "rating": 89.3253,
-   "attempts": 1534,
-   "epa_per_db": 0.0594,
-   "cpoe": -0.663,
-   "cqbr": 55.1019
+   "td_rate": 4.4614,
+   "int_rate": 1.8483,
+   "rating": 88.9327,
+   "attempts": 1569,
+   "epa_per_db": 0.0596,
+   "cpoe": -0.747,
+   "cqbr": 54.1335
   },
   {
    "name": "Drake Maye",
@@ -1333,23 +1333,23 @@
    "int_rate": 2.6917,
    "rating": 99.7179,
    "attempts": 1226,
-   "epa_per_db": 0.1052,
+   "epa_per_db": 0.0982,
    "cpoe": 6.3449,
-   "cqbr": 64.7771
+   "cqbr": 62.1637
   },
   {
    "name": "Jayden Daniels",
    "id": "00-0039910",
    "archetype": "Elite Quarterbacks",
-   "cmp_pct": 66.1307,
-   "ypa": 7.1869,
-   "td_rate": 4.8241,
-   "int_rate": 1.5075,
-   "rating": 96.9368,
-   "attempts": 995,
-   "epa_per_db": 0.0853,
-   "cpoe": 2.3341,
-   "cqbr": 57.5789
+   "cmp_pct": 66.1165,
+   "ypa": 7.2233,
+   "td_rate": 4.6602,
+   "int_rate": 1.4563,
+   "rating": 96.7435,
+   "attempts": 1030,
+   "epa_per_db": 0.0778,
+   "cpoe": 2.3821,
+   "cqbr": 55.8199
   },
   {
    "name": "Michael Penix Jr.",
@@ -1361,37 +1361,37 @@
    "int_rate": 2.0867,
    "rating": 85.196,
    "attempts": 623,
-   "epa_per_db": 0.0073,
+   "epa_per_db": 0.0011,
    "cpoe": -4.5085,
-   "cqbr": 51.3981
+   "cqbr": 49.8129
   },
   {
    "name": "Caleb Williams",
    "id": "00-0039918",
    "archetype": "The League Core",
-   "cmp_pct": 60.9187,
-   "ypa": 6.8177,
-   "td_rate": 4.1696,
-   "int_rate": 1.6254,
-   "rating": 88.3819,
-   "attempts": 1415,
-   "epa_per_db": 0.0311,
-   "cpoe": -1.0379,
-   "cqbr": 51.2004
+   "cmp_pct": 60.9875,
+   "ypa": 6.8345,
+   "td_rate": 4.242,
+   "int_rate": 1.669,
+   "rating": 88.5692,
+   "attempts": 1438,
+   "epa_per_db": 0.0382,
+   "cpoe": -0.9367,
+   "cqbr": 51.0995
   },
   {
    "name": "J.J. McCarthy",
    "id": "00-0039923",
    "archetype": "Struggling & Backups",
-   "cmp_pct": 59.366,
-   "ypa": 7.3401,
-   "td_rate": 3.7464,
-   "int_rate": 4.0346,
-   "rating": 77.8158,
-   "attempts": 347,
-   "epa_per_db": -0.1052,
-   "cpoe": -3.1081,
-   "cqbr": 44.1443
+   "cmp_pct": 58.1818,
+   "ypa": 7.0649,
+   "td_rate": 3.6364,
+   "int_rate": 3.6364,
+   "rating": 76.9751,
+   "attempts": 385,
+   "epa_per_db": -0.0814,
+   "cpoe": -4.1844,
+   "cqbr": 44.7441
   },
   {
    "name": "Shedeur Sanders",
@@ -1403,23 +1403,23 @@
    "int_rate": 4.065,
    "rating": 74.2209,
    "attempts": 246,
-   "epa_per_db": -0.2055,
+   "epa_per_db": -0.1502,
    "cpoe": -4.9299,
-   "cqbr": 34.4578
+   "cqbr": 36.4728
   },
   {
    "name": "Cam Ward",
    "id": "00-0040676",
    "archetype": "The League Core",
-   "cmp_pct": 61.185,
-   "ypa": 5.9045,
-   "td_rate": 2.7811,
-   "int_rate": 1.5719,
-   "rating": 80.3935,
-   "attempts": 827,
-   "epa_per_db": -0.147,
-   "cpoe": -1.9375,
-   "cqbr": 38.278
+   "cmp_pct": 61.4936,
+   "ypa": 5.9872,
+   "td_rate": 2.9172,
+   "int_rate": 1.5169,
+   "rating": 81.6778,
+   "attempts": 857,
+   "epa_per_db": -0.1143,
+   "cpoe": -1.6898,
+   "cqbr": 39.646
   },
   {
    "name": "Jaxson Dart",
@@ -1431,23 +1431,23 @@
    "int_rate": 1.3405,
    "rating": 94.8224,
    "attempts": 373,
-   "epa_per_db": 0.055,
+   "epa_per_db": 0.0613,
    "cpoe": 0.8206,
-   "cqbr": 59.728
+   "cqbr": 58.7245
   },
   {
    "name": "Tyler Shough",
    "id": "00-0040743",
    "archetype": "The League Core",
-   "cmp_pct": 67.1642,
-   "ypa": 6.8015,
-   "td_rate": 3.7313,
-   "int_rate": 1.9403,
-   "rating": 90.7463,
-   "attempts": 670,
-   "epa_per_db": 0.0168,
-   "cpoe": 0.7896,
-   "cqbr": 51.3983
+   "cmp_pct": 66.7135,
+   "ypa": 6.7121,
+   "td_rate": 3.6517,
+   "int_rate": 1.9663,
+   "rating": 89.6243,
+   "attempts": 712,
+   "epa_per_db": 0.0161,
+   "cpoe": 0.7715,
+   "cqbr": 50.1989
   }
  ],
  "situational_by_season": {
@@ -13117,17 +13117,17 @@
    {
     "name": "Aaron Rodgers",
     "id": "00-0023459",
-    "qbr": 46.7,
+    "qbr": 45.6,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 317,
-    "yards": 2014.0,
-    "tds": 15,
+    "attempts": 361,
+    "yards": 2241.0,
+    "tds": 16,
     "ints": 6,
-    "cmp1": 62.7907,
-    "cmp3": 45.7143,
-    "delta": -17.0764,
+    "cmp1": 62.1429,
+    "cmp3": 50.0,
+    "delta": -12.1429,
     "clutch_att": 35.0,
     "clutch_cmp_pct": 40.0,
     "clutch_ypa": 5.0286,
@@ -13137,13 +13137,39 @@
     "fourth_conv": 2.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 46.4069,
-    "fourth_rate_adj": 50.6925
+    "clutch_cmp_adj": 46.2963,
+    "fourth_rate_adj": 50.3209
+   },
+   {
+    "name": "Josh Johnson",
+    "id": "00-0026300",
+    "qbr": null,
+    "fourth_qc": null,
+    "gwd": null,
+    "archetype": null,
+    "attempts": 31,
+    "yards": 155.0,
+    "tds": 1,
+    "ints": 0,
+    "cmp1": null,
+    "cmp3": null,
+    "delta": null,
+    "clutch_att": null,
+    "clutch_cmp_pct": null,
+    "clutch_ypa": null,
+    "clutch_tds": null,
+    "clutch_ints": null,
+    "fourth_att": 1.0,
+    "fourth_conv": 0.0,
+    "fourth_rate": 0.0,
+    "fourth_conv_wins": 0.0,
+    "clutch_cmp_adj": null,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Matthew Stafford",
     "id": "00-0026498",
-    "qbr": 61.1,
+    "qbr": 62.1,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13163,8 +13189,8 @@
     "fourth_conv": 6.0,
     "fourth_rate": 66.6667,
     "fourth_conv_wins": 4.0,
-    "clutch_cmp_adj": 64.2063,
-    "fourth_rate_adj": 56.7982
+    "clutch_cmp_adj": 64.1049,
+    "fourth_rate_adj": 56.5041
    },
    {
     "name": "Case Keenum",
@@ -13189,49 +13215,49 @@
     "fourth_conv": 1.0,
     "fourth_rate": 20.0,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 54.8753,
-    "fourth_rate_adj": 43.1579
+    "clutch_cmp_adj": 54.5855,
+    "fourth_rate_adj": 42.8049
    },
    {
     "name": "Kirk Cousins",
     "id": "00-0029604",
-    "qbr": 65.0,
+    "qbr": 65.7,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 346,
-    "yards": 2547.0,
+    "attempts": 384,
+    "yards": 2782.0,
     "tds": 22,
-    "ints": 9,
-    "cmp1": 67.1329,
-    "cmp3": 63.1579,
-    "delta": -3.975,
+    "ints": 10,
+    "cmp1": 67.0886,
+    "cmp3": 64.486,
+    "delta": -2.6026,
     "clutch_att": 38.0,
     "clutch_cmp_pct": 50.0,
     "clutch_ypa": 6.2368,
     "clutch_tds": 1.0,
     "clutch_ints": 1.0,
-    "fourth_att": 8.0,
+    "fourth_att": 9.0,
     "fourth_conv": 2.0,
-    "fourth_rate": 25.0,
+    "fourth_rate": 22.2222,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 52.6273,
-    "fourth_rate_adj": 41.8764
+    "clutch_cmp_adj": 52.5223,
+    "fourth_rate_adj": 39.8374
    },
    {
     "name": "Geno Smith",
     "id": "00-0030565",
-    "qbr": 53.2,
+    "qbr": 56.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 292,
-    "yards": 2226.0,
-    "tds": 12,
+    "attempts": 313,
+    "yards": 2402.0,
+    "tds": 15,
     "ints": 3,
-    "cmp1": 68.254,
-    "cmp3": 64.557,
-    "delta": -3.697,
+    "cmp1": 69.3431,
+    "cmp3": 64.2857,
+    "delta": -5.0574,
     "clutch_att": 38.0,
     "clutch_cmp_pct": 57.8947,
     "clutch_ypa": 4.7895,
@@ -13241,17 +13267,17 @@
     "fourth_conv": 5.0,
     "fourth_rate": 83.3333,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 57.7997,
-    "fourth_rate_adj": 60.1504
+    "clutch_cmp_adj": 57.6948,
+    "fourth_rate_adj": 59.8142
    },
    {
     "name": "Jameis Winston",
     "id": "00-0031503",
-    "qbr": 45.1,
+    "qbr": 46.2,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 166,
+    "attempts": 167,
     "yards": 1028.0,
     "tds": 8,
     "ints": 5,
@@ -13267,8 +13293,8 @@
     "fourth_conv": 2.0,
     "fourth_rate": 66.6667,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 57.8869,
-    "fourth_rate_adj": 53.5088
+    "clutch_cmp_adj": 57.6968,
+    "fourth_rate_adj": 53.1165
    },
    {
     "name": "Marcus Mariota",
@@ -13293,8 +13319,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 100.0,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 54.0952,
-    "fourth_rate_adj": 53.9474
+    "clutch_cmp_adj": 53.8519,
+    "fourth_rate_adj": 53.5061
    },
    {
     "name": "Carson Wentz",
@@ -13303,39 +13329,39 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 64,
-    "yards": 357.0,
+    "attempts": 69,
+    "yards": 386.0,
     "tds": 3,
     "ints": 2,
     "cmp1": null,
-    "cmp3": 66.6667,
+    "cmp3": 64.0,
     "delta": null,
     "clutch_att": 9.0,
     "clutch_cmp_pct": 55.5556,
     "clutch_ypa": 7.0,
     "clutch_tds": 0.0,
     "clutch_ints": 0.0,
-    "fourth_att": 1.0,
+    "fourth_att": 2.0,
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 56.9787,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 56.7688,
+    "fourth_rate_adj": 44.4763
    },
    {
     "name": "Dak Prescott",
     "id": "00-0033077",
-    "qbr": 78.3,
+    "qbr": 80.9,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 387,
-    "yards": 2724.0,
-    "tds": 21,
+    "attempts": 420,
+    "yards": 3049.0,
+    "tds": 25,
     "ints": 6,
-    "cmp1": 64.2384,
-    "cmp3": 61.4583,
-    "delta": -2.7801,
+    "cmp1": 66.2577,
+    "cmp3": 61.7647,
+    "delta": -4.493,
     "clutch_att": 51.0,
     "clutch_cmp_pct": 54.902,
     "clutch_ypa": 8.0588,
@@ -13345,65 +13371,65 @@
     "fourth_conv": 7.0,
     "fourth_rate": 63.6364,
     "fourth_conv_wins": 2.0,
-    "clutch_cmp_adj": 55.6673,
-    "fourth_rate_adj": 56.2753
+    "clutch_cmp_adj": 55.5816,
+    "fourth_rate_adj": 56.0038
    },
    {
     "name": "Jared Goff",
     "id": "00-0033106",
-    "qbr": 58.2,
+    "qbr": 62.4,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 304,
-    "yards": 2437.0,
-    "tds": 18,
+    "attempts": 332,
+    "yards": 2716.0,
+    "tds": 20,
     "ints": 4,
-    "cmp1": 68.5039,
-    "cmp3": 53.9474,
-    "delta": -14.5566,
-    "clutch_att": 22.0,
-    "clutch_cmp_pct": 63.6364,
-    "clutch_ypa": 7.0909,
+    "cmp1": 68.7943,
+    "cmp3": 51.8519,
+    "delta": -16.9425,
+    "clutch_att": 23.0,
+    "clutch_cmp_pct": 60.8696,
+    "clutch_ypa": 6.7826,
     "clutch_tds": 1.0,
     "clutch_ints": 0.0,
     "fourth_att": 11.0,
     "fourth_conv": 8.0,
     "fourth_rate": 72.7273,
     "fourth_conv_wins": 5.0,
-    "clutch_cmp_adj": 60.771,
-    "fourth_rate_adj": 60.1215
+    "clutch_cmp_adj": 59.2162,
+    "fourth_rate_adj": 59.8499
    },
    {
     "name": "Jacoby Brissett",
     "id": "00-0033119",
-    "qbr": 48.6,
+    "qbr": 50.3,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 354,
-    "yards": 2059.0,
-    "tds": 10,
-    "ints": 8,
-    "cmp1": 67.4242,
-    "cmp3": 54.2553,
-    "delta": -13.1689,
-    "clutch_att": 31.0,
-    "clutch_cmp_pct": 61.2903,
-    "clutch_ypa": 5.1613,
+    "attempts": 391,
+    "yards": 2335.0,
+    "tds": 11,
+    "ints": 9,
+    "cmp1": 65.9864,
+    "cmp3": 55.3398,
+    "delta": -10.6466,
+    "clutch_att": 40.0,
+    "clutch_cmp_pct": 60.0,
+    "clutch_ypa": 5.3,
     "clutch_tds": 0.0,
-    "clutch_ints": 1.0,
-    "fourth_att": 7.0,
-    "fourth_conv": 4.0,
-    "fourth_rate": 57.1429,
+    "clutch_ints": 2.0,
+    "fourth_att": 8.0,
+    "fourth_conv": 5.0,
+    "fourth_rate": 62.5,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 59.8506,
-    "fourth_rate_adj": 52.8708
+    "clutch_cmp_adj": 59.1049,
+    "fourth_rate_adj": 54.6129
    },
    {
     "name": "Deshaun Watson",
     "id": "00-0033537",
-    "qbr": 40.1,
+    "qbr": 39.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13423,8 +13449,8 @@
     "fourth_conv": 2.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 2.0,
-    "clutch_cmp_adj": 70.3793,
-    "fourth_rate_adj": 50.6925
+    "clutch_cmp_adj": 70.2762,
+    "fourth_rate_adj": 50.3209
    },
    {
     "name": "Cooper Rush",
@@ -13449,23 +13475,23 @@
     "fourth_conv": null,
     "fourth_rate": null,
     "fourth_conv_wins": null,
-    "clutch_cmp_adj": 58.7992,
+    "clutch_cmp_adj": 58.5346,
     "fourth_rate_adj": null
    },
    {
     "name": "Patrick Mahomes",
     "id": "00-0033873",
-    "qbr": 63.9,
+    "qbr": 64.3,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 298,
-    "yards": 2385.0,
-    "tds": 19,
+    "attempts": 337,
+    "yards": 2709.0,
+    "tds": 22,
     "ints": 4,
-    "cmp1": 70.9677,
-    "cmp3": 59.2105,
-    "delta": -11.7572,
+    "cmp1": 69.0141,
+    "cmp3": 61.4458,
+    "delta": -7.5683,
     "clutch_att": 34.0,
     "clutch_cmp_pct": 67.6471,
     "clutch_ypa": 10.2353,
@@ -13475,8 +13501,8 @@
     "fourth_conv": 2.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 63.933,
-    "fourth_rate_adj": 50.6925
+    "clutch_cmp_adj": 63.8203,
+    "fourth_rate_adj": 50.3209
    },
    {
     "name": "Lamar Jackson",
@@ -13501,23 +13527,23 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 63.3053,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 63.1264,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Baker Mayfield",
     "id": "00-0034855",
-    "qbr": 32.0,
+    "qbr": 36.2,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 142,
-    "yards": 922.0,
-    "tds": 3,
+    "attempts": 175,
+    "yards": 1109.0,
+    "tds": 5,
     "ints": 4,
-    "cmp1": 71.7391,
-    "cmp3": 53.4884,
-    "delta": -18.2508,
+    "cmp1": 63.7931,
+    "cmp3": 58.0,
+    "delta": -5.7931,
     "clutch_att": 17.0,
     "clutch_cmp_pct": 35.2941,
     "clutch_ypa": 2.2353,
@@ -13527,23 +13553,23 @@
     "fourth_conv": 1.0,
     "fourth_rate": 33.3333,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 47.3616,
-    "fourth_rate_adj": 47.9532
+    "clutch_cmp_adj": 47.1972,
+    "fourth_rate_adj": 47.561
    },
    {
     "name": "Josh Allen",
     "id": "00-0034857",
-    "qbr": 75.1,
+    "qbr": 70.2,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 257,
-    "yards": 2223.0,
-    "tds": 13,
-    "ints": 7,
-    "cmp1": 71.0843,
-    "cmp3": 63.4921,
-    "delta": -7.5923,
+    "attempts": 302,
+    "yards": 2527.0,
+    "tds": 14,
+    "ints": 9,
+    "cmp1": 68.0,
+    "cmp3": 64.4737,
+    "delta": -3.5263,
     "clutch_att": 27.0,
     "clutch_cmp_pct": 66.6667,
     "clutch_ypa": 11.4074,
@@ -13553,13 +13579,13 @@
     "fourth_conv": 4.0,
     "fourth_rate": 80.0,
     "fourth_conv_wins": 3.0,
-    "clutch_cmp_adj": 62.8166,
-    "fourth_rate_adj": 58.1579
+    "clutch_cmp_adj": 62.6872,
+    "fourth_rate_adj": 57.8049
    },
    {
     "name": "Sam Darnold",
     "id": "00-0034869",
-    "qbr": 48.6,
+    "qbr": 48.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13579,13 +13605,13 @@
     "fourth_conv": 2.0,
     "fourth_rate": 40.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 51.2472,
-    "fourth_rate_adj": 48.1579
+    "clutch_cmp_adj": 51.1023,
+    "fourth_rate_adj": 47.8049
    },
    {
     "name": "Kyler Murray",
     "id": "00-0035228",
-    "qbr": 49.1,
+    "qbr": 48.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13605,8 +13631,8 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 54.4818,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 54.3028,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Gardner Minshew",
@@ -13631,8 +13657,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 56.9787,
-    "fourth_rate_adj": 50.774
+    "clutch_cmp_adj": 56.7688,
+    "fourth_rate_adj": 50.3587
    },
    {
     "name": "Drew Lock",
@@ -13657,34 +13683,34 @@
     "fourth_conv": 1.0,
     "fourth_rate": 100.0,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 60.3641,
-    "fourth_rate_adj": 53.9474
+    "clutch_cmp_adj": 60.1852,
+    "fourth_rate_adj": 53.5061
    },
    {
     "name": "Daniel Jones",
     "id": "00-0035710",
-    "qbr": 30.3,
+    "qbr": 28.9,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 324,
-    "yards": 1830.0,
+    "attempts": 351,
+    "yards": 1974.0,
     "tds": 7,
-    "ints": 12,
-    "cmp1": 58.5586,
-    "cmp3": 56.9767,
-    "delta": -1.5818,
+    "ints": 13,
+    "cmp1": 56.8966,
+    "cmp3": 53.6842,
+    "delta": -3.2123,
     "clutch_att": 41.0,
     "clutch_cmp_pct": 46.3415,
     "clutch_ypa": 4.3415,
     "clutch_tds": 1.0,
     "clutch_ints": 2.0,
-    "fourth_att": 7.0,
-    "fourth_conv": 2.0,
-    "fourth_rate": 28.5714,
+    "fourth_att": 9.0,
+    "fourth_conv": 3.0,
+    "fourth_rate": 33.3333,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 50.039,
-    "fourth_rate_adj": 43.7799
+    "clutch_cmp_adj": 49.9393,
+    "fourth_rate_adj": 44.0041
    },
    {
     "name": "Tyler Huntley",
@@ -13709,13 +13735,13 @@
     "fourth_conv": 1.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 64.1369,
-    "fourth_rate_adj": 50.774
+    "clutch_cmp_adj": 63.9468,
+    "fourth_rate_adj": 50.3587
    },
    {
     "name": "Jordan Love",
     "id": "00-0036264",
-    "qbr": 72.8,
+    "qbr": 69.4,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13735,39 +13761,39 @@
     "fourth_conv": 9.0,
     "fourth_rate": 69.2308,
     "fourth_conv_wins": 3.0,
-    "clutch_cmp_adj": 61.4966,
-    "fourth_rate_adj": 59.3985
+    "clutch_cmp_adj": 61.3228,
+    "fourth_rate_adj": 59.1463
    },
    {
     "name": "Justin Herbert",
     "id": "00-0036355",
-    "qbr": 30.1,
+    "qbr": 35.4,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 253,
-    "yards": 1720.0,
-    "tds": 6,
+    "attempts": 274,
+    "yards": 1851.0,
+    "tds": 8,
     "ints": 11,
-    "cmp1": 65.2778,
-    "cmp3": 57.6471,
-    "delta": -7.6307,
+    "cmp1": 66.2338,
+    "cmp3": 58.6957,
+    "delta": -7.5381,
     "clutch_att": 20.0,
     "clutch_cmp_pct": 55.0,
     "clutch_ypa": 6.85,
     "clutch_tds": 0.0,
     "clutch_ints": 0.0,
-    "fourth_att": 11.0,
-    "fourth_conv": 4.0,
-    "fourth_rate": 36.3636,
+    "fourth_att": 12.0,
+    "fourth_conv": 5.0,
+    "fourth_rate": 41.6667,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 56.3095,
-    "fourth_rate_adj": 44.7368
+    "clutch_cmp_adj": 56.1574,
+    "fourth_rate_adj": 46.5221
    },
    {
     "name": "Jalen Hurts",
     "id": "00-0036389",
-    "qbr": 58.2,
+    "qbr": null,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -13787,75 +13813,75 @@
     "fourth_conv": 2.0,
     "fourth_rate": 28.5714,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 56.4336,
-    "fourth_rate_adj": 43.7799
+    "clutch_cmp_adj": 56.3042,
+    "fourth_rate_adj": 43.459
    },
    {
     "name": "Joe Burrow",
     "id": "00-0036442",
-    "qbr": 82.0,
+    "qbr": 79.7,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 340,
-    "yards": 2795.0,
-    "tds": 27,
+    "attempts": 380,
+    "yards": 3095.0,
+    "tds": 29,
     "ints": 6,
-    "cmp1": 76.5101,
-    "cmp3": 69.7368,
-    "delta": -6.7732,
-    "clutch_att": 28.0,
-    "clutch_cmp_pct": 67.8571,
-    "clutch_ypa": 7.6786,
-    "clutch_tds": 4.0,
+    "cmp1": 76.5432,
+    "cmp3": 68.6047,
+    "delta": -7.9386,
+    "clutch_att": 31.0,
+    "clutch_cmp_pct": 67.7419,
+    "clutch_ypa": 8.9677,
+    "clutch_tds": 5.0,
     "clutch_ints": 1.0,
-    "fourth_att": 4.0,
-    "fourth_conv": 3.0,
-    "fourth_rate": 75.0,
+    "fourth_att": 5.0,
+    "fourth_conv": 4.0,
+    "fourth_rate": 80.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 63.5913,
-    "fourth_rate_adj": 55.9557
+    "clutch_cmp_adj": 63.6529,
+    "fourth_rate_adj": 57.8049
    },
    {
     "name": "Trevor Lawrence",
     "id": "00-0036971",
-    "qbr": 71.6,
+    "qbr": 65.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 259,
-    "yards": 2284.0,
-    "tds": 21,
-    "ints": 5,
-    "cmp1": 67.6471,
-    "cmp3": 57.8125,
-    "delta": -9.8346,
+    "attempts": 306,
+    "yards": 2585.0,
+    "tds": 22,
+    "ints": 7,
+    "cmp1": 66.9492,
+    "cmp3": 57.3333,
+    "delta": -9.6158,
     "clutch_att": 29.0,
     "clutch_cmp_pct": 68.9655,
     "clutch_ypa": 8.7931,
     "clutch_tds": 3.0,
     "clutch_ints": 0.0,
-    "fourth_att": 4.0,
+    "fourth_att": 5.0,
     "fourth_conv": 2.0,
-    "fourth_rate": 50.0,
+    "fourth_rate": 40.0,
     "fourth_conv_wins": 2.0,
-    "clutch_cmp_adj": 64.3343,
-    "fourth_rate_adj": 50.6925
+    "clutch_cmp_adj": 64.2101,
+    "fourth_rate_adj": 47.8049
    },
    {
     "name": "Brock Purdy",
     "id": "00-0037834",
-    "qbr": 81.3,
+    "qbr": 84.6,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 264,
-    "yards": 2369.0,
-    "tds": 20,
+    "attempts": 290,
+    "yards": 2624.0,
+    "tds": 23,
     "ints": 5,
-    "cmp1": 73.8739,
-    "cmp3": 57.5758,
-    "delta": -16.2981,
+    "cmp1": 74.3802,
+    "cmp3": 59.1549,
+    "delta": -15.2252,
     "clutch_att": 21.0,
     "clutch_cmp_pct": 66.6667,
     "clutch_ypa": 6.6667,
@@ -13865,8 +13891,8 @@
     "fourth_conv": 2.0,
     "fourth_rate": 100.0,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 62.2532,
-    "fourth_rate_adj": 56.6563
+    "clutch_cmp_adj": 62.1048,
+    "fourth_rate_adj": 56.241
    },
    {
     "name": "Malik Willis",
@@ -13891,8 +13917,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 16.6667,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 59.7884,
-    "fourth_rate_adj": 41.1028
+    "clutch_cmp_adj": 59.6193,
+    "fourth_rate_adj": 40.7666
    },
    {
     "name": "Tanner McKee",
@@ -13917,8 +13943,8 @@
     "fourth_conv": 3.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 55.8608,
-    "fourth_rate_adj": 50.6266
+    "clutch_cmp_adj": 55.6268,
+    "fourth_rate_adj": 50.2904
    },
    {
     "name": "Tyson Bagent",
@@ -13943,8 +13969,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 100.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 58.1725,
-    "fourth_rate_adj": 53.9474
+    "clutch_cmp_adj": 58.008,
+    "fourth_rate_adj": 53.5061
    },
    {
     "name": "Tommy DeVito",
@@ -13970,7 +13996,7 @@
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
     "clutch_cmp_adj": null,
-    "fourth_rate_adj": 47.6974
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Bryce Young",
@@ -13979,39 +14005,39 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 338,
-    "yards": 2397.0,
-    "tds": 16,
-    "ints": 6,
-    "cmp1": 66.9173,
-    "cmp3": 56.7568,
-    "delta": -10.1605,
-    "clutch_att": 27.0,
-    "clutch_cmp_pct": 44.4444,
-    "clutch_ypa": 4.963,
+    "attempts": 368,
+    "yards": 2651.0,
+    "tds": 18,
+    "ints": 7,
+    "cmp1": 66.8966,
+    "cmp3": 56.6265,
+    "delta": -10.27,
+    "clutch_att": 31.0,
+    "clutch_cmp_pct": 48.3871,
+    "clutch_ypa": 4.7419,
     "clutch_tds": 0.0,
     "clutch_ints": 2.0,
     "fourth_att": 12.0,
     "fourth_conv": 6.0,
     "fourth_rate": 50.0,
     "fourth_conv_wins": 3.0,
-    "clutch_cmp_adj": 50.0507,
-    "fourth_rate_adj": 50.4873
+    "clutch_cmp_adj": 51.8882,
+    "fourth_rate_adj": 50.2258
    },
    {
     "name": "C.J. Stroud",
     "id": "00-0039163",
-    "qbr": 72.5,
+    "qbr": 72.9,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 320,
-    "yards": 2462.0,
-    "tds": 19,
-    "ints": 3,
-    "cmp1": 62.9032,
-    "cmp3": 63.2911,
-    "delta": 0.3879,
+    "attempts": 347,
+    "yards": 2656.0,
+    "tds": 22,
+    "ints": 4,
+    "cmp1": 64.1221,
+    "cmp3": 63.3333,
+    "delta": -0.7888,
     "clutch_att": 47.0,
     "clutch_cmp_pct": 55.3191,
     "clutch_ypa": 6.6383,
@@ -14021,8 +14047,8 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 56.0057,
-    "fourth_rate_adj": 44.8916
+    "clutch_cmp_adj": 55.9149,
+    "fourth_rate_adj": 44.4763
    },
    {
     "name": "Joe Milton III",
@@ -14031,55 +14057,55 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": null,
-    "attempts": 34,
-    "yards": 169.0,
+    "attempts": 55,
+    "yards": 310.0,
     "tds": 0,
     "ints": 0,
     "cmp1": null,
-    "cmp3": null,
+    "cmp3": 47.619,
     "delta": null,
-    "clutch_att": 7.0,
-    "clutch_cmp_pct": 42.8571,
-    "clutch_ypa": 5.0,
+    "clutch_att": 8.0,
+    "clutch_cmp_pct": 50.0,
+    "clutch_ypa": 5.25,
     "clutch_tds": 0.0,
     "clutch_ints": 0.0,
     "fourth_att": 1.0,
     "fourth_conv": 1.0,
     "fourth_rate": 100.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 53.7919,
-    "fourth_rate_adj": 53.9474
+    "clutch_cmp_adj": 55.2249,
+    "fourth_rate_adj": 53.5061
    },
    {
     "name": "Bo Nix",
     "id": "00-0039732",
-    "qbr": 49.0,
+    "qbr": 48.2,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 287,
-    "yards": 1730.0,
-    "tds": 11,
-    "ints": 4,
-    "cmp1": 60.2041,
-    "cmp3": 51.2195,
-    "delta": -8.9846,
-    "clutch_att": 27.0,
-    "clutch_cmp_pct": 44.4444,
-    "clutch_ypa": 2.5556,
+    "attempts": 322,
+    "yards": 1955.0,
+    "tds": 12,
+    "ints": 5,
+    "cmp1": 62.1622,
+    "cmp3": 52.1739,
+    "delta": -9.9882,
+    "clutch_att": 34.0,
+    "clutch_cmp_pct": 38.2353,
+    "clutch_ypa": 2.1765,
     "clutch_tds": 1.0,
-    "clutch_ints": 0.0,
+    "clutch_ints": 1.0,
     "fourth_att": 4.0,
     "fourth_conv": 3.0,
     "fourth_rate": 75.0,
     "fourth_conv_wins": 2.0,
-    "clutch_cmp_adj": 50.0507,
-    "fourth_rate_adj": 55.9557
+    "clutch_cmp_adj": 45.3018,
+    "fourth_rate_adj": 55.5841
    },
    {
     "name": "Drake Maye",
     "id": "00-0039851",
-    "qbr": 73.3,
+    "qbr": 73.8,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
@@ -14099,34 +14125,34 @@
     "fourth_conv": 7.0,
     "fourth_rate": 87.5,
     "fourth_conv_wins": 6.0,
-    "clutch_cmp_adj": 56.7196,
-    "fourth_rate_adj": 63.6156
+    "clutch_cmp_adj": 56.5844,
+    "fourth_rate_adj": 63.3086
    },
    {
     "name": "Jayden Daniels",
     "id": "00-0039910",
-    "qbr": 60.5,
+    "qbr": 61.6,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Elite Quarterbacks",
-    "attempts": 213,
-    "yards": 1499.0,
+    "attempts": 248,
+    "yards": 1788.0,
     "tds": 10,
     "ints": 2,
-    "cmp1": 68.5714,
-    "cmp3": 60.0,
-    "delta": -8.5714,
-    "clutch_att": 36.0,
-    "clutch_cmp_pct": 52.7778,
-    "clutch_ypa": 7.5833,
+    "cmp1": 67.0588,
+    "cmp3": 56.4516,
+    "delta": -10.6072,
+    "clutch_att": 40.0,
+    "clutch_cmp_pct": 52.5,
+    "clutch_ypa": 8.425,
     "clutch_tds": 3.0,
     "clutch_ints": 0.0,
     "fourth_att": 7.0,
     "fourth_conv": 2.0,
     "fourth_rate": 28.5714,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 54.5068,
-    "fourth_rate_adj": 43.7799
+    "clutch_cmp_adj": 54.1049,
+    "fourth_rate_adj": 43.459
    },
    {
     "name": "Michael Penix Jr.",
@@ -14151,34 +14177,34 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 61.0119,
-    "fourth_rate_adj": 33.1808
+    "clutch_cmp_adj": 60.8218,
+    "fourth_rate_adj": 32.8738
    },
    {
     "name": "Caleb Williams",
     "id": "00-0039918",
-    "qbr": 72.7,
+    "qbr": 68.9,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 195,
-    "yards": 1546.0,
-    "tds": 8,
-    "ints": 5,
-    "cmp1": 62.5,
-    "cmp3": 66.0714,
-    "delta": 3.5714,
+    "attempts": 218,
+    "yards": 1727.0,
+    "tds": 10,
+    "ints": 6,
+    "cmp1": 63.6364,
+    "cmp3": 66.1538,
+    "delta": 2.5175,
     "clutch_att": 19.0,
     "clutch_cmp_pct": 63.1579,
     "clutch_ypa": 9.4211,
     "clutch_tds": 1.0,
     "clutch_ints": 0.0,
-    "fourth_att": 2.0,
+    "fourth_att": 3.0,
     "fourth_conv": 2.0,
-    "fourth_rate": 100.0,
+    "fourth_rate": 66.6667,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 60.3175,
-    "fourth_rate_adj": 56.6563
+    "clutch_cmp_adj": 60.1614,
+    "fourth_rate_adj": 53.1165
    },
    {
     "name": "J.J. McCarthy",
@@ -14187,13 +14213,13 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": "Struggling & Backups",
-    "attempts": 104,
-    "yards": 915.0,
-    "tds": 2,
+    "attempts": 142,
+    "yards": 1088.0,
+    "tds": 3,
     "ints": 2,
-    "cmp1": 68.8889,
-    "cmp3": 56.0,
-    "delta": -12.8889,
+    "cmp1": 64.9123,
+    "cmp3": 54.2857,
+    "delta": -10.6266,
     "clutch_att": 17.0,
     "clutch_cmp_pct": 47.0588,
     "clutch_ypa": 5.4118,
@@ -14203,8 +14229,8 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 52.7671,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 52.6026,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Kyle McCord",
@@ -14213,11 +14239,11 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": null,
-    "attempts": 32,
-    "yards": 209.0,
+    "attempts": 65,
+    "yards": 311.0,
     "tds": 0,
-    "ints": 0,
-    "cmp1": null,
+    "ints": 1,
+    "cmp1": 52.381,
     "cmp3": null,
     "delta": null,
     "clutch_att": 3.0,
@@ -14225,12 +14251,12 @@
     "clutch_ypa": 0.0,
     "clutch_tds": 0.0,
     "clutch_ints": 0.0,
-    "fourth_att": 2.0,
-    "fourth_conv": 0.0,
-    "fourth_rate": 0.0,
+    "fourth_att": 5.0,
+    "fourth_conv": 1.0,
+    "fourth_rate": 20.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 50.1035,
-    "fourth_rate_adj": 44.8916
+    "clutch_cmp_adj": 49.839,
+    "fourth_rate_adj": 42.8049
    },
    {
     "name": "Shedeur Sanders",
@@ -14255,34 +14281,34 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 58.4127,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 58.2099,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Cam Ward",
     "id": "00-0040676",
-    "qbr": 53.3,
+    "qbr": 53.2,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 287,
-    "yards": 1714.0,
-    "tds": 8,
+    "attempts": 317,
+    "yards": 1962.0,
+    "tds": 10,
     "ints": 6,
-    "cmp1": 66.9643,
-    "cmp3": 60.2564,
-    "delta": -6.7079,
+    "cmp1": 68.0,
+    "cmp3": 57.6471,
+    "delta": -10.3529,
     "clutch_att": 29.0,
     "clutch_cmp_pct": 51.7241,
     "clutch_ypa": 5.4828,
     "clutch_tds": 0.0,
     "clutch_ints": 1.0,
-    "fourth_att": 4.0,
-    "fourth_conv": 2.0,
-    "fourth_rate": 50.0,
+    "fourth_att": 6.0,
+    "fourth_conv": 4.0,
+    "fourth_rate": 66.6667,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 54.1302,
-    "fourth_rate_adj": 50.6925
+    "clutch_cmp_adj": 54.006,
+    "fourth_rate_adj": 55.0523
    },
    {
     "name": "Jaxson Dart",
@@ -14307,34 +14333,34 @@
     "fourth_conv": null,
     "fourth_rate": null,
     "fourth_conv_wins": null,
-    "clutch_cmp_adj": 63.5531,
+    "clutch_cmp_adj": 63.3191,
     "fourth_rate_adj": null
    },
    {
     "name": "Tyler Shough",
     "id": "00-0040743",
-    "qbr": 56.9,
+    "qbr": 57.9,
     "fourth_qc": null,
     "gwd": null,
     "archetype": "The League Core",
-    "attempts": 343,
-    "yards": 2173.0,
-    "tds": 15,
-    "ints": 7,
-    "cmp1": 66.4,
-    "cmp3": 61.3636,
-    "delta": -5.0364,
+    "attempts": 385,
+    "yards": 2395.0,
+    "tds": 16,
+    "ints": 8,
+    "cmp1": 64.4928,
+    "cmp3": 61.165,
+    "delta": -3.3277,
     "clutch_att": 46.0,
     "clutch_cmp_pct": 71.7391,
     "clutch_ypa": 7.1304,
     "clutch_tds": 5.0,
     "clutch_ints": 0.0,
-    "fourth_att": 11.0,
-    "fourth_conv": 9.0,
-    "fourth_rate": 81.8182,
+    "fourth_att": 13.0,
+    "fourth_conv": 10.0,
+    "fourth_rate": 76.9231,
     "fourth_conv_wins": 1.0,
-    "clutch_cmp_adj": 67.4603,
-    "fourth_rate_adj": 63.9676
+    "clutch_cmp_adj": 67.3681,
+    "fourth_rate_adj": 62.7178
    },
    {
     "name": "Joe Fagnano",
@@ -14359,8 +14385,8 @@
     "fourth_conv": 0.0,
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 58.7992,
-    "fourth_rate_adj": 47.6974
+    "clutch_cmp_adj": 58.5346,
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Cade Klubnik",
@@ -14386,7 +14412,7 @@
     "fourth_rate": 0.0,
     "fourth_conv_wins": 0.0,
     "clutch_cmp_adj": null,
-    "fourth_rate_adj": 47.6974
+    "fourth_rate_adj": 47.2561
    },
    {
     "name": "Athan Kaliakmanis",
@@ -14411,8 +14437,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 33.3333,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 54.4513,
-    "fourth_rate_adj": 47.9532
+    "clutch_cmp_adj": 54.1868,
+    "fourth_rate_adj": 47.561
    },
    {
     "name": "Jalon Daniels",
@@ -14437,8 +14463,8 @@
     "fourth_conv": 1.0,
     "fourth_rate": 33.3333,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 50.0529,
-    "fourth_rate_adj": 47.9532
+    "clutch_cmp_adj": 49.9177,
+    "fourth_rate_adj": 47.561
    },
    {
     "name": "Fernando Mendoza",
@@ -14447,24 +14473,24 @@
     "fourth_qc": null,
     "gwd": null,
     "archetype": null,
-    "attempts": 37,
-    "yards": 191.0,
-    "tds": 0,
-    "ints": 0,
-    "cmp1": null,
+    "attempts": 74,
+    "yards": 458.0,
+    "tds": 3,
+    "ints": 1,
+    "cmp1": 44.0,
     "cmp3": null,
     "delta": null,
-    "clutch_att": 1.0,
-    "clutch_cmp_pct": 100.0,
-    "clutch_ypa": 7.0,
+    "clutch_att": 2.0,
+    "clutch_cmp_pct": 50.0,
+    "clutch_ypa": 3.5,
     "clutch_tds": 0.0,
-    "clutch_ints": 0.0,
-    "fourth_att": 1.0,
+    "clutch_ints": 1.0,
+    "fourth_att": 2.0,
     "fourth_conv": 1.0,
-    "fourth_rate": 100.0,
+    "fourth_rate": 50.0,
     "fourth_conv_wins": 0.0,
-    "clutch_cmp_adj": 59.6372,
-    "fourth_rate_adj": 53.9474
+    "clutch_cmp_adj": 56.6498,
+    "fourth_rate_adj": 50.3587
    }
   ]
  },
@@ -14476,7 +14502,7 @@
   "2023": 85.9701,
   "2024": 88.8707,
   "2025": 89.7248,
-  "2026": 91.0982
+  "2026": 91.1637
  },
  "players": [
   {
@@ -14486,90 +14512,90 @@
     {
      "season": 2019,
      "rating": 105.3116,
-     "epa": 168.7828,
+     "epa": 145.4386,
      "yards": 4031.0,
      "tds": 26,
      "ints": 5,
      "games": 14,
-     "cqbr": 75.457,
+     "cqbr": 71.9344,
      "qbr_official": 77.7
     },
     {
      "season": 2020,
      "rating": 108.2341,
-     "epa": 222.4935,
+     "epa": 193.7163,
      "yards": 4740.0,
      "tds": 38,
      "ints": 6,
      "games": 15,
-     "cqbr": 76.3419,
+     "cqbr": 72.8381,
      "qbr_official": 78.1
     },
     {
      "season": 2021,
      "rating": 98.4549,
-     "epa": 186.0006,
+     "epa": 159.895,
      "yards": 4839.0,
      "tds": 37,
      "ints": 13,
      "games": 17,
-     "cqbr": 69.2402,
+     "cqbr": 65.919,
      "qbr_official": 67.7
     },
     {
      "season": 2022,
      "rating": 105.1569,
-     "epa": 232.9327,
+     "epa": 198.595,
      "yards": 5250.0,
      "tds": 41,
      "ints": 12,
      "games": 17,
-     "cqbr": 75.4669,
+     "cqbr": 71.8833,
      "qbr_official": 79.0
     },
     {
      "season": 2023,
      "rating": 92.5565,
-     "epa": 100.2547,
+     "epa": 89.2519,
      "yards": 4183.0,
      "tds": 27,
      "ints": 14,
      "games": 16,
-     "cqbr": 61.16,
+     "cqbr": 59.1071,
      "qbr_official": 63.1
     },
     {
      "season": 2024,
      "rating": 93.5062,
-     "epa": 125.9257,
+     "epa": 108.0683,
      "yards": 3928.0,
      "tds": 26,
      "ints": 11,
      "games": 16,
-     "cqbr": 64.3089,
+     "cqbr": 61.1903,
      "qbr_official": 64.6
     },
     {
      "season": 2025,
      "rating": 89.6248,
-     "epa": 106.0338,
+     "epa": 92.9148,
      "yards": 3587.0,
      "tds": 22,
      "ints": 11,
      "games": 14,
-     "cqbr": 62.9469,
+     "cqbr": 60.7556,
      "qbr_official": 68.5
     },
     {
      "season": 2026,
-     "rating": 106.7394,
-     "epa": 67.9944,
-     "yards": 2385.0,
-     "tds": 19,
+     "rating": 108.2777,
+     "epa": 86.7778,
+     "yards": 2709.0,
+     "tds": 22,
      "ints": 4,
-     "games": 9,
-     "cqbr": 63.066,
-     "qbr_official": 63.9
+     "games": 10,
+     "cqbr": 65.5056,
+     "qbr_official": 64.3
     }
    ]
   },
@@ -14580,90 +14606,90 @@
     {
      "season": 2019,
      "rating": 86.4683,
-     "epa": 116.2932,
+     "epa": 100.3824,
      "yards": 4638.0,
      "tds": 22,
      "ints": 16,
      "games": 16,
-     "cqbr": 59.097,
+     "cqbr": 56.5933,
      "qbr_official": 50.6
     },
     {
      "season": 2020,
      "rating": 90.0362,
-     "epa": 81.2359,
+     "epa": 69.5406,
      "yards": 3952.0,
      "tds": 20,
      "ints": 13,
      "games": 15,
-     "cqbr": 54.066,
+     "cqbr": 51.7555,
      "qbr_official": 50.8
     },
     {
      "season": 2021,
      "rating": 91.5317,
-     "epa": 47.3875,
+     "epa": 44.128,
      "yards": 3245.0,
      "tds": 19,
      "ints": 8,
      "games": 14,
-     "cqbr": 40.6387,
+     "cqbr": 41.6813,
      "qbr_official": 45.5
     },
     {
      "season": 2022,
      "rating": 99.315,
-     "epa": 151.9112,
+     "epa": 132.8732,
      "yards": 4438.0,
      "tds": 29,
      "ints": 7,
      "games": 17,
-     "cqbr": 63.4142,
+     "cqbr": 60.5205,
      "qbr_official": 63.3
     },
     {
      "season": 2023,
      "rating": 97.9167,
-     "epa": 139.1982,
+     "epa": 125.4479,
      "yards": 4575.0,
      "tds": 30,
      "ints": 12,
      "games": 17,
-     "cqbr": 62.5227,
+     "cqbr": 60.8019,
      "qbr_official": 60.3
     },
     {
      "season": 2024,
      "rating": 111.7695,
-     "epa": 221.347,
+     "epa": 185.3493,
      "yards": 4629.0,
      "tds": 37,
      "ints": 12,
      "games": 17,
-     "cqbr": 73.024,
+     "cqbr": 68.6933,
      "qbr_official": 65.4
     },
     {
      "season": 2025,
      "rating": 105.4859,
-     "epa": 180.4679,
+     "epa": 155.1954,
      "yards": 4564.0,
      "tds": 34,
      "ints": 8,
      "games": 17,
-     "cqbr": 61.697,
+     "cqbr": 59.5871,
      "qbr_official": 57.3
     },
     {
      "season": 2026,
-     "rating": 105.9348,
-     "epa": 90.463,
-     "yards": 2437.0,
-     "tds": 18,
+     "rating": 107.7058,
+     "epa": 100.1732,
+     "yards": 2716.0,
+     "tds": 20,
      "ints": 4,
-     "games": 9,
-     "cqbr": 62.2425,
-     "qbr_official": 58.2
+     "games": 10,
+     "cqbr": 64.3287,
+     "qbr_official": 62.4
     }
    ]
   },
@@ -14674,90 +14700,90 @@
     {
      "season": 2019,
      "rating": 85.3172,
-     "epa": 47.8525,
+     "epa": 41.7572,
      "yards": 3089.0,
      "tds": 20,
      "ints": 9,
      "games": 16,
-     "cqbr": 50.1239,
+     "cqbr": 49.8466,
      "qbr_official": 49.4
     },
     {
      "season": 2020,
      "rating": 107.1533,
-     "epa": 213.0457,
+     "epa": 184.9211,
      "yards": 4544.0,
      "tds": 37,
      "ints": 10,
      "games": 16,
-     "cqbr": 72.652,
+     "cqbr": 69.5175,
      "qbr_official": 76.6
     },
     {
      "season": 2021,
      "rating": 92.1698,
-     "epa": 115.8983,
+     "epa": 104.8591,
      "yards": 4407.0,
      "tds": 36,
      "ints": 15,
      "games": 17,
-     "cqbr": 62.3318,
+     "cqbr": 60.3844,
      "qbr_official": 66.3
     },
     {
      "season": 2022,
      "rating": 96.6086,
-     "epa": 155.5665,
+     "epa": 137.1384,
      "yards": 4283.0,
      "tds": 35,
      "ints": 14,
      "games": 16,
-     "cqbr": 69.1852,
+     "cqbr": 66.385,
      "qbr_official": 73.4
     },
     {
      "season": 2023,
      "rating": 92.2244,
-     "epa": 129.0144,
+     "epa": 116.0313,
      "yards": 4306.0,
      "tds": 29,
      "ints": 18,
      "games": 17,
-     "cqbr": 65.4705,
+     "cqbr": 63.5341,
      "qbr_official": 69.6
     },
     {
      "season": 2024,
      "rating": 101.3846,
-     "epa": 153.7275,
+     "epa": 132.2741,
      "yards": 3731.0,
      "tds": 28,
      "ints": 6,
      "games": 16,
-     "cqbr": 74.8672,
+     "cqbr": 70.945,
      "qbr_official": 74.8
     },
     {
      "season": 2025,
      "rating": 102.1558,
-     "epa": 137.0944,
+     "epa": 117.0783,
      "yards": 3668.0,
      "tds": 25,
      "ints": 10,
      "games": 16,
-     "cqbr": 65.1083,
+     "cqbr": 62.7577,
      "qbr_official": 65.4
     },
     {
      "season": 2026,
-     "rating": 97.787,
-     "epa": 78.4933,
-     "yards": 2223.0,
-     "tds": 13,
-     "ints": 7,
-     "games": 9,
-     "cqbr": 69.534,
-     "qbr_official": 75.1
+     "rating": 93.5155,
+     "epa": 78.7864,
+     "yards": 2527.0,
+     "tds": 14,
+     "ints": 9,
+     "games": 10,
+     "cqbr": 67.4586,
+     "qbr_official": 70.2
     }
    ]
   },
@@ -14768,90 +14794,90 @@
     {
      "season": 2019,
      "rating": 106.0209,
-     "epa": 105.9687,
+     "epa": 89.2556,
      "yards": 2499.0,
      "tds": 19,
      "ints": 5,
      "games": 8,
-     "cqbr": 67.5885,
+     "cqbr": 63.6495,
      "qbr_official": 71.3
     },
     {
      "season": 2020,
      "rating": 96.3384,
-     "epa": 114.8132,
+     "epa": 100.7974,
      "yards": 4084.0,
      "tds": 26,
      "ints": 10,
      "games": 16,
-     "cqbr": 60.8781,
+     "cqbr": 58.3833,
      "qbr_official": 61.3
     },
     {
      "season": 2021,
      "rating": 102.9291,
-     "epa": 176.27,
+     "epa": 151.7666,
      "yards": 4886.0,
      "tds": 41,
      "ints": 17,
      "games": 17,
-     "cqbr": 67.1099,
+     "cqbr": 63.5372,
      "qbr_official": 69.2
     },
     {
      "season": 2022,
      "rating": 87.4381,
-     "epa": 31.6373,
+     "epa": 25.4243,
      "yards": 2087.0,
      "tds": 10,
      "ints": 8,
      "games": 9,
-     "cqbr": 45.2849,
+     "cqbr": 44.1487,
      "qbr_official": 52.3
     },
     {
      "season": 2023,
      "rating": 92.4944,
-     "epa": 103.0584,
+     "epa": 91.2194,
      "yards": 3965.0,
      "tds": 24,
      "ints": 11,
      "games": 15,
-     "cqbr": 59.7321,
+     "cqbr": 57.9107,
      "qbr_official": 63.5
     },
     {
      "season": 2024,
      "rating": 93.6533,
-     "epa": 87.7769,
+     "epa": 69.4427,
      "yards": 3762.0,
      "tds": 20,
      "ints": 8,
      "games": 16,
-     "cqbr": 53.6032,
+     "cqbr": 51.7788,
      "qbr_official": 61.5
     },
     {
      "season": 2025,
      "rating": 109.1953,
-     "epa": 196.7771,
+     "epa": 167.1033,
      "yards": 4707.0,
      "tds": 46,
      "ints": 8,
      "games": 17,
-     "cqbr": 69.1326,
+     "cqbr": 65.4884,
      "qbr_official": 71.2
     },
     {
      "season": 2026,
      "rating": 92.8427,
-     "epa": 67.2034,
+     "epa": 66.8477,
      "yards": 2623.0,
      "tds": 19,
      "ints": 10,
      "games": 10,
-     "cqbr": 58.6783,
-     "qbr_official": 61.1
+     "cqbr": 58.8548,
+     "qbr_official": 62.1
     }
    ]
   },
@@ -14862,90 +14888,90 @@
     {
      "season": 2019,
      "rating": 99.6924,
-     "epa": 172.753,
+     "epa": 147.152,
      "yards": 4902.0,
      "tds": 30,
      "ints": 11,
      "games": 16,
-     "cqbr": 67.6723,
+     "cqbr": 63.9376,
      "qbr_official": 71.9
     },
     {
      "season": 2020,
      "rating": 99.6059,
-     "epa": 62.1656,
+     "epa": 52.8894,
      "yards": 1856.0,
      "tds": 9,
      "ints": 4,
      "games": 5,
-     "cqbr": 64.4455,
+     "cqbr": 61.1933,
      "qbr_official": null
     },
     {
      "season": 2021,
      "rating": 104.2156,
-     "epa": 162.1163,
+     "epa": 144.0283,
      "yards": 4449.0,
      "tds": 37,
      "ints": 10,
      "games": 16,
-     "cqbr": 62.6188,
+     "cqbr": 60.5396,
      "qbr_official": 60.5
     },
     {
      "season": 2022,
      "rating": 91.1273,
-     "epa": 73.4874,
+     "epa": 66.3901,
      "yards": 2860.0,
      "tds": 23,
      "ints": 15,
      "games": 12,
-     "cqbr": 60.2679,
+     "cqbr": 58.556,
      "qbr_official": 59.9
     },
     {
      "season": 2023,
      "rating": 105.8686,
-     "epa": 190.202,
+     "epa": 163.5886,
      "yards": 4516.0,
      "tds": 36,
      "ints": 9,
      "games": 17,
-     "cqbr": 68.4278,
+     "cqbr": 65.2783,
      "qbr_official": 72.7
     },
     {
      "season": 2024,
      "rating": 85.9703,
-     "epa": 26.1858,
+     "epa": 25.0891,
      "yards": 1978.0,
      "tds": 11,
      "ints": 8,
      "games": 8,
-     "cqbr": 49.0705,
+     "cqbr": 48.9476,
      "qbr_official": 41.9
     },
     {
      "season": 2025,
      "rating": 99.5278,
-     "epa": 158.8338,
+     "epa": 132.728,
      "yards": 4552.0,
      "tds": 30,
      "ints": 10,
      "games": 17,
-     "cqbr": 65.219,
+     "cqbr": 61.7585,
      "qbr_official": 70.2
     },
     {
      "season": 2026,
-     "rating": 96.4416,
-     "epa": 84.8892,
-     "yards": 2724.0,
-     "tds": 21,
+     "rating": 100.9821,
+     "epa": 98.8972,
+     "yards": 3049.0,
+     "tds": 25,
      "ints": 6,
-     "games": 10,
-     "cqbr": 62.6155,
-     "qbr_official": 78.3
+     "games": 11,
+     "cqbr": 64.8906,
+     "qbr_official": 80.9
     }
    ]
   },
@@ -14956,90 +14982,90 @@
     {
      "season": 2019,
      "rating": 107.4043,
-     "epa": 144.1788,
+     "epa": 121.671,
      "yards": 3603.0,
      "tds": 26,
      "ints": 6,
      "games": 15,
-     "cqbr": 66.0983,
+     "cqbr": 62.5297,
      "qbr_official": 60.4
     },
     {
      "season": 2020,
      "rating": 104.9984,
-     "epa": 166.2934,
+     "epa": 141.643,
      "yards": 4265.0,
      "tds": 35,
      "ints": 13,
      "games": 16,
-     "cqbr": 65.3855,
+     "cqbr": 61.2155,
      "qbr_official": 55.8
     },
     {
      "season": 2021,
      "rating": 103.1009,
-     "epa": 129.7785,
+     "epa": 111.4208,
      "yards": 4221.0,
      "tds": 33,
      "ints": 7,
      "games": 16,
-     "cqbr": 60.299,
+     "cqbr": 58.1795,
      "qbr_official": 58.3
     },
     {
      "season": 2022,
      "rating": 92.4605,
-     "epa": 103.9743,
+     "epa": 93.3551,
      "yards": 4547.0,
      "tds": 29,
      "ints": 14,
      "games": 17,
-     "cqbr": 52.1957,
+     "cqbr": 51.1229,
      "qbr_official": 52.3
     },
     {
      "season": 2023,
      "rating": 103.7848,
-     "epa": 73.7676,
+     "epa": 64.2586,
      "yards": 2331.0,
      "tds": 18,
      "ints": 5,
      "games": 8,
-     "cqbr": 59.6759,
+     "cqbr": 57.1319,
      "qbr_official": 63.2
     },
     {
      "season": 2024,
      "rating": 88.6175,
-     "epa": 76.8224,
+     "epa": 67.6364,
      "yards": 3508.0,
      "tds": 18,
      "ints": 16,
      "games": 14,
-     "cqbr": 54.2961,
+     "cqbr": 52.3774,
      "qbr_official": 47.0
     },
     {
      "season": 2025,
      "rating": 84.8126,
-     "epa": 23.8037,
+     "epa": 22.7739,
      "yards": 1721.0,
      "tds": 10,
      "ints": 5,
      "games": 10,
-     "cqbr": 50.5118,
+     "cqbr": 50.2881,
      "qbr_official": null
     },
     {
      "season": 2026,
-     "rating": 96.8208,
-     "epa": 71.7637,
-     "yards": 2547.0,
+     "rating": 94.553,
+     "epa": 69.8656,
+     "yards": 2782.0,
      "tds": 22,
-     "ints": 9,
-     "games": 10,
-     "cqbr": 63.0779,
-     "qbr_official": 65.0
+     "ints": 10,
+     "games": 11,
+     "cqbr": 61.5406,
+     "qbr_official": 65.7
     }
    ]
   },
@@ -15050,79 +15076,79 @@
     {
      "season": 2020,
      "rating": 98.2738,
-     "epa": 142.4992,
+     "epa": 125.0651,
      "yards": 4336.0,
      "tds": 31,
      "ints": 10,
      "games": 15,
-     "cqbr": 63.5362,
+     "cqbr": 61.6749,
      "qbr_official": 62.6
     },
     {
      "season": 2021,
      "rating": 97.6562,
-     "epa": 171.3396,
+     "epa": 151.903,
      "yards": 5014.0,
      "tds": 38,
      "ints": 15,
      "games": 17,
-     "cqbr": 67.148,
+     "cqbr": 64.4236,
      "qbr_official": 70.9
     },
     {
      "season": 2022,
      "rating": 93.1599,
-     "epa": 94.5806,
+     "epa": 81.0538,
      "yards": 4739.0,
      "tds": 25,
      "ints": 10,
      "games": 17,
-     "cqbr": 53.7116,
+     "cqbr": 52.503,
      "qbr_official": 60.2
     },
     {
      "season": 2023,
      "rating": 93.22,
-     "epa": 79.6675,
+     "epa": 70.9899,
      "yards": 3134.0,
      "tds": 20,
      "ints": 7,
      "games": 13,
-     "cqbr": 54.548,
+     "cqbr": 53.9764,
      "qbr_official": 64.1
     },
     {
      "season": 2024,
      "rating": 101.703,
-     "epa": 131.1034,
+     "epa": 107.173,
      "yards": 3870.0,
      "tds": 23,
      "ints": 3,
      "games": 17,
-     "cqbr": 62.0016,
+     "cqbr": 59.3922,
      "qbr_official": 61.7
     },
     {
      "season": 2025,
      "rating": 94.0999,
-     "epa": 100.5415,
+     "epa": 86.2622,
      "yards": 3727.0,
      "tds": 26,
      "ints": 13,
      "games": 16,
-     "cqbr": 54.8692,
+     "cqbr": 53.3189,
      "qbr_official": 60.6
     },
     {
      "season": 2026,
-     "rating": 71.5827,
-     "epa": -9.6638,
-     "yards": 1720.0,
-     "tds": 6,
+     "rating": 75.2433,
+     "epa": 0.235,
+     "yards": 1851.0,
+     "tds": 8,
      "ints": 11,
-     "games": 9,
-     "cqbr": 32.0589,
-     "qbr_official": 30.1
+     "games": 10,
+     "cqbr": 34.1085,
+     "qbr_official": 35.4
     }
    ]
   },
@@ -15133,90 +15159,90 @@
     {
      "season": 2019,
      "rating": 78.7609,
-     "epa": 59.0545,
+     "epa": 51.0001,
      "yards": 3827.0,
      "tds": 22,
      "ints": 21,
      "games": 16,
-     "cqbr": 48.9471,
+     "cqbr": 47.107,
      "qbr_official": 54.4
     },
     {
      "season": 2020,
      "rating": 95.9019,
-     "epa": 137.1359,
+     "epa": 119.22,
      "yards": 3563.0,
      "tds": 26,
      "ints": 8,
      "games": 16,
-     "cqbr": 65.9363,
+     "cqbr": 63.1817,
      "qbr_official": 65.5
     },
     {
      "season": 2021,
      "rating": 83.124,
-     "epa": 74.1607,
+     "epa": 65.635,
      "yards": 3010.0,
      "tds": 17,
      "ints": 13,
      "games": 14,
-     "cqbr": 48.0982,
+     "cqbr": 48.2587,
      "qbr_official": 40.9
     },
     {
      "season": 2022,
      "rating": 78.9863,
-     "epa": 11.8133,
+     "epa": 10.0719,
      "yards": 2163.0,
      "tds": 10,
      "ints": 8,
      "games": 12,
-     "cqbr": 32.1625,
+     "cqbr": 33.8055,
      "qbr_official": 26.3
     },
     {
      "season": 2023,
      "rating": 94.5745,
-     "epa": 117.0186,
+     "epa": 105.2992,
      "yards": 4044.0,
      "tds": 28,
      "ints": 10,
      "games": 17,
-     "cqbr": 55.7207,
+     "cqbr": 54.6171,
      "qbr_official": 54.3
     },
     {
      "season": 2024,
      "rating": 106.7617,
-     "epa": 183.7031,
+     "epa": 157.6399,
      "yards": 4500.0,
      "tds": 41,
      "ints": 16,
      "games": 17,
-     "cqbr": 65.1515,
+     "cqbr": 62.2192,
      "qbr_official": 58.4
     },
     {
      "season": 2025,
      "rating": 90.5809,
-     "epa": 63.1586,
+     "epa": 60.1399,
      "yards": 3693.0,
      "tds": 26,
      "ints": 11,
      "games": 17,
-     "cqbr": 54.9996,
+     "cqbr": 54.0827,
      "qbr_official": 61.3
     },
     {
      "season": 2026,
-     "rating": 74.912,
-     "epa": -8.1533,
-     "yards": 922.0,
-     "tds": 3,
+     "rating": 78.9643,
+     "epa": 2.8551,
+     "yards": 1109.0,
+     "tds": 5,
      "ints": 4,
-     "games": 6,
-     "cqbr": null,
-     "qbr_official": 32.0
+     "games": 7,
+     "cqbr": 33.8396,
+     "qbr_official": 36.2
     }
    ]
   },
@@ -15227,79 +15253,79 @@
     {
      "season": 2019,
      "rating": 95.3903,
-     "epa": 128.2843,
+     "epa": 110.0587,
      "yards": 4002.0,
      "tds": 26,
      "ints": 4,
      "games": 16,
-     "cqbr": 58.9699,
+     "cqbr": 57.1711,
      "qbr_official": 52.5
     },
     {
      "season": 2020,
      "rating": 121.5304,
-     "epa": 217.6441,
+     "epa": 191.1937,
      "yards": 4299.0,
      "tds": 48,
      "ints": 5,
      "games": 16,
-     "cqbr": 78.8778,
+     "cqbr": 75.7773,
      "qbr_official": 79.8
     },
     {
      "season": 2021,
      "rating": 111.8997,
-     "epa": 176.4993,
+     "epa": 152.5666,
      "yards": 4115.0,
      "tds": 37,
      "ints": 4,
      "games": 16,
-     "cqbr": 71.4273,
+     "cqbr": 68.4703,
      "qbr_official": 74.1
     },
     {
      "season": 2022,
      "rating": 91.067,
-     "epa": 59.4306,
+     "epa": 54.8434,
      "yards": 3695.0,
      "tds": 26,
      "ints": 12,
      "games": 17,
-     "cqbr": 47.7574,
+     "cqbr": 47.6905,
      "qbr_official": 41.3
     },
     {
      "season": 2024,
      "rating": 90.5322,
-     "epa": 78.0148,
+     "epa": 68.4856,
      "yards": 3897.0,
      "tds": 28,
      "ints": 11,
      "games": 17,
-     "cqbr": 52.4268,
+     "cqbr": 51.2314,
      "qbr_official": 44.7
     },
     {
      "season": 2025,
      "rating": 94.9908,
-     "epa": 79.3396,
+     "epa": 71.6148,
      "yards": 3322.0,
      "tds": 24,
      "ints": 7,
      "games": 16,
-     "cqbr": 52.7871,
+     "cqbr": 52.3896,
      "qbr_official": 44.4
     },
     {
      "season": 2026,
-     "rating": 86.3893,
-     "epa": 21.6415,
-     "yards": 2014.0,
-     "tds": 15,
+     "rating": 86.5824,
+     "epa": 23.1472,
+     "yards": 2241.0,
+     "tds": 16,
      "ints": 6,
-     "games": 9,
-     "cqbr": 41.4947,
-     "qbr_official": 46.7
+     "games": 10,
+     "cqbr": 40.939,
+     "qbr_official": 45.6
     }
    ]
   },
@@ -15310,79 +15336,79 @@
     {
      "season": 2020,
      "rating": 89.8309,
-     "epa": 105.596,
+     "epa": 90.1241,
      "yards": 2688.0,
      "tds": 13,
      "ints": 5,
      "games": 10,
-     "cqbr": 58.8418,
+     "cqbr": 56.5877,
      "qbr_official": 48.5
     },
     {
      "season": 2021,
      "rating": 108.2612,
-     "epa": 190.982,
+     "epa": 166.6534,
      "yards": 4611.0,
      "tds": 34,
      "ints": 14,
      "games": 16,
-     "cqbr": 67.5371,
+     "cqbr": 64.5796,
      "qbr_official": 60.2
     },
     {
      "season": 2022,
      "rating": 100.7838,
-     "epa": 162.817,
+     "epa": 145.8338,
      "yards": 4475.0,
      "tds": 35,
      "ints": 12,
      "games": 16,
-     "cqbr": 64.3752,
+     "cqbr": 62.2157,
      "qbr_official": 60.8
     },
     {
      "season": 2023,
      "rating": 90.9989,
-     "epa": 53.2443,
+     "epa": 48.0807,
      "yards": 2309.0,
      "tds": 15,
      "ints": 6,
      "games": 10,
-     "cqbr": 50.6686,
+     "cqbr": 50.3684,
      "qbr_official": 51.6
     },
     {
      "season": 2024,
      "rating": 108.5378,
-     "epa": 213.3213,
+     "epa": 183.7933,
      "yards": 4918.0,
      "tds": 43,
      "ints": 9,
      "games": 17,
-     "cqbr": 67.0759,
+     "cqbr": 64.0186,
      "qbr_official": 72.1
     },
     {
      "season": 2025,
      "rating": 100.6837,
-     "epa": 63.663,
+     "epa": 54.5333,
      "yards": 1809.0,
      "tds": 17,
      "ints": 5,
      "games": 8,
-     "cqbr": 65.1654,
+     "cqbr": 62.1864,
      "qbr_official": null
     },
     {
      "season": 2026,
-     "rating": 117.7083,
-     "epa": 118.1721,
-     "yards": 2795.0,
-     "tds": 27,
+     "rating": 116.7215,
+     "epa": 125.0362,
+     "yards": 3095.0,
+     "tds": 29,
      "ints": 6,
-     "games": 9,
-     "cqbr": 72.3088,
-     "qbr_official": 82.0
+     "games": 10,
+     "cqbr": 70.3056,
+     "qbr_official": 79.7
     }
    ]
   },
@@ -15393,67 +15419,67 @@
     {
      "season": 2019,
      "rating": 100.8,
-     "epa": 145.083,
+     "epa": 126.0514,
      "yards": 4054.0,
      "tds": 21,
      "ints": 8,
      "games": 16,
-     "cqbr": 66.0717,
+     "cqbr": 63.2218,
      "qbr_official": 64.1
     },
     {
      "season": 2020,
      "rating": 101.3983,
-     "epa": 129.8609,
+     "epa": 108.7762,
      "yards": 4103.0,
      "tds": 27,
      "ints": 9,
      "games": 16,
-     "cqbr": 64.2116,
+     "cqbr": 60.3293,
      "qbr_official": 64.3
     },
     {
      "season": 2021,
      "rating": 93.963,
-     "epa": 114.6132,
+     "epa": 96.3649,
      "yards": 4804.0,
      "tds": 23,
      "ints": 14,
      "games": 17,
-     "cqbr": 56.6561,
+     "cqbr": 54.171,
      "qbr_official": 58.4
     },
     {
      "season": 2022,
      "rating": 86.2633,
-     "epa": 71.7899,
+     "epa": 62.2764,
      "yards": 3522.0,
      "tds": 24,
      "ints": 14,
      "games": 15,
-     "cqbr": 55.389,
+     "cqbr": 53.7978,
      "qbr_official": 57.6
     },
     {
      "season": 2023,
      "rating": 97.719,
-     "epa": 86.013,
+     "epa": 71.9366,
      "yards": 3878.0,
      "tds": 25,
      "ints": 8,
      "games": 17,
-     "cqbr": 50.9654,
+     "cqbr": 49.8773,
      "qbr_official": 56.5
     },
     {
      "season": 2024,
      "rating": 101.023,
-     "epa": 58.8341,
+     "epa": 48.7362,
      "yards": 2145.0,
      "tds": 15,
      "ints": 5,
      "games": 10,
-     "cqbr": 63.3555,
+     "cqbr": 60.3152,
      "qbr_official": null
     }
    ]
@@ -15465,90 +15491,90 @@
     {
      "season": 2019,
      "rating": 87.4308,
-     "epa": 70.2273,
+     "epa": 58.2839,
      "yards": 3722.0,
      "tds": 20,
      "ints": 12,
      "games": 16,
-     "cqbr": 51.1299,
+     "cqbr": 49.7679,
      "qbr_official": 57.7
     },
     {
      "season": 2020,
      "rating": 94.31,
-     "epa": 92.6572,
+     "epa": 83.1876,
      "yards": 3971.0,
      "tds": 26,
      "ints": 12,
      "games": 16,
-     "cqbr": 59.5922,
+     "cqbr": 57.6898,
      "qbr_official": 61.9
     },
     {
      "season": 2021,
      "rating": 100.5501,
-     "epa": 116.7106,
+     "epa": 100.1099,
      "yards": 3787.0,
      "tds": 24,
      "ints": 10,
      "games": 14,
-     "cqbr": 61.107,
+     "cqbr": 58.5994,
      "qbr_official": 63.2
     },
     {
      "season": 2022,
      "rating": 87.2115,
-     "epa": 22.9235,
+     "epa": 22.0123,
      "yards": 2368.0,
      "tds": 14,
      "ints": 7,
      "games": 11,
-     "cqbr": 46.4352,
+     "cqbr": 47.2644,
      "qbr_official": 53.6
     },
     {
      "season": 2023,
      "rating": 89.4434,
-     "epa": 11.6421,
+     "epa": 13.9219,
      "yards": 1799.0,
      "tds": 10,
      "ints": 5,
      "games": 8,
-     "cqbr": 49.847,
+     "cqbr": 49.9965,
      "qbr_official": 47.2
     },
     {
      "season": 2024,
      "rating": 93.5112,
-     "epa": 116.0259,
+     "epa": 96.0027,
      "yards": 3851.0,
      "tds": 21,
      "ints": 11,
      "games": 17,
-     "cqbr": 59.1153,
+     "cqbr": 56.8169,
      "qbr_official": 63.4
     },
     {
      "season": 2025,
      "rating": 88.574,
-     "epa": 27.945,
+     "epa": 24.061,
      "yards": 962.0,
      "tds": 6,
      "ints": 3,
      "games": 5,
-     "cqbr": 52.5629,
+     "cqbr": 51.8237,
      "qbr_official": null
     },
     {
      "season": 2026,
      "rating": 86.553,
-     "epa": 11.0259,
+     "epa": 9.4274,
      "yards": 1022.0,
      "tds": 5,
      "ints": 3,
      "games": 6,
      "cqbr": null,
-     "qbr_official": 49.1
+     "qbr_official": 48.8
     }
    ]
   },
@@ -15559,78 +15585,78 @@
     {
      "season": 2019,
      "rating": 113.3365,
-     "epa": 170.2225,
+     "epa": 149.7502,
      "yards": 3127.0,
      "tds": 36,
      "ints": 6,
      "games": 15,
-     "cqbr": 75.919,
+     "cqbr": 72.9749,
      "qbr_official": 83.0
     },
     {
      "season": 2020,
      "rating": 99.3462,
-     "epa": 97.0712,
+     "epa": 85.2223,
      "yards": 2757.0,
      "tds": 26,
      "ints": 9,
      "games": 15,
-     "cqbr": 66.4682,
+     "cqbr": 63.9171,
      "qbr_official": 67.3
     },
     {
      "season": 2021,
      "rating": 86.9655,
-     "epa": 69.2955,
+     "epa": 60.7543,
      "yards": 2882.0,
      "tds": 16,
      "ints": 13,
      "games": 12,
-     "cqbr": 54.5138,
+     "cqbr": 53.1689,
      "qbr_official": 56.8
     },
     {
      "season": 2022,
      "rating": 91.066,
-     "epa": 44.8915,
+     "epa": 38.6092,
      "yards": 2242.0,
      "tds": 17,
      "ints": 7,
      "games": 12,
-     "cqbr": 58.4341,
+     "cqbr": 56.4069,
      "qbr_official": 61.1
     },
     {
      "season": 2023,
      "rating": 102.7216,
-     "epa": 129.1824,
+     "epa": 112.9595,
      "yards": 3678.0,
      "tds": 24,
      "ints": 7,
      "games": 16,
-     "cqbr": 59.8214,
+     "cqbr": 57.2418,
      "qbr_official": 64.7
     },
     {
      "season": 2024,
      "rating": 119.629,
-     "epa": 213.0333,
+     "epa": 189.6434,
      "yards": 4172.0,
      "tds": 41,
      "ints": 4,
      "games": 17,
-     "cqbr": 74.6042,
+     "cqbr": 71.6141,
      "qbr_official": 74.8
     },
     {
      "season": 2025,
      "rating": 103.7528,
-     "epa": 83.4883,
+     "epa": 73.3569,
      "yards": 2549.0,
      "tds": 21,
      "ints": 7,
      "games": 13,
-     "cqbr": 57.611,
+     "cqbr": 55.8323,
      "qbr_official": 62.7
     }
    ]
@@ -15642,73 +15668,73 @@
     {
      "season": 2019,
      "rating": 106.3307,
-     "epa": 167.3191,
+     "epa": 145.7427,
      "yards": 4110.0,
      "tds": 31,
      "ints": 5,
      "games": 16,
-     "cqbr": 64.5389,
+     "cqbr": 62.5726,
      "qbr_official": 71.5
     },
     {
      "season": 2020,
      "rating": 105.0702,
-     "epa": 157.0404,
+     "epa": 139.2885,
      "yards": 4212.0,
      "tds": 40,
      "ints": 13,
      "games": 16,
-     "cqbr": 60.9682,
+     "cqbr": 59.1834,
      "qbr_official": 67.1
     },
     {
      "season": 2021,
      "rating": 103.0521,
-     "epa": 77.069,
+     "epa": 71.2608,
      "yards": 3113.0,
      "tds": 25,
      "ints": 6,
      "games": 14,
-     "cqbr": 53.1459,
+     "cqbr": 53.4924,
      "qbr_official": 60.6
     },
     {
      "season": 2022,
      "rating": 84.416,
-     "epa": 38.9978,
+     "epa": 35.9089,
      "yards": 3524.0,
      "tds": 16,
      "ints": 11,
      "games": 15,
-     "cqbr": 42.1708,
+     "cqbr": 43.2314,
      "qbr_official": 38.7
     },
     {
      "season": 2023,
      "rating": 98.0006,
-     "epa": 71.3016,
+     "epa": 66.9856,
      "yards": 3070.0,
      "tds": 26,
      "ints": 8,
      "games": 15,
-     "cqbr": 47.9095,
+     "cqbr": 48.1342,
      "qbr_official": 50.7
     },
     {
      "season": 2024,
      "rating": 95.6101,
-     "epa": 54.4363,
+     "epa": 46.2005,
      "yards": 2482.0,
      "tds": 16,
      "ints": 5,
      "games": 11,
-     "cqbr": 47.4228,
+     "cqbr": 47.0952,
      "qbr_official": 47.9
     },
     {
      "season": 2025,
      "rating": 77.3985,
-     "epa": -1.5241,
+     "epa": -1.7252,
      "yards": 831.0,
      "tds": 3,
      "ints": 3,
@@ -15725,68 +15751,68 @@
     {
      "season": 2021,
      "rating": 71.8577,
-     "epa": 5.2555,
+     "epa": 7.2542,
      "yards": 3641.0,
      "tds": 12,
      "ints": 17,
      "games": 17,
-     "cqbr": 43.0288,
+     "cqbr": 43.6465,
      "qbr_official": 39.1
     },
     {
      "season": 2022,
      "rating": 95.2126,
-     "epa": 138.6947,
+     "epa": 118.8223,
      "yards": 4113.0,
      "tds": 25,
      "ints": 8,
      "games": 17,
-     "cqbr": 57.0846,
+     "cqbr": 55.3252,
      "qbr_official": 56.1
     },
     {
      "season": 2023,
      "rating": 88.49,
-     "epa": 79.7099,
+     "epa": 73.3957,
      "yards": 4016.0,
      "tds": 21,
      "ints": 14,
      "games": 16,
-     "cqbr": 50.5419,
+     "cqbr": 49.9584,
      "qbr_official": 56.1
     },
     {
      "season": 2024,
      "rating": 85.1966,
-     "epa": 38.6702,
+     "epa": 35.0662,
      "yards": 2045.0,
      "tds": 11,
      "ints": 7,
      "games": 10,
-     "cqbr": 50.0053,
+     "cqbr": 50.1022,
      "qbr_official": 56.1
     },
     {
      "season": 2025,
      "rating": 90.9747,
-     "epa": 103.2785,
+     "epa": 90.7102,
      "yards": 4007.0,
      "tds": 29,
      "ints": 12,
      "games": 17,
-     "cqbr": 57.7628,
+     "cqbr": 56.3358,
      "qbr_official": 58.3
     },
     {
      "season": 2026,
-     "rating": 112.8298,
-     "epa": 102.8219,
-     "yards": 2284.0,
-     "tds": 21,
-     "ints": 5,
-     "games": 9,
-     "cqbr": 74.1251,
-     "qbr_official": 71.6
+     "rating": 105.0926,
+     "epa": 96.2178,
+     "yards": 2585.0,
+     "tds": 22,
+     "ints": 7,
+     "games": 10,
+     "cqbr": 68.108,
+     "qbr_official": 65.8
     }
    ]
   },
@@ -15797,90 +15823,90 @@
     {
      "season": 2019,
      "rating": 87.6589,
-     "epa": 50.7285,
+     "epa": 45.9509,
      "yards": 3027.0,
      "tds": 24,
      "ints": 12,
      "games": 13,
-     "cqbr": 47.7928,
+     "cqbr": 47.14,
      "qbr_official": 55.7
     },
     {
      "season": 2020,
      "rating": 80.4222,
-     "epa": 57.5801,
+     "epa": 49.1898,
      "yards": 2943.0,
      "tds": 11,
      "ints": 10,
      "games": 14,
-     "cqbr": 46.1957,
+     "cqbr": 45.3705,
      "qbr_official": 54.0
     },
     {
      "season": 2021,
      "rating": 84.8165,
-     "epa": 33.1206,
+     "epa": 24.4995,
      "yards": 2428.0,
      "tds": 10,
      "ints": 7,
      "games": 11,
-     "cqbr": 48.0845,
+     "cqbr": 46.1243,
      "qbr_official": 47.5
     },
     {
      "season": 2022,
      "rating": 92.523,
-     "epa": 78.8791,
+     "epa": 70.5012,
      "yards": 3205.0,
      "tds": 15,
      "ints": 5,
      "games": 16,
-     "cqbr": 57.2315,
+     "cqbr": 55.6762,
      "qbr_official": 62.9
     },
     {
      "season": 2023,
      "rating": 70.5469,
-     "epa": -15.9497,
+     "epa": -12.3151,
      "yards": 909.0,
      "tds": 2,
      "ints": 6,
      "games": 6,
-     "cqbr": 27.5836,
+     "cqbr": 30.008,
      "qbr_official": null
     },
     {
      "season": 2024,
      "rating": 79.4294,
-     "epa": 20.7879,
+     "epa": 19.3989,
      "yards": 2070.0,
      "tds": 8,
      "ints": 7,
      "games": 10,
-     "cqbr": 46.0324,
+     "cqbr": 46.4753,
      "qbr_official": 44.4
     },
     {
      "season": 2025,
      "rating": 100.1845,
-     "epa": 111.2882,
+     "epa": 93.0805,
      "yards": 3101.0,
      "tds": 19,
      "ints": 8,
      "games": 13,
-     "cqbr": 65.6928,
+     "cqbr": 61.3882,
      "qbr_official": 63.0
     },
     {
      "season": 2026,
-     "rating": 67.0267,
-     "epa": -19.5205,
-     "yards": 1830.0,
+     "rating": 65.4024,
+     "epa": -28.3465,
+     "yards": 1974.0,
      "tds": 7,
-     "ints": 12,
-     "games": 10,
-     "cqbr": 36.9507,
-     "qbr_official": 30.3
+     "ints": 13,
+     "games": 11,
+     "cqbr": 35.8612,
+     "qbr_official": 28.9
     }
    ]
   },
@@ -15891,79 +15917,79 @@
     {
      "season": 2020,
      "rating": 77.5619,
-     "epa": 11.0945,
+     "epa": 9.0085,
      "yards": 1061.0,
      "tds": 6,
      "ints": 4,
      "games": 8,
-     "cqbr": 49.125,
+     "cqbr": 48.1103,
      "qbr_official": null
     },
     {
      "season": 2021,
      "rating": 87.1914,
-     "epa": 63.7806,
+     "epa": 57.1844,
      "yards": 3144.0,
      "tds": 16,
      "ints": 9,
      "games": 15,
-     "cqbr": 57.3946,
+     "cqbr": 55.7866,
      "qbr_official": 54.6
     },
     {
      "season": 2022,
      "rating": 101.5489,
-     "epa": 134.3986,
+     "epa": 117.208,
      "yards": 3701.0,
      "tds": 22,
      "ints": 6,
      "games": 15,
-     "cqbr": 69.4106,
+     "cqbr": 66.7019,
      "qbr_official": 68.3
     },
     {
      "season": 2023,
      "rating": 89.1186,
-     "epa": 112.422,
+     "epa": 100.8156,
      "yards": 3858.0,
      "tds": 23,
      "ints": 15,
      "games": 17,
-     "cqbr": 62.4595,
+     "cqbr": 60.4332,
      "qbr_official": 60.1
     },
     {
      "season": 2024,
      "rating": 103.6877,
-     "epa": 114.4954,
+     "epa": 98.1601,
      "yards": 2903.0,
      "tds": 18,
      "ints": 5,
      "games": 15,
-     "cqbr": 63.9632,
+     "cqbr": 61.8988,
      "qbr_official": 62.5
     },
     {
      "season": 2025,
      "rating": 98.4857,
-     "epa": 87.2208,
+     "epa": 77.6143,
      "yards": 3224.0,
      "tds": 25,
      "ints": 6,
      "games": 16,
-     "cqbr": 58.5519,
+     "cqbr": 56.9133,
      "qbr_official": 55.2
     },
     {
      "season": 2026,
      "rating": 84.6861,
-     "epa": 9.8563,
+     "epa": 7.3274,
      "yards": 933.0,
      "tds": 8,
      "ints": 3,
      "games": 5,
      "cqbr": null,
-     "qbr_official": 58.2
+     "qbr_official": null
     }
    ]
   },
@@ -15974,40 +16000,40 @@
     {
      "season": 2019,
      "rating": 84.3207,
-     "epa": 40.8277,
+     "epa": 38.3886,
      "yards": 3024.0,
      "tds": 19,
      "ints": 13,
      "games": 13,
-     "cqbr": 46.1455,
+     "cqbr": 45.4765,
      "qbr_official": 45.6
     },
     {
      "season": 2020,
      "rating": 72.6877,
-     "epa": -16.6194,
+     "epa": -14.0026,
      "yards": 2208.0,
      "tds": 9,
      "ints": 11,
      "games": 12,
-     "cqbr": 37.1805,
+     "cqbr": 37.6344,
      "qbr_official": 32.9
     },
     {
      "season": 2021,
      "rating": 71.9417,
-     "epa": -17.1604,
+     "epa": -16.3082,
      "yards": 2527.0,
      "tds": 9,
      "ints": 13,
      "games": 12,
-     "cqbr": 37.643,
+     "cqbr": 37.8637,
      "qbr_official": 38.8
     },
     {
      "season": 2022,
      "rating": 92.6488,
-     "epa": 34.7084,
+     "epa": 30.5518,
      "yards": 1143.0,
      "tds": 7,
      "ints": 3,
@@ -16018,35 +16044,35 @@
     {
      "season": 2024,
      "rating": 102.5344,
-     "epa": 136.7013,
+     "epa": 114.7633,
      "yards": 4319.0,
      "tds": 35,
      "ints": 12,
      "games": 17,
-     "cqbr": 60.1978,
+     "cqbr": 57.1917,
      "qbr_official": 57.3
     },
     {
      "season": 2025,
      "rating": 99.1134,
-     "epa": 131.4316,
+     "epa": 114.2776,
      "yards": 4048.0,
      "tds": 25,
      "ints": 14,
      "games": 17,
-     "cqbr": 62.4516,
+     "cqbr": 59.1988,
      "qbr_official": 55.6
     },
     {
      "season": 2026,
      "rating": 79.453,
-     "epa": 6.3992,
+     "epa": 1.5513,
      "yards": 1478.0,
      "tds": 10,
      "ints": 9,
      "games": 7,
-     "cqbr": 44.9518,
-     "qbr_official": 48.6
+     "cqbr": 43.943,
+     "qbr_official": 48.8
     }
    ]
   },
@@ -16057,45 +16083,45 @@
     {
      "season": 2019,
      "rating": 87.9792,
-     "epa": 81.7134,
+     "epa": 70.7832,
      "yards": 4057.0,
      "tds": 24,
      "ints": 8,
      "games": 16,
-     "cqbr": 53.7891,
+     "cqbr": 52.4272,
      "qbr_official": 55.7
     },
     {
      "season": 2020,
      "rating": 102.1721,
-     "epa": 165.7787,
+     "epa": 145.8593,
      "yards": 4633.0,
      "tds": 40,
      "ints": 12,
      "games": 16,
-     "cqbr": 68.9633,
+     "cqbr": 65.7758,
      "qbr_official": 66.0
     },
     {
      "season": 2021,
      "rating": 102.0833,
-     "epa": 186.5612,
+     "epa": 161.873,
      "yards": 5316.0,
      "tds": 43,
      "ints": 12,
      "games": 17,
-     "cqbr": 67.0193,
+     "cqbr": 64.2778,
      "qbr_official": 73.1
     },
     {
      "season": 2022,
      "rating": 90.7259,
-     "epa": 103.3125,
+     "epa": 93.6195,
      "yards": 4694.0,
      "tds": 25,
      "ints": 9,
      "games": 17,
-     "cqbr": 53.627,
+     "cqbr": 52.4941,
      "qbr_official": 54.6
     }
    ]
@@ -16107,67 +16133,67 @@
     {
      "season": 2020,
      "rating": 87.0546,
-     "epa": 22.5232,
+     "epa": 20.5868,
      "yards": 1814.0,
      "tds": 11,
      "ints": 5,
      "games": 10,
-     "cqbr": 46.2536,
+     "cqbr": 45.968,
      "qbr_official": 44.8
     },
     {
      "season": 2021,
      "rating": 90.0666,
-     "epa": 58.5246,
+     "epa": 51.5402,
      "yards": 2653.0,
      "tds": 16,
      "ints": 10,
      "games": 13,
-     "cqbr": 53.7926,
+     "cqbr": 52.6335,
      "qbr_official": 55.7
     },
     {
      "season": 2022,
      "rating": 105.5,
-     "epa": 138.0981,
+     "epa": 120.7678,
      "yards": 3548.0,
      "tds": 25,
      "ints": 8,
      "games": 13,
-     "cqbr": 68.8131,
+     "cqbr": 65.7884,
      "qbr_official": 70.6
     },
     {
      "season": 2023,
      "rating": 101.0714,
-     "epa": 173.2209,
+     "epa": 152.8317,
      "yards": 4624.0,
      "tds": 29,
      "ints": 14,
      "games": 17,
-     "cqbr": 65.6152,
+     "cqbr": 63.1297,
      "qbr_official": 60.8
     },
     {
      "season": 2024,
      "rating": 101.3628,
-     "epa": 125.8156,
+     "epa": 106.7242,
      "yards": 2867.0,
      "tds": 19,
      "ints": 7,
      "games": 11,
-     "cqbr": 66.3059,
+     "cqbr": 63.1844,
      "qbr_official": 57.1
     },
     {
      "season": 2025,
      "rating": 88.4549,
-     "epa": 62.5149,
+     "epa": 56.8771,
      "yards": 2660.0,
      "tds": 20,
      "ints": 15,
      "games": 14,
-     "cqbr": 50.9805,
+     "cqbr": 51.026,
      "qbr_official": 37.5
     }
    ]
@@ -16185,10 +16211,10 @@
    "free_agency": "2029 Void",
    "id": "00-0033077",
    "archetype": "Elite Quarterbacks",
-   "rating": 98.6245,
-   "attempts": 3844,
-   "epa_per_db": 0.1475,
-   "cpoe": 1.4101
+   "rating": 99.0978,
+   "attempts": 3877,
+   "epa_per_db": 0.136,
+   "cpoe": 1.5362
   },
   {
    "name": "Joe Burrow",
@@ -16201,10 +16227,10 @@
    "free_agency": "2030 Void",
    "id": "00-0036442",
    "archetype": "Elite Quarterbacks",
-   "rating": 102.2342,
-   "attempts": 3397,
-   "epa_per_db": 0.1403,
-   "cpoe": 4.902
+   "rating": 102.3052,
+   "attempts": 3437,
+   "epa_per_db": 0.1298,
+   "cpoe": 4.8737
   },
   {
    "name": "Josh Allen",
@@ -16217,10 +16243,10 @@
    "free_agency": "2031 Void",
    "id": "00-0034857",
    "archetype": "Elite Quarterbacks",
-   "rating": 97.3034,
-   "attempts": 4559,
-   "epa_per_db": 0.1581,
-   "cpoe": 2.7922
+   "rating": 97.0279,
+   "attempts": 4604,
+   "epa_per_db": 0.1414,
+   "cpoe": 2.7215
   },
   {
    "name": "Jordan Love",
@@ -16235,7 +16261,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 96.4168,
    "attempts": 2028,
-   "epa_per_db": 0.1608,
+   "epa_per_db": 0.1417,
    "cpoe": 1.7057
   },
   {
@@ -16249,10 +16275,10 @@
    "free_agency": "2031 Void",
    "id": "00-0036971",
    "archetype": "The League Core",
-   "rating": 88.2206,
-   "attempts": 2969,
-   "epa_per_db": 0.0465,
-   "cpoe": -0.7921
+   "rating": 87.8191,
+   "attempts": 3016,
+   "epa_per_db": 0.0468,
+   "cpoe": -0.8132
   },
   {
    "name": "Tua Tagovailoa",
@@ -16267,7 +16293,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 95.7344,
    "attempts": 2463,
-   "epa_per_db": 0.1199,
+   "epa_per_db": 0.109,
    "cpoe": 2.0747
   },
   {
@@ -16281,10 +16307,10 @@
    "free_agency": "2029 Void",
    "id": "00-0033106",
    "archetype": "Elite Quarterbacks",
-   "rating": 97.8339,
-   "attempts": 4482,
-   "epa_per_db": 0.1289,
-   "cpoe": 0.8649
+   "rating": 98.0146,
+   "attempts": 4510,
+   "epa_per_db": 0.1186,
+   "cpoe": 0.8635
   },
   {
    "name": "Brock Purdy",
@@ -16297,10 +16323,10 @@
    "free_agency": "2031 Void",
    "id": "00-0037834",
    "archetype": "Elite Quarterbacks",
-   "rating": 103.7423,
-   "attempts": 1846,
-   "epa_per_db": 0.2262,
-   "cpoe": 3.6225
+   "rating": 104.367,
+   "attempts": 1872,
+   "epa_per_db": 0.2107,
+   "cpoe": 3.8066
   },
   {
    "name": "Justin Herbert",
@@ -16313,10 +16339,10 @@
    "free_agency": "2030 UFA",
    "id": "00-0036355",
    "archetype": "Elite Quarterbacks",
-   "rating": 93.7939,
-   "attempts": 3797,
-   "epa_per_db": 0.0646,
-   "cpoe": 0.0161
+   "rating": 93.9344,
+   "attempts": 3818,
+   "epa_per_db": 0.0592,
+   "cpoe": 0.0096
   },
   {
    "name": "Lamar Jackson",
@@ -16331,7 +16357,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 102.5032,
    "attempts": 3027,
-   "epa_per_db": 0.1562,
+   "epa_per_db": 0.1435,
    "cpoe": 2.4476
   },
   {
@@ -16347,7 +16373,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 93.7926,
    "attempts": 2838,
-   "epa_per_db": 0.0833,
+   "epa_per_db": 0.0777,
    "cpoe": 2.3799
   },
   {
@@ -16379,7 +16405,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 96.0202,
    "attempts": 1962,
-   "epa_per_db": 0.0508,
+   "epa_per_db": 0.0459,
    "cpoe": 1.7065
   },
   {
@@ -16393,10 +16419,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0029604",
    "archetype": "Elite Quarterbacks",
-   "rating": 98.2416,
-   "attempts": 3642,
-   "epa_per_db": 0.1027,
-   "cpoe": 2.0583
+   "rating": 97.9903,
+   "attempts": 3680,
+   "epa_per_db": 0.0934,
+   "cpoe": 2.0793
   },
   {
    "name": "Patrick Mahomes",
@@ -16409,10 +16435,10 @@
    "free_agency": "2032 Void",
    "id": "00-0033873",
    "archetype": "Elite Quarterbacks",
-   "rating": 100.4858,
-   "attempts": 5039,
-   "epa_per_db": 0.1986,
-   "cpoe": 2.7112
+   "rating": 100.6359,
+   "attempts": 5078,
+   "epa_per_db": 0.1777,
+   "cpoe": 2.7499
   },
   {
    "name": "Matt Stafford",
@@ -16435,10 +16461,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0030565",
    "archetype": "Elite Quarterbacks",
-   "rating": 94.3724,
-   "attempts": 2524,
-   "epa_per_db": 0.0116,
-   "cpoe": 4.0361
+   "rating": 94.8486,
+   "attempts": 2545,
+   "epa_per_db": 0.0238,
+   "cpoe": 4.1086
   },
   {
    "name": "Sam Darnold",
@@ -16453,7 +16479,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 87.6818,
    "attempts": 2761,
-   "epa_per_db": -0.0155,
+   "epa_per_db": -0.0115,
    "cpoe": 0.8569
   },
   {
@@ -16467,10 +16493,10 @@
    "free_agency": "2027 Void",
    "id": "00-0034855",
    "archetype": "Elite Quarterbacks",
-   "rating": 90.8688,
-   "attempts": 3760,
-   "epa_per_db": 0.0503,
-   "cpoe": -0.8021
+   "rating": 90.9169,
+   "attempts": 3793,
+   "epa_per_db": 0.0492,
+   "cpoe": -0.8549
   },
   {
    "name": "Justin Fields",
@@ -16483,10 +16509,10 @@
    "free_agency": "2027 Void",
    "id": "00-0036945",
    "archetype": "The League Core",
-   "rating": 84.6582,
-   "attempts": 1324,
-   "epa_per_db": -0.1221,
-   "cpoe": -0.8354
+   "rating": 84.5959,
+   "attempts": 1325,
+   "epa_per_db": -0.1007,
+   "cpoe": -0.8782
   },
   {
    "name": "Aaron Rodgers",
@@ -16499,10 +16525,10 @@
    "free_agency": "2026 UFA",
    "id": "00-0023459",
    "archetype": "Elite Quarterbacks",
-   "rating": 99.0953,
-   "attempts": 3779,
-   "epa_per_db": 0.1018,
-   "cpoe": 1.6575
+   "rating": 98.9673,
+   "attempts": 3823,
+   "epa_per_db": 0.0908,
+   "cpoe": 1.6634
   },
   {
    "name": "Daniel Jones",
@@ -16515,10 +16541,10 @@
    "free_agency": "2026 UFA",
    "id": "00-0035710",
    "archetype": "The League Core",
-   "rating": 84.5435,
-   "attempts": 3011,
-   "epa_per_db": -0.0436,
-   "cpoe": -0.5828
+   "rating": 84.2001,
+   "attempts": 3038,
+   "epa_per_db": -0.0392,
+   "cpoe": -0.7129
   },
   {
    "name": "Cam Ward",
@@ -16531,10 +16557,10 @@
    "free_agency": "2029 UFA",
    "id": "00-0040676",
    "archetype": "The League Core",
-   "rating": 80.3935,
-   "attempts": 827,
-   "epa_per_db": -0.147,
-   "cpoe": -1.9375
+   "rating": 81.6778,
+   "attempts": 857,
+   "epa_per_db": -0.1143,
+   "cpoe": -1.6898
   },
   {
    "name": "Russell Wilson",
@@ -16549,7 +16575,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 98.3367,
    "attempts": 2976,
-   "epa_per_db": 0.0348,
+   "epa_per_db": 0.0393,
    "cpoe": 4.0666
   },
   {
@@ -16563,10 +16589,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0039918",
    "archetype": "The League Core",
-   "rating": 88.3819,
-   "attempts": 1415,
-   "epa_per_db": 0.0311,
-   "cpoe": -1.0379
+   "rating": 88.5692,
+   "attempts": 1438,
+   "epa_per_db": 0.0382,
+   "cpoe": -0.9367
   },
   {
    "name": "Bryce Young",
@@ -16579,10 +16605,10 @@
    "free_agency": "2027 UFA",
    "id": "00-0039150",
    "archetype": "The League Core",
-   "rating": 82.4267,
-   "attempts": 1767,
-   "epa_per_db": -0.1022,
-   "cpoe": -0.0878
+   "rating": 82.8337,
+   "attempts": 1797,
+   "epa_per_db": -0.0708,
+   "cpoe": 0.0479
   },
   {
    "name": "Jayden Daniels",
@@ -16595,10 +16621,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0039910",
    "archetype": "Elite Quarterbacks",
-   "rating": 96.9368,
-   "attempts": 995,
-   "epa_per_db": 0.0853,
-   "cpoe": 2.3341
+   "rating": 96.7435,
+   "attempts": 1030,
+   "epa_per_db": 0.0778,
+   "cpoe": 2.3821
   },
   {
    "name": "Drake Maye",
@@ -16613,7 +16639,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 99.7179,
    "attempts": 1226,
-   "epa_per_db": 0.1052,
+   "epa_per_db": 0.0982,
    "cpoe": 6.3449
   },
   {
@@ -16627,10 +16653,10 @@
    "free_agency": "2027 UFA",
    "id": "00-0039163",
    "archetype": "Elite Quarterbacks",
-   "rating": 93.6653,
-   "attempts": 1968,
-   "epa_per_db": 0.0646,
-   "cpoe": -0.6203
+   "rating": 94.0006,
+   "attempts": 1995,
+   "epa_per_db": 0.063,
+   "cpoe": -0.4909
   },
   {
    "name": "Anthony Richardson",
@@ -16643,10 +16669,10 @@
    "free_agency": "2027 UFA",
    "id": "00-0039164",
    "archetype": "Struggling & Backups",
-   "rating": 67.9924,
-   "attempts": 352,
-   "epa_per_db": -0.1037,
-   "cpoe": -9.8632
+   "rating": 67.6201,
+   "attempts": 354,
+   "epa_per_db": -0.0808,
+   "cpoe": -10.125
   },
   {
    "name": "Marcus Mariota",
@@ -16661,7 +16687,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 91.5919,
    "attempts": 836,
-   "epa_per_db": 0.0331,
+   "epa_per_db": 0.0353,
    "cpoe": 0.9664
   },
   {
@@ -16675,10 +16701,10 @@
    "free_agency": "2027 UFA",
    "id": "00-0033119",
    "archetype": "The League Core",
-   "rating": 86.4724,
-   "attempts": 2072,
-   "epa_per_db": -0.0187,
-   "cpoe": -0.1891
+   "rating": 86.446,
+   "attempts": 2109,
+   "epa_per_db": -0.0092,
+   "cpoe": -0.225
   },
   {
    "name": "Tyrod Taylor",
@@ -16693,7 +16719,7 @@
    "archetype": "The League Core",
    "rating": 82.9652,
    "attempts": 532,
-   "epa_per_db": -0.0264,
+   "epa_per_db": -0.0221,
    "cpoe": 0.6861
   },
   {
@@ -16709,7 +16735,7 @@
    "archetype": "Struggling & Backups",
    "rating": 76.1879,
    "attempts": 228,
-   "epa_per_db": -0.1793,
+   "epa_per_db": -0.1443,
    "cpoe": -3.779
   },
   {
@@ -16725,7 +16751,7 @@
    "archetype": "Struggling & Backups",
    "rating": 73.0702,
    "attempts": 1004,
-   "epa_per_db": -0.2151,
+   "epa_per_db": -0.1769,
    "cpoe": -6.2788
   },
   {
@@ -16741,7 +16767,7 @@
    "archetype": "The League Core",
    "rating": 85.196,
    "attempts": 623,
-   "epa_per_db": 0.0073,
+   "epa_per_db": 0.0011,
    "cpoe": -4.5085
   },
   {
@@ -16755,10 +16781,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0039923",
    "archetype": "Struggling & Backups",
-   "rating": 77.8158,
-   "attempts": 347,
-   "epa_per_db": -0.1052,
-   "cpoe": -3.1081
+   "rating": 76.9751,
+   "attempts": 385,
+   "epa_per_db": -0.0814,
+   "cpoe": -4.1844
   },
   {
    "name": "Bo Nix",
@@ -16771,10 +16797,10 @@
    "free_agency": "2028 UFA",
    "id": "00-0039732",
    "archetype": "The League Core",
-   "rating": 89.3253,
-   "attempts": 1534,
-   "epa_per_db": 0.0594,
-   "cpoe": -0.663
+   "rating": 88.9327,
+   "attempts": 1569,
+   "epa_per_db": 0.0596,
+   "cpoe": -0.747
   },
   {
    "name": "Joe Flacco",
@@ -16789,7 +16815,7 @@
    "archetype": "The League Core",
    "rating": 84.0611,
    "attempts": 1543,
-   "epa_per_db": -0.0681,
+   "epa_per_db": -0.0493,
    "cpoe": -1.3909
   },
   {
@@ -16805,7 +16831,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 94.8224,
    "attempts": 373,
-   "epa_per_db": 0.055,
+   "epa_per_db": 0.0613,
    "cpoe": 0.8206
   },
   {
@@ -16821,7 +16847,7 @@
    "archetype": "The League Core",
    "rating": 82.47,
    "attempts": 1110,
-   "epa_per_db": -0.125,
+   "epa_per_db": -0.0989,
    "cpoe": -3.7638
   },
   {
@@ -16837,7 +16863,7 @@
    "archetype": "The League Core",
    "rating": 84.1481,
    "attempts": 1731,
-   "epa_per_db": -0.0344,
+   "epa_per_db": -0.022,
    "cpoe": -1.6945
   },
   {
@@ -16851,10 +16877,10 @@
    "free_agency": "2027 UFA",
    "id": "00-0031503",
    "archetype": "Elite Quarterbacks",
-   "rating": 84.0959,
-   "attempts": 1489,
-   "epa_per_db": 0.022,
-   "cpoe": -1.2882
+   "rating": 84.0408,
+   "attempts": 1490,
+   "epa_per_db": 0.0257,
+   "cpoe": -1.3295
   },
   {
    "name": "Joshua Dobbs",
@@ -16869,7 +16895,7 @@
    "archetype": "The League Core",
    "rating": 79.562,
    "attempts": 548,
-   "epa_per_db": -0.1486,
+   "epa_per_db": -0.119,
    "cpoe": -1.1041
   },
   {
@@ -16885,7 +16911,7 @@
    "archetype": "The League Core",
    "rating": 84.1272,
    "attempts": 782,
-   "epa_per_db": -0.0072,
+   "epa_per_db": -0.0037,
    "cpoe": 0.0864
   },
   {
@@ -16901,7 +16927,7 @@
    "archetype": "The League Core",
    "rating": 78.1793,
    "attempts": 806,
-   "epa_per_db": -0.0891,
+   "epa_per_db": -0.071,
    "cpoe": -0.964
   },
   {
@@ -16915,10 +16941,10 @@
    "free_agency": "2027 Void",
    "id": "00-0036972",
    "archetype": "The League Core",
-   "rating": 86.5498,
-   "attempts": 1901,
-   "epa_per_db": 0.0059,
-   "cpoe": 0.5667
+   "rating": 86.5602,
+   "attempts": 1902,
+   "epa_per_db": 0.0118,
+   "cpoe": 0.5738
   },
   {
    "name": "Cooper Rush",
@@ -16933,7 +16959,7 @@
    "archetype": "The League Core",
    "rating": 78.3821,
    "attempts": 632,
-   "epa_per_db": -0.109,
+   "epa_per_db": -0.0893,
    "cpoe": -6.6373
   },
   {
@@ -16949,7 +16975,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 95.8687,
    "attempts": 1707,
-   "epa_per_db": 0.1421,
+   "epa_per_db": 0.1253,
    "cpoe": 0.3048
   },
   {
@@ -16973,10 +16999,10 @@
    "free_agency": "2029 UFA",
    "id": "00-0040743",
    "archetype": "The League Core",
-   "rating": 90.7463,
-   "attempts": 670,
-   "epa_per_db": 0.0168,
-   "cpoe": 0.7896
+   "rating": 89.6243,
+   "attempts": 712,
+   "epa_per_db": 0.0161,
+   "cpoe": 0.7715
   },
   {
    "name": "Mitchell Trubisky",
@@ -16991,7 +17017,7 @@
    "archetype": "The League Core",
    "rating": 86.6375,
    "attempts": 1198,
-   "epa_per_db": 0.0093,
+   "epa_per_db": 0.0129,
    "cpoe": -0.2552
   },
   {
@@ -17007,7 +17033,7 @@
    "archetype": "The League Core",
    "rating": 85.2382,
    "attempts": 957,
-   "epa_per_db": -0.0428,
+   "epa_per_db": -0.0311,
    "cpoe": -0.7271
   },
   {
@@ -17023,7 +17049,7 @@
    "archetype": "The League Core",
    "rating": 82.8532,
    "attempts": 1063,
-   "epa_per_db": -0.0373,
+   "epa_per_db": -0.023,
    "cpoe": -3.7172
   },
   {
@@ -17039,7 +17065,7 @@
    "archetype": "The League Core",
    "rating": 82.7113,
    "attempts": 556,
-   "epa_per_db": -0.1281,
+   "epa_per_db": -0.0997,
    "cpoe": -0.4095
   },
   {
@@ -17055,7 +17081,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 87.063,
    "attempts": 534,
-   "epa_per_db": 0.0677,
+   "epa_per_db": 0.0693,
    "cpoe": 1.2931
   },
   {
@@ -17071,7 +17097,7 @@
    "archetype": "The League Core",
    "rating": 85.8786,
    "attempts": 442,
-   "epa_per_db": -0.0855,
+   "epa_per_db": -0.0656,
    "cpoe": -2.071
   },
   {
@@ -17087,7 +17113,7 @@
    "archetype": "Struggling & Backups",
    "rating": 71.8542,
    "attempts": 200,
-   "epa_per_db": -0.216,
+   "epa_per_db": -0.178,
    "cpoe": -8.1309
   },
   {
@@ -17133,7 +17159,7 @@
    "archetype": "Struggling & Backups",
    "rating": 73.3166,
    "attempts": 323,
-   "epa_per_db": -0.2264,
+   "epa_per_db": -0.1886,
    "cpoe": -8.5153
   },
   {
@@ -17179,7 +17205,7 @@
    "archetype": "The League Core",
    "rating": 85.8528,
    "attempts": 363,
-   "epa_per_db": -0.0266,
+   "epa_per_db": -0.036,
    "cpoe": -0.8734
   },
   {
@@ -17195,7 +17221,7 @@
    "archetype": "The League Core",
    "rating": 80.6521,
    "attempts": 676,
-   "epa_per_db": -0.0718,
+   "epa_per_db": -0.0522,
    "cpoe": -1.0383
   },
   {
@@ -17211,7 +17237,7 @@
    "archetype": "Struggling & Backups",
    "rating": 58.0562,
    "attempts": 233,
-   "epa_per_db": -0.2344,
+   "epa_per_db": -0.1968,
    "cpoe": -6.1961
   },
   {
@@ -17247,7 +17273,7 @@
    "archetype": "The League Core",
    "rating": 88.6223,
    "attempts": 1795,
-   "epa_per_db": -0.0104,
+   "epa_per_db": -0.0034,
    "cpoe": -0.9
   },
   {
@@ -17273,7 +17299,7 @@
    "archetype": "Struggling & Backups",
    "rating": 74.2209,
    "attempts": 246,
-   "epa_per_db": -0.2055,
+   "epa_per_db": -0.1502,
    "cpoe": -4.9299
   },
   {
@@ -17289,7 +17315,7 @@
    "archetype": "Struggling & Backups",
    "rating": 74.7042,
    "attempts": 324,
-   "epa_per_db": -0.0566,
+   "epa_per_db": -0.0486,
    "cpoe": -5.2759
   },
   {
@@ -17375,7 +17401,7 @@
    "archetype": "The League Core",
    "rating": 82.5964,
    "attempts": 588,
-   "epa_per_db": -0.0796,
+   "epa_per_db": -0.063,
    "cpoe": -1.5884
   },
   {
@@ -17401,7 +17427,7 @@
    "archetype": "Struggling & Backups",
    "rating": 76.0012,
    "attempts": 335,
-   "epa_per_db": -0.2492,
+   "epa_per_db": -0.2044,
    "cpoe": -2.4836
   },
   {
@@ -17437,7 +17463,7 @@
    "archetype": "The League Core",
    "rating": 78.9132,
    "attempts": 485,
-   "epa_per_db": -0.1841,
+   "epa_per_db": -0.1425,
    "cpoe": -2.9538
   },
   {
@@ -17453,7 +17479,7 @@
    "archetype": "The League Core",
    "rating": 84.1283,
    "attempts": 608,
-   "epa_per_db": -0.0282,
+   "epa_per_db": -0.0128,
    "cpoe": -4.5244
   },
   {
@@ -17509,7 +17535,7 @@
    "archetype": "Struggling & Backups",
    "rating": 45.1993,
    "attempts": 230,
-   "epa_per_db": -0.4517,
+   "epa_per_db": -0.3585,
    "cpoe": -11.6616
   },
   {
@@ -17525,7 +17551,7 @@
    "archetype": "The League Core",
    "rating": 84.5965,
    "attempts": 254,
-   "epa_per_db": -0.2315,
+   "epa_per_db": -0.185,
    "cpoe": -3.1594
   },
   {
@@ -17551,7 +17577,7 @@
    "archetype": "The League Core",
    "rating": 84.901,
    "attempts": 202,
-   "epa_per_db": -0.0243,
+   "epa_per_db": -0.0383,
    "cpoe": -1.1214
   },
   {
@@ -17567,7 +17593,7 @@
    "archetype": "Struggling & Backups",
    "rating": 77.5291,
    "attempts": 645,
-   "epa_per_db": -0.1767,
+   "epa_per_db": -0.1408,
    "cpoe": -1.3114
   },
   {
@@ -17683,7 +17709,7 @@
    "archetype": "Elite Quarterbacks",
    "rating": 89.1191,
    "attempts": 368,
-   "epa_per_db": -0.0401,
+   "epa_per_db": -0.0209,
    "cpoe": 2.683
   },
   {
@@ -17739,7 +17765,7 @@
    "archetype": "Struggling & Backups",
    "rating": 70.2758,
    "attempts": 213,
-   "epa_per_db": -0.1223,
+   "epa_per_db": -0.0993,
    "cpoe": -0.9284
   },
   {
@@ -17856,20 +17882,20 @@
    "is_two_minute",
    "down_x_distance"
   ],
-  "intercept": 0.4076,
+  "intercept": 0.4427,
   "coef": {
-   "down": 0.0166,
-   "ydstogo": -0.0046,
+   "down": 0.0013,
+   "ydstogo": -0.0051,
    "yardline_100": 0.0006,
-   "score_differential": 0.0028,
-   "qtr": -0.0024,
-   "is_redzone": -0.2985,
-   "is_two_minute": -0.0969,
-   "down_x_distance": -0.0267
+   "score_differential": 0.003,
+   "qtr": -0.0017,
+   "is_redzone": -0.303,
+   "is_two_minute": -0.0557,
+   "down_x_distance": -0.0271
   },
-  "holdout_accuracy": 0.5577,
-  "success_base_rate": 0.4832,
-  "n_plays": 134691
+  "holdout_accuracy": 0.5572,
+  "success_base_rate": 0.484,
+  "n_plays": 135557
  },
  "cqbr": {
   "version": 1,
@@ -17883,19 +17909,19 @@
    "mae": 3.997
   },
   "live_drift": {
-   "r": 0.9033,
-   "mae": 4.2035,
-   "n": 242
+   "r": 0.9073,
+   "mae": 4.6261,
+   "n": 244
   },
   "league_cqbr_by_season": {
-   "2019": 50.2052,
-   "2020": 54.7088,
-   "2021": 49.5092,
-   "2022": 48.9341,
-   "2023": 46.5194,
-   "2024": 50.09,
-   "2025": 50.797,
-   "2026": 55.0115
+   "2019": 49.4404,
+   "2020": 53.3215,
+   "2021": 48.9492,
+   "2022": 48.4643,
+   "2023": 46.5009,
+   "2024": 49.5605,
+   "2025": 50.1604,
+   "2026": 53.5689
   },
   "league_qbr_by_season": {
    "2019": 58.0667,
@@ -17905,7 +17931,7 @@
    "2023": 54.3233,
    "2024": 54.6281,
    "2025": 57.0607,
-   "2026": 57.8968
+   "2026": 58.1233
   }
  }
 }
